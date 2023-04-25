@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:green_dye"
+    },
+    {
+      "item": "minecraft:orange_dye"
+    },
+    {
+      "item": "lho:water_blood_needle"
+    },
+    {
+      "item": "lho:empty_heart"
+    }
+  ],
+  "result": {
+    "item": "lho:fake_poison_heart",
+    "count": 1
+  }
+}

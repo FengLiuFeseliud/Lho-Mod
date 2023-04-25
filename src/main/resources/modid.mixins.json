@@ -1,12 +1,16 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "fengliu.lho.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ArmorMonitorMixin",
+    "PlayerAttributeMixin",
+    "PlayerExtendMixin",
+    "PlayerInventoryArmorMonitorMixin",
+    "PlayerRespawnSaveNbtMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

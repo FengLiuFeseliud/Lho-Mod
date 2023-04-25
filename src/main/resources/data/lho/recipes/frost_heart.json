@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lho:stabilizer"
+    },
+    {
+      "item": "lho:frost_blood_needle"
+    },
+    {
+      "item": "lho:empty_heart"
+    }
+  ],
+  "result": {
+    "item": "lho:frost_heart",
+    "count": 1
+  }
+}
