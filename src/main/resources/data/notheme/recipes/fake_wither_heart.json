@@ -5,14 +5,17 @@
       "item": "minecraft:red_dye"
     },
     {
-      "item": "lho:water_blood_needle"
+      "item": "minecraft:black_dye"
     },
     {
-      "item": "lho:empty_heart"
+      "item": "notheme:water_blood_needle"
+    },
+    {
+      "item": "notheme:empty_heart"
     }
   ],
   "result": {
-    "item": "lho:fake_heart",
+    "item": "notheme:fake_wither_heart",
     "count": 1
   }
 }

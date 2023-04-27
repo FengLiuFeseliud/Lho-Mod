@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "notheme:stabilizer"
+    },
+    {
+      "item": "notheme:wither_blood_needle"
+    },
+    {
+      "item": "notheme:empty_heart"
+    }
+  ],
+  "result": {
+    "item": "notheme:wither_heart",
+    "count": 1
+  }
+}

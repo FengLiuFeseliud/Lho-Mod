@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "notheme:stabilizer"
+    },
+    {
+      "item": "notheme:gold_blood_needle"
+    },
+    {
+      "item": "notheme:empty_heart"
+    }
+  ],
+  "result": {
+    "item": "notheme:gold_heart",
+    "count": 1
+  }
+}

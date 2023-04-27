@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "lho:stabilizer"
+      "item": "notheme:stabilizer"
     },
     {
-      "item": "lho:poison_blood_needle"
+      "item": "notheme:blood_needle"
     },
     {
-      "item": "lho:empty_heart"
+      "item": "notheme:empty_heart"
     }
   ],
   "result": {
-    "item": "lho:poison_heart",
+    "item": "notheme:heart",
     "count": 1
   }
 }
