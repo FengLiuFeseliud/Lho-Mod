@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "lho",
+  "id": "notheme",
   "version": "0.1.0",
 
-  "name": "Lho Mod",
+  "name": "No Theme Mod",
   "description": "",
   "authors": [
     "Me!"
@@ -19,14 +19,14 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "fengliu.lho.LhoMod"
+      "fengliu.notheme.NoThemeMod"
     ],
     "client": [
-      "fengliu.lho.LhoClient"
+      "fengliu.notheme.NoThemeClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "notheme.mixins.json"
   ],
 
   "depends": {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "notheme:item/heart_drop_device_lv_2"
+  }
+}
