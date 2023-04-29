@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "notheme:block/life_block"
+        }
+    }
+}

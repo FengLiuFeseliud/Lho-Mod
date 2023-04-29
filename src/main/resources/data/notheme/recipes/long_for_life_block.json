@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BBB",
+        "BHB",
+        "BWB"
+    ],
+    "key": {
+        "H": {
+            "item": "notheme:heart"
+        },
+        "W": {
+            "item": "notheme:wither_block"
+        },
+        "B": {
+            "item": "minecraft:bone"
+        }
+    },
+    "result": {
+        "item": "notheme:long_for_life_block",
+        "count": 1
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " WE",
+        "sSs",
+        " L "
+    ],
+    "key": {
+        "E": {
+            "item": "notheme:empty_blood_needle"
+        },
+        "L": {
+            "item": "notheme:long_for_life_block"
+        },
+        "S": {
+            "item": "minecraft:soul_soil"
+        },
+        "s": {
+            "item": "minecraft:soul_sand"
+        },
+        "W": {
+            "item": "minecraft:wither_skeleton_skull"
+        }
+    },
+    "result": {
+        "item": "notheme:heart_drop_device_lv_1",
+        "count": 1
+    }
+}

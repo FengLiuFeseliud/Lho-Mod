@@ -16,10 +16,7 @@ public class FrostHeart extends Heart {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient()){
-            return super.use(world, user, hand);
-        }
+    public void useHeart(World world, PlayerEntity user, Hand hand) {
         BlockPos pos = user.getBlockPos().down();
 
         world.setBlockState(pos, Blocks.POWDER_SNOW.getDefaultState());
@@ -30,6 +27,6 @@ public class FrostHeart extends Heart {
 
         user.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 60*40, 5));
         user.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60*40, 5));
-        return super.use(world, user, hand);
+        super.useHeart(world, user, hand);
     }
 }

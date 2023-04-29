@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "R B",
+        "IHI",
+        "III"
+    ],
+    "key": {
+        "H": {
+            "item": "notheme:heart_drop_device_lv_1"
+        },
+        "B": {
+            "item": "minecraft:blue_wool"
+        },
+        "R": {
+            "item": "minecraft:red_wool"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "notheme:heart_absorption_device_lv_1",
+        "count": 1
+    }
+}

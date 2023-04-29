@@ -2,6 +2,7 @@ package fengliu.notheme.item.block;
 
 import fengliu.notheme.util.IdUtil;
 
+import fengliu.notheme.util.block.IBaseBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
@@ -18,6 +19,16 @@ import java.util.List;
 
 public class BaseBlockItem extends BlockItem {
     private final String tooltipKey;
+
+    public BaseBlockItem(IBaseBlock block) {
+        super((Block) block, new FabricItemSettings().maxCount(64));
+        this.tooltipKey = IdUtil.getBlockItemTooltip(block.getBlockName());
+    }
+
+    public BaseBlockItem(IBaseBlock block, Settings settings) {
+        super((Block) block, settings);
+        this.tooltipKey = IdUtil.getBlockItemTooltip(block.getBlockName());
+    }
 
     public BaseBlockItem(Block block, String id) {
         super(block, new FabricItemSettings().maxCount(64));

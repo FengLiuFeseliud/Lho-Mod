@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " S ",
+        "SIS",
+        " S "
+    ],
+    "key": {
+        "I": {
+            "item": "notheme:stabilizer"
+        },
+        "S": {
+            "item": "minecraft:slime_ball"
+        }
+    },
+    "result": {
+        "item": "notheme:curing_agent",
+        "count": 1
+    }
+}

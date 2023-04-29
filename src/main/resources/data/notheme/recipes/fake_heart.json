@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:red_dye"
-    },
-    {
-      "item": "notheme:water_blood_needle"
-    },
-    {
-      "item": "notheme:empty_heart"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:red_dye"
+        },
+        {
+            "item": "notheme:water_blood_needle"
+        },
+        {
+            "item": "notheme:empty_heart"
+        }
+    ],
+    "result": {
+        "item": "notheme:fake_heart",
+        "count": 1
     }
-  ],
-  "result": {
-    "item": "notheme:fake_heart",
-    "count": 1
-  }
 }

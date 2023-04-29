@@ -14,8 +14,9 @@ public class WitherHeart extends Heart {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public void useHeart(World world, PlayerEntity user, Hand hand) {
         user.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 60*100, 1));
-        return super.use(world, user, hand);
+        super.useHeart(world, user, hand);
     }
+
 }

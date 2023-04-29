@@ -1,12 +1,12 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:glass"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:glass"
+        }
+    ],
+    "result": {
+        "item": "notheme:stabilizer",
+        "count": 1
     }
-  ],
-  "result": {
-    "item": "notheme:stabilizer",
-    "count": 1
-  }
 }

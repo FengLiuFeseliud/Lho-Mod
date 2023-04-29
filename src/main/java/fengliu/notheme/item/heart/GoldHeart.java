@@ -14,13 +14,9 @@ public class GoldHeart extends EmptyHeart {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient()){
-            return super.use(world, user, hand);
-        }
-
+    public void useHeart(World world, PlayerEntity user, Hand hand) {
         user.setAbsorptionAmount(user.getAbsorptionAmount() + 2);
         SpawnUtil.spawnItemToPlayer(new ItemStack(ModItems.EMPTY_HEART, 1), user, world);
-        return super.use(world, user, hand);
+        super.useHeart(world, user, hand);
     }
 }

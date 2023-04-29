@@ -20,7 +20,8 @@ import java.util.Map;
 
 public class ModItems {
     public static final Map<Item, ILevelItem> EXPAND_PASSENGERS = LevelsUtil.getItems(ExpandPassenger.ExpandPassengerLevels.values());
-    public static final BaseItem STABILIZER = new Stabilizer(new FabricItemSettings().maxCount(16), "stabilizer");
+    public static final BaseItem STABILIZER = new BaseItem(new FabricItemSettings().maxCount(64), "stabilizer");
+    public static final BaseItem CUING_AGENT = new BaseItem(new FabricItemSettings().maxCount(64), "curing_agent");
     public static final BaseItem EMPTY_BLOOD_NEEDLE = new EmptyBloodNeedle(new FabricItemSettings().maxCount(1), "empty_blood_needle");
     public static final BaseItem BLOOD_NEEDLE = new BloodNeedle(new FabricItemSettings().maxCount(1), "blood_needle");
     public static final BaseItem GOLD_BLOOD_NEEDLE = new GoldBloodNeedle(new FabricItemSettings().maxCount(1), "gold_blood_needle");
@@ -48,6 +49,7 @@ public class ModItems {
 
     public static final BaseItem[] BODY_GROUP_ITEMS = new BaseItem[]{
         STABILIZER,
+        CUING_AGENT,
         EMPTY_BLOOD_NEEDLE,
         BLOOD_NEEDLE,
         GOLD_BLOOD_NEEDLE,

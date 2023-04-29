@@ -38,9 +38,9 @@ public class CustomersBlock extends ScreenBlock {
             return super.onUse(state, world, pos, player, hand, hit);
         }
 
-        if (!LevelsUtil.upgrade(this, ModBlocks.CUSTOMERS_BLOCKS, pos, world)){
-            player.sendMessage(Text.translatable("notheme.block.upgrade.info"));
-        }
+//        if (!LevelsUtil.upgrade(this, ModBlocks.CUSTOMERS_BLOCKS, pos, world)){
+//            player.sendMessage(Text.translatable("notheme.block.upgrade.info"));
+//        }
         return ActionResult.SUCCESS;
     }
 
@@ -65,6 +65,11 @@ public class CustomersBlock extends ScreenBlock {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new CustomersBlockEntity(pos, state);
+    }
+
+    @Override
+    public String getBlockName() {
+        return "blood_pool_block";
     }
 
     public enum CustomersBlockLevels implements ILevelBlock {

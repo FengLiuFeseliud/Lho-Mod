@@ -13,16 +13,11 @@ public class Heart extends EmptyHeart {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient()){
-            return super.use(world, user, hand);
-        }
-
+    public void useHeart(World world, PlayerEntity user, Hand hand) {
         if (!((IExtendPlayer) user).addAddHealth(2)){
-            return super.use(world, user, hand);
+            return;
         }
 
         user.setHealth(user.getHealth() + 2);
-        return super.use(world, user, hand);
     }
 }

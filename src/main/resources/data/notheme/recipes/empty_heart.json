@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " B ",
-    "BGB",
-    " B "
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:black_carpet"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " B ",
+        "BGB",
+        " B "
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:black_carpet"
+        },
+        "G": {
+            "item": "minecraft:gray_wool"
+        }
     },
-    "G": {
-      "item": "minecraft:gray_wool"
+    "result": {
+        "item": "notheme:empty_heart",
+        "count": 1
     }
-  },
-  "result": {
-    "item": "notheme:empty_heart",
-    "count": 1
-  }
 }

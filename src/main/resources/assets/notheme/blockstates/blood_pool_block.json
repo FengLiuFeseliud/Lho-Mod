@@ -1,0 +1,639 @@
+{
+    "multipart": [
+        {
+            "apply": {
+                "model": "notheme:block/blood_pool_block/blood_pool"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "1"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/heart_block"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_heart_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "2"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/gold_block"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_heart_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "3"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/poison_block"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_heart_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "4"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/frost_block"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_heart_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "5"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/wither_block"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_heart_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "6"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/animal_block"
+            }
+        },
+        {
+            "when": {
+                "level": "1",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_1"
+            }
+        },
+        {
+            "when": {
+                "level": "2",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_2"
+            }
+        },
+        {
+            "when": {
+                "level": "3",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_3"
+            }
+        },
+        {
+            "when": {
+                "level": "4",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_4"
+            }
+        },
+        {
+            "when": {
+                "level": "5",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_5"
+            }
+        },
+        {
+            "when": {
+                "level": "6",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_6"
+            }
+        },
+        {
+            "when": {
+                "level": "7",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_7"
+            }
+        },
+        {
+            "when": {
+                "level": "8",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_8"
+            }
+        },
+        {
+            "when": {
+                "level": "9",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_9"
+            }
+        },
+        {
+            "when": {
+                "level": "10",
+                "heart_type": "7"
+            },
+            "apply": {
+                "model": "notheme:block/blood_pool_block/bed_block"
+            }
+        }
+    ]
+}

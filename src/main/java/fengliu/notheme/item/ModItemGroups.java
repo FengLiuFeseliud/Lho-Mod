@@ -29,6 +29,7 @@ public class ModItemGroups {
             RegisterUtil.registerItemsToItemGroup(content, ModItems.BODY_GROUP_ITEMS);
             LevelsUtil.registerAllItemGroupAll(ModItems.HEART_DROP_DEVICE, content);
             LevelsUtil.registerAllItemGroupAll(ModItems.HEART_ABSORPTION_DEVICE, content);
+            RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.BODY_GROUP_ITEMS);
 
             RegisterUtil.registerItemsToItemGroup(content, ModItems.BODY_GROUP_ARMOR_ITEMS);
         });
