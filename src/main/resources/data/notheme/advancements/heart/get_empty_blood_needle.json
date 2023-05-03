@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:empty_blood_needle"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.get_empty_blood_needle.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.get_empty_blood_needle.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/root",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "notheme:empty_blood_needle"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

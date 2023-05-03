@@ -1,5 +1,6 @@
 package fengliu.notheme.mixin;
 
+import fengliu.notheme.criterion.ModCriteria;
 import fengliu.notheme.networking.packets.server.ModServerMessage;
 import fengliu.notheme.util.IPersistentData;
 import fengliu.notheme.util.player.IExtendPlayer;
@@ -180,7 +181,11 @@ public abstract class PlayerExtendMixin extends LivingEntity implements IPersist
             return;
         }
 
-        ServerPlayNetworking.send((ServerPlayerEntity) (Object) this, ModServerMessage.SYNC_DATA, PacketByteBufs.create().writeNbt((this.getPersistentData())));
+        NbtCompound nbt = new NbtCompound();
+        nbt.put("notheme.extend", this.getPersistentData());
+
+        ServerPlayNetworking.send((ServerPlayerEntity) (Object) this, ModServerMessage.SYNC_DATA, PacketByteBufs.create().writeNbt(nbt));
+        ModCriteria.ADD_HEART.trigger((ServerPlayerEntity) (Object) this, (int) this.getAddHealth());
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
@@ -191,5 +196,6 @@ public abstract class PlayerExtendMixin extends LivingEntity implements IPersist
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     public void readCultivationDataFromNbt(NbtCompound nbt, CallbackInfo info) {
         this.writePersistentData(nbt);
+        this.syncData();
     }
 }

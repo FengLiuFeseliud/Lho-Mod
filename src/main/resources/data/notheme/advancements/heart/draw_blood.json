@@ -1,0 +1,34 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:blood_needle"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.draw_blood.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.draw_blood.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/get_empty_blood_needle",
+    "criteria": {
+        "requirement": {
+            "trigger": "notheme:mod_item_use",
+            "conditions": {
+                "item": {
+                    "items": [
+                        "notheme:blood_needle",
+                        "notheme:gold_blood_needle",
+                        "notheme:frost_blood_needle",
+                        "notheme:poison_blood_needle",
+                        "notheme:wither_blood_needle"
+                    ]
+                }
+            }
+        }
+    }
+}

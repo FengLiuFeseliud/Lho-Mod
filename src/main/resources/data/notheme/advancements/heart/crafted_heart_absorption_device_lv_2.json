@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:heart_absorption_device_lv_2"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.crafted_heart_absorption_device_lv_2.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.crafted_heart_absorption_device_lv_2.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/crafted_heart_absorption_device",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "notheme:heart_absorption_device_lv_2"
+            }
+        }
+    }
+}

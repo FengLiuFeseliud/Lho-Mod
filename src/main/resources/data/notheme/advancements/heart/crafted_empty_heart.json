@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:empty_heart"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.crafted_empty_heart.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.crafted_empty_heart.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/get_empty_blood_needle",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "notheme:empty_heart"
+            }
+        }
+    }
+}

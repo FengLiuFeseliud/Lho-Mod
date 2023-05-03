@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:heart"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.use_heart.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.use_heart.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/crafted_heart",
+    "criteria": {
+        "requirement": {
+            "trigger": "notheme:add_heart",
+            "conditions": {
+                "heart": "1"
+            }
+        }
+    }
+}

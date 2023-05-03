@@ -1,10 +1,13 @@
 package fengliu.notheme.mixin;
 
+import fengliu.notheme.NoThemeMod;
 import fengliu.notheme.util.item.armor.BaseArmorItem;
 import fengliu.notheme.util.player.IExtendPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -53,23 +56,42 @@ public abstract class PlayerAttributeMixin extends Entity {
         });
     }
 
-    @Inject(method = "getMaxHealth", at = @At("RETURN"), cancellable = true)
-    public void nbtSetMaxHealth(CallbackInfoReturnable<Float> info) {
-        if (!this.isPlayer()){
+    @Inject(method = "getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D", at = @At("RETURN"), cancellable = true)
+    public void addNbtHealth(EntityAttribute attribute, CallbackInfoReturnable<Double> cir){
+        if (!attribute.equals(EntityAttributes.GENERIC_MAX_HEALTH) || !this.isPlayer()){
             return;
         }
 
         float deleteHealth = ((IExtendPlayer) this).getDeleteHealth();
         float addHealth = ((IExtendPlayer) this).getAddHealth();
-        float maxHealth = info.getReturnValue();
+        double maxHealth = cir.getReturnValue();
 
-        float resetMaxHealth = maxHealth - deleteHealth + addHealth;
+        double resetMaxHealth = maxHealth - deleteHealth + addHealth;
         if (resetMaxHealth <= 0){
-            info.setReturnValue(0.1F);
+            cir.setReturnValue(0.1D);
             return;
         }
 
-        info.setReturnValue(resetMaxHealth);
-        info.cancel();
+        cir.setReturnValue(resetMaxHealth);
     }
+
+//    @Inject(method = "getMaxHealth", at = @At("RETURN"), cancellable = true)
+//    public void nbtSetMaxHealth(CallbackInfoReturnable<Float> info) {
+//        if (!this.isPlayer()){
+//            return;
+//        }
+//
+//        float deleteHealth = ((IExtendPlayer) this).getDeleteHealth();
+//        float addHealth = ((IExtendPlayer) this).getAddHealth();
+//        float maxHealth = info.getReturnValue();
+//
+//        float resetMaxHealth = maxHealth - deleteHealth + addHealth;
+//        if (resetMaxHealth <= 0){
+//            info.setReturnValue(0.1F);
+//            return;
+//        }
+//
+//        info.setReturnValue(resetMaxHealth);
+//        info.cancel();
+//    }
 }

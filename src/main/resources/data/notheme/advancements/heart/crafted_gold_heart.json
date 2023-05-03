@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:gold_heart"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.crafted_gold_heart.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.crafted_gold_heart.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/crafted_empty_heart",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "notheme:gold_heart"
+            }
+        }
+    }
+}

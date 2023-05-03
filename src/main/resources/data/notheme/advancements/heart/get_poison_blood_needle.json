@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:poison_blood_needle"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.get_poison_blood_needle.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.get_poison_blood_needle.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/draw_blood",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "notheme:poison_blood_needle"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

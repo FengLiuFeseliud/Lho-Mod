@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "notheme:blood_pool_block"
+    },
+    "title": {
+      "translate": "notheme.advancements.heart.placed_blood_pool_block.title"
+    },
+    "description": {
+      "translate": "notheme.advancements.heart.placed_blood_pool_block.description"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "notheme:heart/get_empty_blood_needle",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "notheme:blood_pool_block"
+      }
+    }
+  }
+}

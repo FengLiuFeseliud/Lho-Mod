@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:heart"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.add_heart_20.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.add_heart_20.description"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/use_heart",
+    "criteria": {
+        "requirement": {
+            "trigger": "notheme:add_heart",
+            "conditions": {
+                "heart": "20"
+            }
+        }
+    }
+}

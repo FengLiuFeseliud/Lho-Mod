@@ -3,9 +3,11 @@ package fengliu.notheme;
 import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.block.entity.ModBlockEntitys;
 import fengliu.notheme.callback.ArmorChangeCallback;
+import fengliu.notheme.criterion.ModCriteria;
 import fengliu.notheme.item.ModItemGroups;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.item.block.ModBlockItems;
+import fengliu.notheme.networking.packets.client.ModClientMessage;
 import fengliu.notheme.screen.handler.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -27,5 +29,9 @@ public class NoThemeMod implements ModInitializer {
 		ModScreenHandlers.registerAllScreenHandlers();
 
         ArmorChangeCallback.registerAllCallback();
+
+		ModCriteria.registerAllCriteria();
+
+		ModClientMessage.registerC2SPackets();
 	}
 }

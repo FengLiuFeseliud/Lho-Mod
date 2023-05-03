@@ -1,10 +1,15 @@
 package fengliu.notheme.util.item;
 
+import fengliu.notheme.criterion.ModCriteria;
 import fengliu.notheme.util.IdUtil;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,6 +29,16 @@ public class BaseItem extends Item {
         super(new Settings().maxCount(64));
         this.name = name;
         this.tooltipKey = IdUtil.getItemTooltip(name);
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if (world.isClient()){
+            return super.use(world, user, hand);
+        }
+
+        ModCriteria.MOD_ITEM_USE.trigger((ServerPlayerEntity) user, user.getBlockPos(), user.getStackInHand(hand));
+        return super.use(world, user, hand);
     }
 
     @Override

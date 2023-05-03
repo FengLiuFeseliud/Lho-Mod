@@ -1,0 +1,26 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:heart"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.root.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.root.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "notheme:empty_blood_needle"
+            }
+        }
+    }
+}

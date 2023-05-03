@@ -2,6 +2,99 @@
     "itemGroup.notheme.block_group": "",
     "itemGroup.notheme.body_group": "",
 
+    "notheme.advancements.heart.root.title": "NoTheme-血量工艺",
+    "notheme.advancements.heart.root.description": "开始控制你的血量吧!",
+
+    "notheme.advancements.heart.get_empty_blood_needle.title": "这是???",
+    "notheme.advancements.heart.get_empty_blood_needle.description": "获取到针管",
+
+    "notheme.advancements.heart.draw_blood.title": "抽血",
+    "notheme.advancements.heart.draw_blood.description": "第一次使用针管抽取生命力",
+
+    "notheme.advancements.heart.draw_blood_kill.title": "榨干自己",
+    "notheme.advancements.heart.draw_blood_kill.description": "被针管榨干",
+
+    "notheme.advancements.heart.get_blood_needle.title": "血液",
+    "notheme.advancements.heart.get_blood_needle.description": "采集到血液",
+
+    "notheme.advancements.heart.get_frost_blood_needle.title": "霜冻的血液",
+    "notheme.advancements.heart.get_frost_blood_needle.description": "采集到包含霜冻特性的血液",
+
+    "notheme.advancements.heart.get_gold_blood_needle.title": "吸收的血液",
+    "notheme.advancements.heart.get_gold_blood_needle.description": "采集到包含吸收特性的血液",
+
+    "notheme.advancements.heart.get_poison_blood_needle.title": "有毒的血液",
+    "notheme.advancements.heart.get_poison_blood_needle.description": "采集到包含毒特性的血液",
+
+    "notheme.advancements.heart.get_wither_blood_needle.title": "凋零的血液",
+    "notheme.advancements.heart.get_wither_blood_needle.description": "采集到包含凋零特性的血液",
+
+    "notheme.advancements.heart.crafted_empty_heart.title": "准备工作",
+    "notheme.advancements.heart.crafted_empty_heart.description": "制作空心",
+
+    "notheme.advancements.heart.crafted_heart.title": "心!",
+    "notheme.advancements.heart.crafted_heart.description": "制作出心",
+
+    "notheme.advancements.heart.crafted_gold_heart.title": "伤害吸收心!",
+    "notheme.advancements.heart.crafted_gold_heart.description": "制作出伤害吸收心",
+
+    "notheme.advancements.heart.crafted_frost_heart.title": "霜冻心!",
+    "notheme.advancements.heart.crafted_frost_heart.description": "制作出霜冻心",
+
+    "notheme.advancements.heart.crafted_poison_heart.title": "毒心!",
+    "notheme.advancements.heart.crafted_poison_heart.description": "制作出毒心",
+
+    "notheme.advancements.heart.crafted_wither_heart.title": "凋零心!",
+    "notheme.advancements.heart.crafted_wither_heart.description": "制作出凋零心",
+
+    "notheme.advancements.heart.crafted_animal_heart.title": "动物心!",
+    "notheme.advancements.heart.crafted_animal_heart.description": "制作出动物心",
+
+    "notheme.advancements.heart.use_heart.title": "增加一颗心!",
+    "notheme.advancements.heart.use_heart.description": "使用心!",
+
+    "notheme.advancements.heart.add_heart_20.title": "增加十颗心!",
+    "notheme.advancements.heart.add_heart_20.description": "使用心, 增加至十颗心以上",
+
+    "notheme.advancements.heart.add_heart_40.title": "增加二十颗心!",
+    "notheme.advancements.heart.add_heart_40.description": "使用心, 增加至二十颗心以上",
+
+    "notheme.advancements.heart.add_heart_60.title": "增加三十颗心!",
+    "notheme.advancements.heart.add_heart_60.description": "使用心, 增加至三十颗心以上",
+
+    "notheme.advancements.heart.add_heart_80.title": "增加四十颗心!",
+    "notheme.advancements.heart.add_heart_80.description": "使用心, 增加至四十颗心以上",
+
+    "notheme.advancements.heart.add_heart_100.title": "疯狂的血量",
+    "notheme.advancements.heart.add_heart_100.description": "使用心, 增加至五十颗心以上",
+
+    "notheme.advancements.heart.placed_blood_pool_block.title": "血池工艺",
+    "notheme.advancements.heart.placed_blood_pool_block.description": "开始利用血池制作心制品!",
+
+    "notheme.advancements.heart.get_wither_block.title": "凋零方块",
+    "notheme.advancements.heart.get_wither_block.description": "获取包含强大凋零效果的方块",
+
+    "notheme.advancements.heart.crafted_long_for_life_block.title": "渴望鲜血的方块!",
+    "notheme.advancements.heart.crafted_long_for_life_block.description": "凋零方块被鲜血唤醒!",
+
+    "notheme.advancements.heart.crafted_heart_drop_device.title": "掠夺鲜血",
+    "notheme.advancements.heart.crafted_heart_drop_device.description": "制作一级心掉落装置",
+
+    "notheme.advancements.heart.crafted_heart_drop_device_lv_2.title": "再掠夺",
+    "notheme.advancements.heart.crafted_heart_drop_device_lv_2.description": "制作二级心掉落装置",
+
+    "notheme.advancements.heart.crafted_heart_drop_device_lv_3.title": "掠夺...",
+    "notheme.advancements.heart.crafted_heart_drop_device_lv_3.description": "制作三级心掉落装置",
+
+    "notheme.advancements.heart.crafted_heart_absorption_device.title": "吸取鲜血",
+    "notheme.advancements.heart.crafted_heart_absorption_device.description": "制作一级心吸收装置",
+
+    "notheme.advancements.heart.crafted_heart_absorption_device_lv_2.title": "再吸取",
+    "notheme.advancements.heart.crafted_heart_absorption_device_lv_2.description": "制作二级心吸收装置",
+
+    "notheme.advancements.heart.crafted_heart_absorption_device_lv_3.title": "自愈者",
+    "notheme.advancements.heart.crafted_heart_absorption_device_lv_3.description": "制作三级心吸收装置",
+
     "notheme.block.upgrade.info": "你不能升级该方块",
 
     "item.notheme.stabilizer": "稳定剂",

@@ -1,0 +1,43 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:heart"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.add_heart_60.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.add_heart_60.description"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/add_heart_40",
+    "criteria": {
+        "20": {
+            "trigger": "notheme:add_heart",
+            "conditions":  {
+                "heart": "20"
+            }
+        },
+        "40": {
+            "trigger": "notheme:add_heart",
+            "conditions": {
+                "heart": "40"
+            }
+        },
+        "60": {
+            "trigger": "notheme:add_heart",
+            "conditions": {
+                "heart": "60"
+            }
+        }
+    },
+    "requirements": [
+        ["20"],
+        ["40"],
+        ["60"]
+    ]
+}

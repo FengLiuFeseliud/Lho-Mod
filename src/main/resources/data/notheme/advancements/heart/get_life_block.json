@@ -1,0 +1,32 @@
+{
+    "display": {
+        "icon": {
+            "item": "notheme:life_block"
+        },
+        "title": {
+            "translate": "notheme.advancements.heart.get_life_block.title"
+        },
+        "description": {
+            "translate": "notheme.advancements.heart.get_life_block.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "parent": "notheme:heart/placed_blood_pool_block",
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "notheme:life_block"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
