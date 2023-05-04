@@ -4,8 +4,10 @@ import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.block.IBaseBlock;
+import fengliu.notheme.util.block.ItemStackInventoryBlock;
 import fengliu.notheme.util.level.ILevelBlock;
 import fengliu.notheme.util.level.LevelsUtil;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
 
 import java.util.Map;
@@ -20,6 +22,7 @@ public class ModBlockItems {
     public static final BlockItem LIFE_BLOCK_ITEM = new BaseBlockItem(ModBlocks.LIFE_BLOCK);
     public static final BlockItem POISON_BLOCK_ITEM = new BaseBlockItem(ModBlocks.POISON_BLOCK);
     public static final BlockItem LONG_FOR_LIFE_BLOCK_ITEM = new BaseBlockItem(ModBlocks.LONG_FOR_LIFE_BLOCK);
+    public static final BlockItem CLOTH_BAG_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.CLOTH_BAG_BLOCK).getItem();
 
     public static final BlockItem[] BODY_GROUP_ITEMS = new BlockItem[]{
         BLOOD_POOL_BLOCK_ITEM,
@@ -32,10 +35,16 @@ public class ModBlockItems {
         LONG_FOR_LIFE_BLOCK_ITEM
     };
 
+    public static final BlockItem[] INVEBTORY_GROUP_ITEMS = new BlockItem[]{
+        CLOTH_BAG_BLOCK_ITEM
+    };
+
     public static void registerAllBlockItem(){
         LevelsUtil.registerAllBlockItem(CUSTOMERS_BLOCK_ITEMS);
 
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.BLOOD_POOL_BLOCK, BLOOD_POOL_BLOCK_ITEM);
+        RegisterUtil.registerItem((IBaseBlock) ModBlocks.CLOTH_BAG_BLOCK, CLOTH_BAG_BLOCK_ITEM);
+
         RegisterUtil.registerItem(ModBlocks.ABSORPTION_BLOCK, ABSORPTION_BLOCK_ITEM);
         RegisterUtil.registerItem(ModBlocks.WITHER_BLOCK, WITHER_BLOCK_ITEM);
         RegisterUtil.registerItem(ModBlocks.LIFE_BLOCK, LIFE_BLOCK_ITEM);

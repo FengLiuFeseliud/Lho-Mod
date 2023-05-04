@@ -5,6 +5,8 @@ import fengliu.notheme.util.level.LevelsUtil;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class HeartDropEntity extends ItemEntity {
@@ -20,12 +22,17 @@ public class HeartDropEntity extends ItemEntity {
 
     @Override
     public void onPlayerCollision(PlayerEntity player) {
+        if (player.getWorld().isClient()){
+            return;
+        }
+
         if (player.getHealth() >= player.getMaxHealth()){
             super.onPlayerCollision(player);
             return;
         }
 
-        if (LevelsUtil.playerInventoryContainsItems(player, ModItems.HEART_ABSORPTION_DEVICE) == null){
+        ItemStack stack = LevelsUtil.playerInventoryContainsItemStacks(player, ModItems.HEART_ABSORPTION_DEVICE);
+        if (stack == null){
             super.onPlayerCollision(player);
             return;
         }
@@ -36,6 +43,7 @@ public class HeartDropEntity extends ItemEntity {
             this.addPlayerHeart(player, 2);
         }
 
+        stack.damage(1, Random.create(), (ServerPlayerEntity) player);
         this.discard();
     }
 }

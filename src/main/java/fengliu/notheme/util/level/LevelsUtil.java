@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 等级物品枚举工具
@@ -120,14 +121,17 @@ public class LevelsUtil {
         return blockEntityTypes;
     }
 
-    public static Item playerInventoryContainsItems(PlayerEntity player, Map<Item, ILevelItem> items){
+    public static ItemStack playerInventoryContainsItemStacks(PlayerEntity player, Map<Item, ILevelItem> items){
+        AtomicReference<ItemStack> containStack = new AtomicReference<>();
         for(Item item: items.keySet()){
-            if (player.getInventory().contains(item.getDefaultStack())){
-                return item;
-            }
+            player.getInventory().main.forEach(stack -> {
+                if (!stack.isOf(item)){
+                    return;
+                }
+                containStack.set(stack);
+            });
         }
-
-        return null;
+        return containStack.get();
     }
 
     public static boolean canUpgrade(Block block, PlayerEntity player, Hand hand, World world){

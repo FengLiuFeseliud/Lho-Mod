@@ -191,6 +191,9 @@
     "block.notheme.long_for_life_block": "渴血的亡灵方块",
     "block.item.notheme.long_for_life_block.tooltip": "它正在吸收你的生命!",
 
+    "block.notheme.cloth_bag": "布袋子",
+    "block.item.notheme.cloth_bag.tooltip": "空手使用取出物品, 非空手存入物品, 潜行使用取走袋子, 可以装 5 格物品",
+
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",
 

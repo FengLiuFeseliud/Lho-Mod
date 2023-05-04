@@ -9,7 +9,9 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class HeartDropDevice extends BaseItem {
@@ -24,7 +26,7 @@ public class HeartDropDevice extends BaseItem {
         };
     }
 
-    public void dropHeart(Vec3d pos, PlayerEntity player){
+    public void dropHeart(Vec3d pos, PlayerEntity player, ItemStack stack){
         World world = player.getWorld();
         if (world.isClient()){
             return;
@@ -35,6 +37,7 @@ public class HeartDropDevice extends BaseItem {
            return;
        }
 
+        stack.damage(1, Random.create(), (ServerPlayerEntity) player);
         world.spawnEntity(new HeartDropEntity(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(heart, 1)));
     }
 
@@ -73,7 +76,7 @@ public class HeartDropDevice extends BaseItem {
 
         @Override
         public Item getItem() {
-            return new HeartDropDevice(new FabricItemSettings().maxCount(1), this.getPath(), this.getGain());
+            return new HeartDropDevice(new FabricItemSettings().maxCount(1).maxDamageIfAbsent(60 * this.getGain()), this.getPath(), this.getGain());
         }
     }
 }

@@ -3,11 +3,12 @@ package fengliu.notheme.block.entity;
 import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.screen.handler.CustomersBlockScreenHandler;
 import fengliu.notheme.util.IdUtil;
+import fengliu.notheme.util.block.entity.InventoryBlockEntity;
 import fengliu.notheme.util.level.ILevelBlock;
-import fengliu.notheme.util.block.entity.ScreenBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -20,7 +21,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 
-public class CustomersBlockEntity extends ScreenBlockEntity {
+public class CustomersScreenBlockEntity extends InventoryBlockEntity implements NamedScreenHandlerFactory {
     private final ILevelBlock levelBlock;
     private Block pavementBlock;
     public int width = 0;
@@ -59,7 +60,7 @@ public class CustomersBlockEntity extends ScreenBlockEntity {
         }
     };
 
-    public CustomersBlockEntity(BlockPos pos, BlockState state) {
+    public CustomersScreenBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntitys.CustomersBlockEntityTypes.get(ModBlocks.CUSTOMERS_BLOCKS.get(state.getBlock())), pos, state);
 
         this.levelBlock = ModBlocks.CUSTOMERS_BLOCKS.get(state.getBlock());
@@ -67,14 +68,14 @@ public class CustomersBlockEntity extends ScreenBlockEntity {
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, BlockEntity be){
-        Item item = ((CustomersBlockEntity) be).getItems().get(0).getItem();
+        Item item = ((CustomersScreenBlockEntity) be).getItems().get(0).getItem();
         if (!(item instanceof BlockItem)){
-            ((CustomersBlockEntity) be).setPavementBlock(null);
+            ((CustomersScreenBlockEntity) be).setPavementBlock(null);
             return;
         }
 
-        ((CustomersBlockEntity) be).setPavementBlock((BlockItem) item);
-        Block pavementBlock = ((CustomersBlockEntity) be).getPavementBlock();
+        ((CustomersScreenBlockEntity) be).setPavementBlock((BlockItem) item);
+        Block pavementBlock = ((CustomersScreenBlockEntity) be).getPavementBlock();
 
         BlockState blockState;
         BlockPos pos1 = pos;
@@ -119,18 +120,18 @@ public class CustomersBlockEntity extends ScreenBlockEntity {
             }
         }
 
-        ((CustomersBlockEntity) be).width = pos2.getZ() - pos1.getZ() + 1;
-        ((CustomersBlockEntity) be).height = pos1.getX() - pos2.getX() + 1;
+        ((CustomersScreenBlockEntity) be).width = pos2.getZ() - pos1.getZ() + 1;
+        ((CustomersScreenBlockEntity) be).height = pos1.getX() - pos2.getX() + 1;
 
-        for (int indexH = 0; indexH < ((CustomersBlockEntity) be).height; indexH++){
-            for (int indexw = 0; indexw < ((CustomersBlockEntity) be).width; indexw++){
+        for (int indexH = 0; indexH < ((CustomersScreenBlockEntity) be).height; indexH++){
+            for (int indexw = 0; indexw < ((CustomersScreenBlockEntity) be).width; indexw++){
                 blockState = world.getBlockState(pos2.north(indexw));
                 if (blockState.isOf(pavementBlock) || blockState.isOf(state.getBlock())){
                     continue;
                 }
 
-                if (((CustomersBlockEntity) be).width > indexw){
-                    ((CustomersBlockEntity) be).width = indexw;
+                if (((CustomersScreenBlockEntity) be).width > indexw){
+                    ((CustomersScreenBlockEntity) be).width = indexw;
                 }
             }
 
@@ -139,10 +140,15 @@ public class CustomersBlockEntity extends ScreenBlockEntity {
                 continue;
             }
 
-            ((CustomersBlockEntity) be).height = indexH;
+            ((CustomersScreenBlockEntity) be).height = indexH;
             break;
         }
 
+    }
+
+    @Override
+    public Text getName() {
+        return this.getDisplayName();
     }
 
     @Override

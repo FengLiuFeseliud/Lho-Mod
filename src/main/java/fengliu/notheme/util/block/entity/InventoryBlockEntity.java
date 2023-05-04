@@ -1,20 +1,22 @@
 package fengliu.notheme.util.block.entity;
 
-import fengliu.notheme.util.ImplementedInventory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.text.Text;
+import net.minecraft.util.Nameable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
-public abstract class ScreenBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
+public abstract class InventoryBlockEntity extends BlockEntity implements IInventory, Nameable {
     private DefaultedList<ItemStack> inventory;
+    private Text customName;
 
-    public ScreenBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public InventoryBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
@@ -30,12 +32,16 @@ public abstract class ScreenBlockEntity extends BlockEntity implements NamedScre
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        Inventories.writeNbt(nbt, inventory);
+        Inventories.writeNbt(nbt, this.inventory);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        Inventories.readNbt(nbt, inventory);
+        Inventories.readNbt(nbt, this.inventory);
+    }
+
+    public Text getCustomName(){
+        return this.customName;
     }
 }

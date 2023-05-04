@@ -1,6 +1,7 @@
 package fengliu.notheme.util;
 
 import fengliu.notheme.NoThemeMod;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class IdUtil {
@@ -27,6 +28,10 @@ public class IdUtil {
 
     public static String getBlockItemTooltip(String name, int index){
         return "block.item." + NoThemeMod.MOD_ID + "." + name + ".tooltip." + index;
+    }
+
+    public static Text getItemName(String name){
+        return Text.translatable("item." + NoThemeMod.MOD_ID + "." + name);
     }
 
     public static String getDisplayName(String name){

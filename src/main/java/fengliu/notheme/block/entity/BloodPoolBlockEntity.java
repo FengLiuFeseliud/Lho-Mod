@@ -1,6 +1,5 @@
 package fengliu.notheme.block.entity;
 
-import fengliu.notheme.NoThemeMod;
 import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.block.heart.BloodPoolBlock;
 import fengliu.notheme.item.ModItems;
@@ -10,14 +9,14 @@ import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.Tick;
 import fengliu.notheme.util.block.IBaseBlock;
 import fengliu.notheme.util.block.IPoolBlock;
-import fengliu.notheme.util.block.entity.ScreenBlockEntity;
+import fengliu.notheme.util.block.entity.InventoryBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HopperBlock;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -26,7 +25,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class BloodPoolBlockEntity extends ScreenBlockEntity {
+public class BloodPoolBlockEntity extends InventoryBlockEntity implements NamedScreenHandlerFactory {
     public int level = 0;
     public int heartType = 0;
     public Tick cokyTick = new Tick(100);
@@ -142,6 +141,11 @@ public class BloodPoolBlockEntity extends ScreenBlockEntity {
             return stack.isOf(ModItems.ANIMAL_HEART);
         }
         return false;
+    }
+
+    @Override
+    public Text getName() {
+        return this.getDisplayName();
     }
 
     @Override

@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "notheme:block/cloth_bag"
+        },
+        "facing=east": {
+            "model": "notheme:block/cloth_bag",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "notheme:block/cloth_bag",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "notheme:block/cloth_bag",
+            "y": 270
+        }
+    }
+}

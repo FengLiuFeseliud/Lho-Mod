@@ -1,6 +1,7 @@
 package fengliu.notheme.block;
 
 import fengliu.notheme.block.heart.*;
+import fengliu.notheme.block.invebtory.ClothBagBlock;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.block.BaseBlock;
 import fengliu.notheme.util.block.IBaseBlock;
@@ -19,6 +20,7 @@ import java.util.Map;
 public class ModBlocks {
     public static final Map<Block, ILevelBlock> CUSTOMERS_BLOCKS = LevelsUtil.getBlocks(CustomersBlock.CustomersBlockLevels.values());
     public static final Block BLOOD_POOL_BLOCK = new BloodPoolBlock(FabricBlockSettings.of(Material.STONE).strength(5.0f).requiresTool().nonOpaque());
+    public static final Block CLOTH_BAG_BLOCK = new ClothBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
     public static final BaseBlock WITHER_BLOCK = new WitherBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "wither_block");
     public static final BaseBlock LIFE_BLOCK = new LifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "life_block");
     public static final BaseBlock ABSORPTION_BLOCK = new AbsorptionBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "absorption_block");
@@ -46,6 +48,8 @@ public class ModBlocks {
         LevelsUtil.registerAllBlock(CUSTOMERS_BLOCKS);
 
         RegisterUtil.registerBlock((IBaseBlock) BLOOD_POOL_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) CLOTH_BAG_BLOCK);
+
         RegisterUtil.registerBlocks(HEART_GROUP_BLOCK);
     }
 }

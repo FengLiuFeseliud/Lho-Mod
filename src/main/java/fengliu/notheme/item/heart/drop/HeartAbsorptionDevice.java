@@ -44,7 +44,7 @@ public class HeartAbsorptionDevice extends HeartDropDevice {
 
         @Override
         public Item getItem() {
-            return new HeartAbsorptionDevice(new FabricItemSettings().maxCount(1), this.getPath(), this.getGain());
+            return new HeartAbsorptionDevice(new FabricItemSettings().maxCount(1).maxDamageIfAbsent(90 * this.gain), this.getPath(), this.getGain());
         }
     }
 }

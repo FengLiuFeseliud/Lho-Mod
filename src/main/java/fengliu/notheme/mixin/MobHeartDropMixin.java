@@ -1,5 +1,6 @@
 package fengliu.notheme.mixin;
 
+import fengliu.notheme.NoThemeMod;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.item.heart.drop.HeartDropDevice;
 import fengliu.notheme.util.level.LevelsUtil;
@@ -9,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -32,14 +34,14 @@ public abstract class MobHeartDropMixin extends Entity {
             return;
         }
 
-        Item item = LevelsUtil.playerInventoryContainsItems(player, ModItems.HEART_DROP_DEVICE);
-        if (item == null) {
-            item =  LevelsUtil.playerInventoryContainsItems(player, ModItems.HEART_ABSORPTION_DEVICE);
-            if (item == null){
+        ItemStack stack = LevelsUtil.playerInventoryContainsItemStacks(player, ModItems.HEART_DROP_DEVICE);
+        if (stack == null) {
+            stack = LevelsUtil.playerInventoryContainsItemStacks(player, ModItems.HEART_ABSORPTION_DEVICE);
+            if (stack == null){
                 return;
             }
         }
 
-        ((HeartDropDevice) item).dropHeart(this.getPos(), player);
+        ((HeartDropDevice) stack.getItem()).dropHeart(this.getPos(), player, stack);
     }
 }

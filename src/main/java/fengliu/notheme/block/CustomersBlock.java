@@ -1,6 +1,6 @@
 package fengliu.notheme.block;
 
-import fengliu.notheme.block.entity.CustomersBlockEntity;
+import fengliu.notheme.block.entity.CustomersScreenBlockEntity;
 import fengliu.notheme.block.entity.ModBlockEntitys;
 import fengliu.notheme.util.level.LevelsUtil;
 import fengliu.notheme.util.level.ILevelBlock;
@@ -14,7 +14,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -46,8 +45,8 @@ public class CustomersBlock extends ScreenBlock {
 
     @Override
     public void openHandledScreen(BlockEntity entity, PlayerEntity player) {
-        if (entity instanceof CustomersBlockEntity){
-            player.openHandledScreen((CustomersBlockEntity) entity);
+        if (entity instanceof CustomersScreenBlockEntity){
+            player.openHandledScreen((CustomersScreenBlockEntity) entity);
         }
     }
 
@@ -58,13 +57,13 @@ public class CustomersBlock extends ScreenBlock {
 
     @Override
     public BlockEntityTicker<? super BlockEntity> uesTick() {
-        return CustomersBlockEntity::tick;
+        return CustomersScreenBlockEntity::tick;
     }
 
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CustomersBlockEntity(pos, state);
+        return new CustomersScreenBlockEntity(pos, state);
     }
 
     @Override
@@ -104,7 +103,7 @@ public class CustomersBlock extends ScreenBlock {
 
         @Override
         public FabricBlockEntityTypeBuilder.Factory<? extends BlockEntity> getBlockEntityNew() {
-            return CustomersBlockEntity::new;
+            return CustomersScreenBlockEntity::new;
         }
 
         @Override

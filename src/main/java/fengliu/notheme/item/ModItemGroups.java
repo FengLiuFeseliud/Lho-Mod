@@ -21,8 +21,9 @@ public class ModItemGroups {
 
     public static void registerItemGroup(){
         ItemGroupEvents.modifyEntriesEvent(BLOCK_GROUP).register(content -> {
-            LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.CUSTOMERS_BLOCK_ITEMS, content);
-            LevelsUtil.registerAllItemGroupAll(ModItems.EXPAND_PASSENGERS, content);
+//            LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.CUSTOMERS_BLOCK_ITEMS, content);
+//            LevelsUtil.registerAllItemGroupAll(ModItems.EXPAND_PASSENGERS, content);
+            RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.INVEBTORY_GROUP_ITEMS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(BODY_GROUP).register(content -> {

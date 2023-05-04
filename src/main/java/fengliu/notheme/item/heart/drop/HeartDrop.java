@@ -20,6 +20,7 @@ public class HeartDrop extends BaseItem {
         }
 
         user.setHealth(user.getHealth() + this.addHealth);
+        user.getStackInHand(hand).decrement(1);
         return super.use(world, user, hand);
     }
 
