@@ -6,19 +6,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 
-import static net.minecraft.item.ItemStack.DAMAGE_KEY;
-
 public abstract class ItemStackInventoryBlockEntity extends InventoryBlockEntity {
-    public boolean takeing = false;
 
     public ItemStackInventoryBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-    }
-
-    public boolean isTake(){
-        boolean old = takeing;
-        this.takeing = !takeing;
-        return old;
     }
 
     public ItemStack writeInventoryToItemStack(ItemStack stack){

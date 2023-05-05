@@ -1,0 +1,33 @@
+{
+    "multipart": [
+        {
+            "apply": {
+                "model": "notheme:block/bento_box/empty"
+            }
+        },
+        {
+            "when": {
+                "inventory": "1"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_1"
+            }
+        },
+        {
+            "when": {
+                "inventory": "2"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_2"
+            }
+        },
+        {
+            "when": {
+                "inventory": "3"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_3"
+            }
+        }
+    ]
+}

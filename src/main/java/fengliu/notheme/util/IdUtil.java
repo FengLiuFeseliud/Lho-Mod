@@ -14,6 +14,14 @@ public class IdUtil {
         return new Identifier(NoThemeMod.MOD_ID, name);
     }
 
+    public static String getItemInfo(String name){
+        return "item." + NoThemeMod.MOD_ID + "." + name + ".info";
+    }
+
+    public static String getItemInfo(String name, int index){
+        return IdUtil.getItemInfo(name) + "." + index;
+    }
+
     public static String getItemTooltip(String name){
         return "item." + NoThemeMod.MOD_ID + "." + name + ".tooltip";
     }

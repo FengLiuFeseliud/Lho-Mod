@@ -3,20 +3,25 @@ package fengliu.notheme.util.block.entity;
 import fengliu.notheme.util.ImplementedInventory;
 import fengliu.notheme.util.SpawnUtil;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IInventory extends ImplementedInventory {
 
-    default int getUseSize(){
+    static int getAllUseSize(DefaultedList<ItemStack> items){
         int size = 0;
-        for(ItemStack stack: this.getItems()){
+        for(ItemStack stack: items){
             if (stack.isEmpty()){
                 continue;
             }
             size++;
         }
         return size;
+    }
+
+    default int getUseSize(){
+        return getAllUseSize(this.getItems());
     }
 
     default int getEmptySlot(){

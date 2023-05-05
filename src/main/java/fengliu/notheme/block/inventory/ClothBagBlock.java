@@ -1,4 +1,4 @@
-package fengliu.notheme.block.invebtory;
+package fengliu.notheme.block.inventory;
 
 import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.block.entity.ClothBagBlockEntity;
@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -32,6 +33,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock {
+    public static final VoxelShape CLOTH_BAG_BLOCK_SHAPE = VoxelShapes.cuboid(0.2, 0, 0.2, 0.80, 0.7, 0.80);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public ClothBagBlock(Settings settings, int size) {
@@ -49,16 +51,23 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
         if (player.isSneaking() && stack.isEmpty()){
             player.setStackInHand(hand, clothBagBlock.writeInventoryToItemStack(this.getItemStack()));
             world.removeBlock(pos, false);
-            return super.onUse(state, world, pos, player, hand, hit);
+            return ActionResult.SUCCESS;
         }
 
+        int inventory = state.get(this.Inventory);
         if (stack.isEmpty()){
             SpawnUtil.spawnItemToPos(clothBagBlock.takeItemStack(), pos, world);
+            if (inventory > 0){
+                world.setBlockState(pos, state.with(this.Inventory, state.get(this.Inventory) - 1));
+            }
         } else if (this.canTake(stack)){
             clothBagBlock.saveItemStack(stack);
+            if (inventory < this.getSize()){
+                world.setBlockState(pos, state.with(this.Inventory, inventory + 1));
+            }
         }
 
-        return super.onUse(state, world, pos, player, hand, hit);
+        return ActionResult.SUCCESS;
     }
 
     @Override
@@ -82,7 +91,7 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0.2, 0.2, 0.2, 0.80, 0.9, 0.80);
+        return CLOTH_BAG_BLOCK_SHAPE;
     }
 
     @Nullable
@@ -102,6 +111,11 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
     }
 
     @Override
+    public IntProperty getInventoryProperty() {
+        return IntProperty.of("inventory", 0, 5);
+    }
+
+    @Override
     public String getBlockName() {
         return "cloth_bag";
     }
@@ -115,6 +129,7 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+        super.appendProperties(builder);
     }
 
     @Override

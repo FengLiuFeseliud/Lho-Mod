@@ -14,11 +14,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import static net.minecraft.item.BlockItem.BLOCK_ENTITY_TAG_KEY;
+
 public abstract class ItemStackInventoryBlock extends BlockWithEntity {
+    protected IntProperty Inventory;
     private final int size;
 
     protected ItemStackInventoryBlock(Settings settings, int size) {
@@ -28,6 +33,7 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
 
     public abstract BlockItem getItem();
     public abstract ItemStack getItemStack();
+    public abstract IntProperty getInventoryProperty();
 
     public int getSize(){
         return this.size;
@@ -35,10 +41,10 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
 
     public boolean canTake(ItemStack stack){
         NbtCompound nbt = stack.getOrCreateNbt();
-        if (!nbt.contains("BlockEntityTag", NbtElement.COMPOUND_TYPE)){
+        if (!nbt.contains(BLOCK_ENTITY_TAG_KEY, NbtElement.COMPOUND_TYPE)){
             return true;
         }
-        return !nbt.getCompound("BlockEntityTag").contains("Items");
+        return !nbt.getCompound(BLOCK_ENTITY_TAG_KEY).contains("Items");
     }
 
     @Override
@@ -50,6 +56,7 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
         }
 
         inventoryBlockEntity.readNbt(itemStack.getOrCreateNbt());
+        world.setBlockState(pos, state.with(this.Inventory, inventoryBlockEntity.getUseSize()));
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 
@@ -68,5 +75,12 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
 
         SpawnUtil.spawnItemToPos(inventoryBlockEntity.writeInventoryToItemStack(this.getItemStack()), pos, world);
         super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        this.Inventory = getInventoryProperty();
+        builder.add(this.Inventory);
+        super.appendProperties(builder);
     }
 }

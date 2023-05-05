@@ -31,7 +31,7 @@ public class EmptyHeart extends BaseItem implements IHeart {
         }
 
         this.useHeart(world, user, hand);
-        user.getStackInHand(hand).decrement(2);
+        user.getStackInHand(hand).decrement(1);
         return super.use(world, user, hand);
     }
 }

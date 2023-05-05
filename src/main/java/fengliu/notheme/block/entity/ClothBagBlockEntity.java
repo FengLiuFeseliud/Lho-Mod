@@ -13,14 +13,10 @@ public class ClothBagBlockEntity extends ItemStackInventoryBlockEntity {
     public ClothBagBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntitys.CLOTH_BAG_BLOCK_ENTITY, pos, state);
 
-        this.setMaxItemStack(((ItemStackInventoryBlock) ModBlocks.CLOTH_BAG_BLOCK).getSize());
+        this.setMaxItemStack(((ItemStackInventoryBlock) state.getBlock()).getSize());
     }
 
     public ItemStack takeItemStack(){
-        if (this.isTake()){
-            return ItemStack.EMPTY;
-        }
-
         for(ItemStack stack: this.getItems()){
             if (stack.isEmpty()){
                 continue;
@@ -33,10 +29,6 @@ public class ClothBagBlockEntity extends ItemStackInventoryBlockEntity {
     }
 
     public void saveItemStack(ItemStack stack){
-        if (this.isTake()){
-            return;
-        }
-
         int slot = this.getEmptySlot();
         if (slot == -1){
             return;

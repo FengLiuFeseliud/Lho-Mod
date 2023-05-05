@@ -194,6 +194,13 @@
     "block.notheme.cloth_bag": "布袋子",
     "block.item.notheme.cloth_bag.tooltip": "空手使用取出物品, 非空手存入物品, 潜行使用取走袋子, 可以装 5 格物品",
 
+    "block.notheme.reinforced_bag": "强化袋子",
+    "item.notheme.reinforced_bag.info": " - %s",
+    "block.item.notheme.reinforced_bag.tooltip": "存储物品, 不过你可以直接使用里面的物品!",
+
+    "block.notheme.bento_box": "便当盒",
+    "block.item.notheme.bento_box.tooltip": "存储食物, 不过你可以直接食用里面的食物!",
+
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",
 
