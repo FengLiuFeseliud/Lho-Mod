@@ -203,6 +203,9 @@
     "block.notheme.bento_box": "便当盒",
     "block.item.notheme.bento_box.tooltip": "存储食物, 不过你可以直接食用里面的食物!",
 
+    "block.notheme.drink_holder": "饮料架",
+    "block.item.notheme.drink_holder.tooltip": "存储药水, 不过你可以直接使用里面的药水!",
+
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",
 

@@ -1,13 +1,48 @@
 {
     "multipart": [
         {
+            "when": {
+                "inventory": "0",
+                "facing": "north"
+            },
             "apply": {
                 "model": "notheme:block/bento_box/empty"
             }
         },
         {
             "when": {
-                "inventory": "1"
+                "inventory": "0",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/empty",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/empty",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/empty",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "north"
             },
             "apply": {
                 "model": "notheme:block/bento_box/bento_box_1"
@@ -15,7 +50,38 @@
         },
         {
             "when": {
-                "inventory": "2"
+                "inventory": "1",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_1",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_1",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_1",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "north"
             },
             "apply": {
                 "model": "notheme:block/bento_box/bento_box_2"
@@ -23,10 +89,71 @@
         },
         {
             "when": {
-                "inventory": "3"
+                "inventory": "2",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_2",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_2",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_2",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "north"
             },
             "apply": {
                 "model": "notheme:block/bento_box/bento_box_3"
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_3",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_3",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bento_box/bento_box_3",
+                "y": 270
             }
         }
     ]

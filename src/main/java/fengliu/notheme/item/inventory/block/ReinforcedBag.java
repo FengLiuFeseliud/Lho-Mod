@@ -76,12 +76,14 @@ public class ReinforcedBag extends BaseBlockItem {
      */
     public void resetBagStack(ItemStack oldBagStack, ItemStack useStack, DefaultedList<ItemStack> stacks, PlayerEntity user, Hand hand){
         NbtCompound bagStackNbt = oldBagStack.getOrCreateNbt();
+        int slot = IInventory.getItemStackSlot(stacks, useStack);
 
         useStack.decrement(1);
         if (useStack.isEmpty()){
             bagStackNbt.putInt(DAMAGE_KEY, oldBagStack.getDamage()-1);
         }
 
+        stacks.set(slot, useStack);
         bagStackNbt.put(BLOCK_ENTITY_TAG_KEY, Inventories.writeNbt(bagStackNbt.getCompound(BLOCK_ENTITY_TAG_KEY), stacks));
         oldBagStack.setNbt(bagStackNbt);
         user.setStackInHand(hand, oldBagStack);
@@ -104,7 +106,7 @@ public class ReinforcedBag extends BaseBlockItem {
      * @param ues 使用方法
      * @return 成功使用 true
      */
-    public boolean uesItem(PlayerEntity user, Hand hand, Ues ues){
+    public boolean useItem(PlayerEntity user, Hand hand, Ues ues){
         if (user.isSneaking()){
             return false;
         }
@@ -133,15 +135,19 @@ public class ReinforcedBag extends BaseBlockItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        this.uesItem(user, hand, uesStack -> {
+        ItemStack stack = user.getStackInHand(hand);
+
+        if (this.useItem(user, hand, uesStack -> {
             uesStack.use(world, user, hand);
-        });
-        return super.use(world, user, hand);
+        })){
+            stack.setDamage(stack.getDamage()-1);
+        }
+        return TypedActionResult.success(stack);
     }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if (this.uesItem(user, hand, useStack -> {
+        if (this.useItem(user, hand, useStack -> {
             useStack.useOnEntity(user, entity, hand);
         })){
             return ActionResult.SUCCESS;
@@ -151,7 +157,7 @@ public class ReinforcedBag extends BaseBlockItem {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if (this.uesItem(context.getPlayer(), context.getHand(), useStack -> {
+        if (this.useItem(context.getPlayer(), context.getHand(), useStack -> {
             useStack.useOnBlock(context);
         })){
             return ActionResult.SUCCESS;

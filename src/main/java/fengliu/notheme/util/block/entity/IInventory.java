@@ -9,6 +9,16 @@ import net.minecraft.world.World;
 
 public interface IInventory extends ImplementedInventory {
 
+    static int getItemStackSlot(DefaultedList<ItemStack> items, ItemStack stack){
+        for(ItemStack itemStack: items){
+            if (itemStack.isOf(stack.getItem()) && itemStack.getCount() == stack.getCount()){
+                return items.indexOf(itemStack);
+            }
+        }
+
+        return -1;
+    }
+
     /**
      * 获取库存使用格数
      * @param items 库存

@@ -25,6 +25,7 @@ public class ModBlockItems {
     public static final BlockItem CLOTH_BAG_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.CLOTH_BAG_BLOCK).getItem();
     public static final BlockItem REINFORCED_BAR_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.REINFORCED_BAR_BLOCK).getItem();
     public static final BlockItem BENTO_BOX_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.BENTO_BOX_BLOCK).getItem();
+    public static final BlockItem DRINK_HOLDER_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.DRINK_HOLDER_BLOCK).getItem();
 
     public static final BlockItem[] BODY_GROUP_ITEMS = new BlockItem[]{
         BLOOD_POOL_BLOCK_ITEM,
@@ -40,7 +41,8 @@ public class ModBlockItems {
     public static final BlockItem[] INVEBTORY_GROUP_ITEMS = new BlockItem[]{
         CLOTH_BAG_BLOCK_ITEM,
         REINFORCED_BAR_BLOCK_ITEM,
-        BENTO_BOX_BLOCK_ITEM
+        BENTO_BOX_BLOCK_ITEM,
+        DRINK_HOLDER_BLOCK_ITEM
     };
 
     public static void registerAllBlockItem(){
@@ -50,6 +52,7 @@ public class ModBlockItems {
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.CLOTH_BAG_BLOCK, CLOTH_BAG_BLOCK_ITEM);
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.REINFORCED_BAR_BLOCK, REINFORCED_BAR_BLOCK_ITEM);
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.BENTO_BOX_BLOCK, BENTO_BOX_BLOCK_ITEM);
+        RegisterUtil.registerItem((IBaseBlock) ModBlocks.DRINK_HOLDER_BLOCK, DRINK_HOLDER_BLOCK_ITEM);
 
         RegisterUtil.registerItem(ModBlocks.ABSORPTION_BLOCK, ABSORPTION_BLOCK_ITEM);
         RegisterUtil.registerItem(ModBlocks.WITHER_BLOCK, WITHER_BLOCK_ITEM);

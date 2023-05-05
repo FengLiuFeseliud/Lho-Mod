@@ -12,13 +12,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PotionItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class ReinforcedBagBlock extends ClothBagBlock {
     public ReinforcedBagBlock(Settings settings, int size) {
@@ -33,7 +33,7 @@ public class ReinforcedBagBlock extends ClothBagBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         Item item = player.getStackInHand(hand).getItem();
-        if (item.isFood() || item instanceof ToolItem){
+        if (item.isFood() || item instanceof ToolItem || item instanceof PotionItem){
             return ActionResult.SUCCESS;
         }
 

@@ -28,6 +28,9 @@ public class BentoBox extends ReinforcedBag {
     public boolean canResetBagStack(ItemStack useStack, ItemStack bagStack) {
         return !useStack.isFood();
     }
+    public boolean canEatItemStack(ItemStack useStack, ItemStack bagStack){
+        return useStack.isFood();
+    }
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -37,7 +40,7 @@ public class BentoBox extends ReinforcedBag {
             return user.eatFood(world, stack);
         }
 
-        if (useItemStack.isFood()) {
+        if (this.canEatItemStack(useItemStack, stack)) {
             ItemStack oldUseItemStack = useItemStack.copy();
 
             useItemStack.finishUsing(world, user);
@@ -49,7 +52,7 @@ public class BentoBox extends ReinforcedBag {
 
     public TypedActionResult<ItemStack> edibleItem(PlayerEntity user, Hand hand){
         AtomicReference<TypedActionResult<ItemStack>> result = new AtomicReference<>();
-        if (this.uesItem(user, hand, stack -> {
+        if (this.useItem(user, hand, stack -> {
             result.set(stack.use(user.getWorld(), user, hand));
         })){
             return result.get();
