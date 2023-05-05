@@ -14,12 +14,15 @@ import net.minecraft.util.math.BlockPos;
 
 public abstract class InventoryBlockEntity extends BlockEntity implements IInventory, Nameable {
     private DefaultedList<ItemStack> inventory;
-    private Text customName;
 
     public InventoryBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
+    /**
+     * 设置库存最大大小
+     * @param maxItemStack 库存最大大小
+     */
     protected void setMaxItemStack(int maxItemStack){
         inventory = DefaultedList.ofSize(maxItemStack, ItemStack.EMPTY);
     }
@@ -39,9 +42,5 @@ public abstract class InventoryBlockEntity extends BlockEntity implements IInven
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, this.inventory);
-    }
-
-    public Text getCustomName(){
-        return this.customName;
     }
 }

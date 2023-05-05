@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 
 public interface IInventory extends ImplementedInventory {
 
+    /**
+     * 获取库存使用格数
+     * @param items 库存
+     * @return 使用格数
+     */
     static int getAllUseSize(DefaultedList<ItemStack> items){
         int size = 0;
         for(ItemStack stack: items){
@@ -20,10 +25,18 @@ public interface IInventory extends ImplementedInventory {
         return size;
     }
 
+    /**
+     * 获取库存使用格数
+     * @return 使用格数
+     */
     default int getUseSize(){
         return getAllUseSize(this.getItems());
     }
 
+    /**
+     * 获取库存未使用槽位
+     * @return 未使用槽位, 没有槽位返回 -1
+     */
     default int getEmptySlot(){
         for(ItemStack stack: this.getItems()){
             if (!stack.isEmpty()){
@@ -36,6 +49,11 @@ public interface IInventory extends ImplementedInventory {
         return -1;
     }
 
+    /**
+     * 扔出所有库存, 并清空库存
+     * @param pos 物品生成坐标
+     * @param world 世界
+     */
     default void dropAllItemStack(BlockPos pos, World world){
         for (ItemStack stack: this.getItems()){
             SpawnUtil.spawnItemToPos(stack, pos, world);

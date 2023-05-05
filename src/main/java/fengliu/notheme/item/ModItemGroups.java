@@ -11,22 +11,22 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
 public class ModItemGroups {
-    private static final ItemGroup BLOCK_GROUP = FabricItemGroup.builder(IdUtil.get("block_group"))
-        .icon(() -> new ItemStack((Item) ModBlockItems.CUSTOMERS_BLOCK_ITEMS.keySet().toArray()[0]))
+    private static final ItemGroup INVENTORY_GROUP = FabricItemGroup.builder(IdUtil.get("inventory_group"))
+        .icon(() -> new ItemStack(ModBlockItems.CLOTH_BAG_BLOCK_ITEM))
         .build();
 
-    private static final ItemGroup BODY_GROUP = FabricItemGroup.builder(IdUtil.get("body_group"))
-        .icon(() -> new ItemStack(ModItems.BLOOD_NEEDLE))
+    private static final ItemGroup HEART_GROUP = FabricItemGroup.builder(IdUtil.get("heart_group"))
+        .icon(() -> new ItemStack(ModItems.HEART))
         .build();
 
     public static void registerItemGroup(){
-        ItemGroupEvents.modifyEntriesEvent(BLOCK_GROUP).register(content -> {
+        ItemGroupEvents.modifyEntriesEvent(INVENTORY_GROUP).register(content -> {
 //            LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.CUSTOMERS_BLOCK_ITEMS, content);
 //            LevelsUtil.registerAllItemGroupAll(ModItems.EXPAND_PASSENGERS, content);
             RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.INVEBTORY_GROUP_ITEMS);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(BODY_GROUP).register(content -> {
+        ItemGroupEvents.modifyEntriesEvent(HEART_GROUP).register(content -> {
             RegisterUtil.registerItemsToItemGroup(content, ModItems.BODY_GROUP_ITEMS);
             LevelsUtil.registerAllItemGroupAll(ModItems.HEART_DROP_DEVICE, content);
             LevelsUtil.registerAllItemGroupAll(ModItems.HEART_ABSORPTION_DEVICE, content);

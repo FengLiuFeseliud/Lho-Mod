@@ -40,12 +40,22 @@ public class ReinforcedBag extends BaseBlockItem {
         void in(ItemStack stack);
     }
 
+    /**
+     * Nbt 转库存
+     * @param bagStackNbt 袋子物品 nbt
+     * @return 库存
+     */
     public DefaultedList<ItemStack> getStacks(NbtCompound bagStackNbt){
         DefaultedList<ItemStack> stacks = DefaultedList.ofSize(((ItemStackInventoryBlock) this.getBlock()).getSize(), ItemStack.EMPTY);
         Inventories.readNbt(bagStackNbt.getCompound(BLOCK_ENTITY_TAG_KEY), stacks);
         return stacks;
     }
 
+    /**
+     * 获取当前使用物品
+     * @param stacks 库存
+     * @return 物品格
+     */
     public ItemStack getUseItemStack(DefaultedList<ItemStack> stacks){
         for(ItemStack stack: stacks){
             if (stack.isEmpty() || stack.getItem() instanceof ToolItem){
@@ -56,6 +66,14 @@ public class ReinforcedBag extends BaseBlockItem {
         return ItemStack.EMPTY;
     }
 
+    /**
+     * 重新设置袋子
+     * @param oldBagStack 旧袋子
+     * @param useStack 当前使用物品
+     * @param stacks 库存
+     * @param user 玩家
+     * @param hand 使用手
+     */
     public void resetBagStack(ItemStack oldBagStack, ItemStack useStack, DefaultedList<ItemStack> stacks, PlayerEntity user, Hand hand){
         NbtCompound bagStackNbt = oldBagStack.getOrCreateNbt();
 
@@ -69,10 +87,23 @@ public class ReinforcedBag extends BaseBlockItem {
         user.setStackInHand(hand, oldBagStack);
     }
 
+    /**
+     * 是否可以重新设置袋子
+     * @param useStack 当前使用物品
+     * @param bagStack 袋子
+     * @return 可以 true
+     */
     public boolean canResetBagStack(ItemStack useStack, ItemStack bagStack){
         return true;
     }
 
+    /**
+     * 使用袋子物品
+     * @param user 玩家
+     * @param hand 使用手
+     * @param ues 使用方法
+     * @return 成功使用 true
+     */
     public boolean uesItem(PlayerEntity user, Hand hand, Ues ues){
         if (user.isSneaking()){
             return false;
@@ -129,11 +160,26 @@ public class ReinforcedBag extends BaseBlockItem {
     }
 
     @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        ItemStack useStack = this.getUseItemStack(this.getStacks(stack.getOrCreateNbt()));
+        if (useStack.isEmpty()){
+            super.appendTooltip(stack, world, tooltip, context);
+            return;
+        }
+
+        super.appendTooltip(stack, world, tooltip, context);
+        // 显示使用物品
+        tooltip.add(Text.translatable(IdUtil.getItemInfo("reinforced_bag", 2), useStack.getName()));
+    }
+
+    @Override
     public Text getName(ItemStack stack) {
         ItemStack useStack = this.getUseItemStack(this.getStacks(stack.getOrCreateNbt()));
         if (useStack.isEmpty()){
             return super.getName(stack);
         }
-        return ((MutableText) super.getName(stack)).append(Text.translatable(IdUtil.getItemInfo("reinforced_bag"), useStack.getName()));
+
+        // 显示使用物品
+        return ((MutableText) super.getName(stack)).append(Text.translatable(IdUtil.getItemInfo("reinforced_bag", 1), useStack.getName()));
     }
 }

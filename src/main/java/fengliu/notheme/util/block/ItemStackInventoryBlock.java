@@ -22,19 +22,45 @@ import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.item.BlockItem.BLOCK_ENTITY_TAG_KEY;
 
+/**
+ * 移动库存方块
+ */
 public abstract class ItemStackInventoryBlock extends BlockWithEntity {
     protected IntProperty Inventory;
     private final int size;
 
+    /**
+     * 移动库存方块
+     * @param settings 方块属性
+     * @param size 库存大小
+     */
     protected ItemStackInventoryBlock(Settings settings, int size) {
         super(settings);
         this.size = size;
     }
 
+    /**
+     * 方块物品
+     * @return 物品
+     */
     public abstract BlockItem getItem();
+
+    /**
+     * 方块物品格
+     * @return 物品格
+     */
     public abstract ItemStack getItemStack();
+
+    /**
+     * 方块库存状态 IntProperty
+     * @return IntProperty
+     */
     public abstract IntProperty getInventoryProperty();
 
+    /**
+     * 方块库存大小
+     * @return 库存大小
+     */
     public int getSize(){
         return this.size;
     }
@@ -55,6 +81,7 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
             return;
         }
 
+        // 从物品格读取库存
         inventoryBlockEntity.readNbt(itemStack.getOrCreateNbt());
         world.setBlockState(pos, state.with(this.Inventory, inventoryBlockEntity.getUseSize()));
         super.onPlaced(world, pos, state, placer, itemStack);
@@ -68,11 +95,13 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
             return;
         }
 
+        // 如果库存为空并且创造模式, 直接破坏方块不掉落
         if (inventoryBlockEntity.getItems().stream().allMatch(ItemStack::isEmpty) && player.isCreative()){
             super.onBreak(world, pos, state, player);
             return;
         }
 
+        // 掉落库存
         SpawnUtil.spawnItemToPos(inventoryBlockEntity.writeInventoryToItemStack(this.getItemStack()), pos, world);
         super.onBreak(world, pos, state, player);
     }

@@ -15,7 +15,7 @@ public class IdUtil {
     }
 
     public static String getItemInfo(String name){
-        return "item." + NoThemeMod.MOD_ID + "." + name + ".info";
+        return NoThemeMod.MOD_ID + ".item." + name + ".info";
     }
 
     public static String getItemInfo(String name, int index){

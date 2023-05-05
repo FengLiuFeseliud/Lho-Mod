@@ -1,8 +1,13 @@
 {
-    "itemGroup.notheme.block_group": "",
-    "itemGroup.notheme.body_group": "",
+    "itemGroup.notheme.inventory_group": "NoTheme - 存储",
+    "itemGroup.notheme.heart_group": "NoTheme - 血量工艺",
 
-    "notheme.advancements.heart.root.title": "NoTheme-血量工艺",
+    "notheme.item.reinforced_bag.info.1": " - %s",
+    "notheme.item.reinforced_bag.info.2": "使用: %s",
+
+    "notheme.block.upgrade.info": "你不能升级该方块",
+
+    "notheme.advancements.heart.root.title": "NoTheme - 血量工艺",
     "notheme.advancements.heart.root.description": "开始控制你的血量吧!",
 
     "notheme.advancements.heart.get_empty_blood_needle.title": "这是???",
@@ -94,8 +99,6 @@
 
     "notheme.advancements.heart.crafted_heart_absorption_device_lv_3.title": "自愈者",
     "notheme.advancements.heart.crafted_heart_absorption_device_lv_3.description": "制作三级心吸收装置",
-
-    "notheme.block.upgrade.info": "你不能升级该方块",
 
     "item.notheme.stabilizer": "稳定剂",
     "item.notheme.stabilizer.tooltip": "众所周知, 玻璃杯里的药水不会失效, 所以心里放点玻璃也不会失效",
@@ -195,7 +198,6 @@
     "block.item.notheme.cloth_bag.tooltip": "空手使用取出物品, 非空手存入物品, 潜行使用取走袋子, 可以装 5 格物品",
 
     "block.notheme.reinforced_bag": "强化袋子",
-    "item.notheme.reinforced_bag.info": " - %s",
     "block.item.notheme.reinforced_bag.tooltip": "存储物品, 不过你可以直接使用里面的物品!",
 
     "block.notheme.bento_box": "便当盒",
