@@ -25,8 +25,8 @@ public class ModBlocks {
     public static final Block BLOOD_POOL_BLOCK = new BloodPoolBlock(FabricBlockSettings.of(Material.STONE).strength(5.0f).requiresTool().nonOpaque());
     public static final Block CLOTH_BAG_BLOCK = new ClothBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
     public static final Block REINFORCED_BAR_BLOCK = new ReinforcedBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
-    public static final Block BENTO_BOX_BLOCK = new BentoBoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 3);
-    public static final Block DRINK_HOLDER_BLOCK = new DrinkHolderBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
+    public static final Map<Block, ILevelBlock> BENTO_BOX_BLOCKS = LevelsUtil.getBlocks(BentoBoxBlock.BentoBoxBlockLevel.values());
+    public static final Map<Block, ILevelBlock> DRINK_HOLDER_BLOCKS = LevelsUtil.getBlocks(DrinkHolderBlock.DrinkHolderBlockLevels.values());
     public static final BaseBlock WITHER_BLOCK = new WitherBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "wither_block");
     public static final BaseBlock LIFE_BLOCK = new LifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "life_block");
     public static final BaseBlock ABSORPTION_BLOCK = new AbsorptionBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "absorption_block");
@@ -56,8 +56,9 @@ public class ModBlocks {
         RegisterUtil.registerBlock((IBaseBlock) BLOOD_POOL_BLOCK);
         RegisterUtil.registerBlock((IBaseBlock) CLOTH_BAG_BLOCK);
         RegisterUtil.registerBlock((IBaseBlock) REINFORCED_BAR_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) BENTO_BOX_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) DRINK_HOLDER_BLOCK);
+
+        LevelsUtil.registerAllBlock(BENTO_BOX_BLOCKS);
+        LevelsUtil.registerAllBlock(DRINK_HOLDER_BLOCKS);
 
         RegisterUtil.registerBlocks(HEART_GROUP_BLOCK);
     }

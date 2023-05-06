@@ -7,6 +7,7 @@ import fengliu.notheme.util.block.IBaseBlock;
 import fengliu.notheme.util.block.ItemStackInventoryBlock;
 import fengliu.notheme.util.block.entity.IInventory;
 import fengliu.notheme.util.item.BaseItem;
+import fengliu.notheme.util.item.IItemStackInventoryBlockItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +31,7 @@ import java.util.List;
 
 import static net.minecraft.item.ItemStack.DAMAGE_KEY;
 
-public class ReinforcedBag extends BaseBlockItem {
+public class ReinforcedBag extends BaseBlockItem implements IItemStackInventoryBlockItem {
 
     public ReinforcedBag(IBaseBlock block, Settings settings) {
         super(block, settings);
@@ -38,17 +39,6 @@ public class ReinforcedBag extends BaseBlockItem {
 
     protected interface Ues{
         void in(ItemStack stack);
-    }
-
-    /**
-     * Nbt 转库存
-     * @param bagStackNbt 袋子物品 nbt
-     * @return 库存
-     */
-    public DefaultedList<ItemStack> getStacks(NbtCompound bagStackNbt){
-        DefaultedList<ItemStack> stacks = DefaultedList.ofSize(((ItemStackInventoryBlock) this.getBlock()).getSize(), ItemStack.EMPTY);
-        Inventories.readNbt(bagStackNbt.getCompound(BLOCK_ENTITY_TAG_KEY), stacks);
-        return stacks;
     }
 
     /**
@@ -187,5 +177,10 @@ public class ReinforcedBag extends BaseBlockItem {
 
         // 显示使用物品
         return ((MutableText) super.getName(stack)).append(Text.translatable(IdUtil.getItemInfo("reinforced_bag", 1), useStack.getName()));
+    }
+
+    @Override
+    public ItemStackInventoryBlock getInventoryBlock() {
+        return (ItemStackInventoryBlock) this.getBlock();
     }
 }

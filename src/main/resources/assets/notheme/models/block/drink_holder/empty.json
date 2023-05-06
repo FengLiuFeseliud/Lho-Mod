@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "notheme:block/drink_holder/drink_holder_5",
-		"particle": "notheme:block/drink_holder/drink_holder_5"
+		"0": "notheme:block/drink_holder",
+		"particle": "notheme:block/drink_holder"
 	},
 	"elements": [
 		{
@@ -69,16 +69,17 @@
 	],
 	"groups": [
 		{
-			"name": "body",
+			"name": "1",
 			"origin": [8, 8, 8],
 			"color": 0,
-			"children": [0, 1, 2, 3, 4]
-		},
-		{
-			"name": "od",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": []
+			"children": [
+				{
+					"name": "body",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0, 1, 2, 3, 4]
+				}
+			]
 		}
 	]
 }

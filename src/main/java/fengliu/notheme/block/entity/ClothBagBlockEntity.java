@@ -5,6 +5,7 @@ import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.block.ItemStackInventoryBlock;
 import fengliu.notheme.util.block.entity.ItemStackInventoryBlockEntity;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -28,13 +29,17 @@ public class ClothBagBlockEntity extends ItemStackInventoryBlockEntity {
         return ItemStack.EMPTY;
     }
 
-    public void saveItemStack(ItemStack stack){
+    public void saveItemStack(ItemStack stack, PlayerEntity player){
         int slot = this.getEmptySlot();
         if (slot == -1){
             return;
         }
 
         this.setStack(slot, stack.copy());
+        if(player.isCreative()){
+            return;
+        }
+        
         stack.setCount(0);
     }
 

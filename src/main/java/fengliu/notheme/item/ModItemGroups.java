@@ -24,6 +24,8 @@ public class ModItemGroups {
 //            LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.CUSTOMERS_BLOCK_ITEMS, content);
 //            LevelsUtil.registerAllItemGroupAll(ModItems.EXPAND_PASSENGERS, content);
             RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.INVEBTORY_GROUP_ITEMS);
+            LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.BENTO_BOX_BLOCK_ITEMS, content);
+            LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.DRINK_HOLDER_BLOCK_ITEMS, content);
         });
 
         ItemGroupEvents.modifyEntriesEvent(HEART_GROUP).register(content -> {

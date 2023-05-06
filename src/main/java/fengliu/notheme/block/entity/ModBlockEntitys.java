@@ -14,8 +14,8 @@ public class ModBlockEntitys {
     public static BlockEntityType<?> BLOOD_POOL_BLOCK_ENTITY;
     public static BlockEntityType<?> CLOTH_BAG_BLOCK_ENTITY;
     public static BlockEntityType<?> REINFORCED_BAR_BLOCK_ENTITY;
-    public static BlockEntityType<?> BENTO_BOX_BLOCK_ENTITY;
-    public static BlockEntityType<?> DRINK_HOLDER_BLOCK_ENTITY;
+    public static Map<ILevelBlock, BlockEntityType<?>> BENTO_BOX_BLOCK_ENTITYS;
+    public static Map<ILevelBlock, BlockEntityType<?>> DRINK_HOLDER_BLOCK_ENTITYS;
 
     public static void registerAllBlockEntity(){
         CustomersBlockEntityTypes = LevelsUtil.registerAllBlockEntity(ModBlocks.CUSTOMERS_BLOCKS);
@@ -23,7 +23,7 @@ public class ModBlockEntitys {
         BLOOD_POOL_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.BLOOD_POOL_BLOCK, BloodPoolBlockEntity::new);
         CLOTH_BAG_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.CLOTH_BAG_BLOCK, ClothBagBlockEntity::new);
         REINFORCED_BAR_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.REINFORCED_BAR_BLOCK, ClothBagBlockEntity::new);
-        BENTO_BOX_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.BENTO_BOX_BLOCK, ClothBagBlockEntity::new);
-        DRINK_HOLDER_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.DRINK_HOLDER_BLOCK, ClothBagBlockEntity::new);
+        BENTO_BOX_BLOCK_ENTITYS = LevelsUtil.registerAllBlockEntity(ModBlocks.BENTO_BOX_BLOCKS);
+        DRINK_HOLDER_BLOCK_ENTITYS = LevelsUtil.registerAllBlockEntity(ModBlocks.DRINK_HOLDER_BLOCKS);
     }
 }

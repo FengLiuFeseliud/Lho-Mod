@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures": {
         "layer0": "notheme:item/drink_holder_layer_0",
-        "layer1": "notheme:item/drink_holder"
+        "layer1": "notheme:item/three_deck_drink_holder"
     }
 }

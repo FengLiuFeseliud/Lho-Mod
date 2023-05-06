@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "notheme:item/bento_box",
-        "layer1": "notheme:item/bento_box_layer_1"
+        "layer0": "notheme:item/bento_box_layer_0",
+        "layer1": "notheme:item/bento_box"
     }
 }

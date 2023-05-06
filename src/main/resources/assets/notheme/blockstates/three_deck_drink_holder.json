@@ -1,0 +1,628 @@
+{
+    "multipart": [
+        {
+            "when": {
+                "inventory": "0",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/empty"
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/empty",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/empty",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/empty",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_1"
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_1",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_1",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_1",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_2"
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_2",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_2",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_2",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_3"
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_3",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_3",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_3",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_4"
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_4",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_4",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_4",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_5"
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_5",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_5",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_5",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_6"
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_6",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_6",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_6",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_7"
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_7",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_7",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_7",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_8"
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_8",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_8",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_8",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_9"
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_9",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_9",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_9",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_10"
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_10",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_10",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_10",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_11"
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_11",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_11",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_11",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_12"
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_12",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_12",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_12",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "13",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_13"
+            }
+        },
+        {
+            "when": {
+                "inventory": "13",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_13",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "13",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_13",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "13",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_13",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "14",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_14"
+            }
+        },
+        {
+            "when": {
+                "inventory": "14",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_14",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "14",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_14",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "14",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_14",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "15",
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_15"
+            }
+        },
+        {
+            "when": {
+                "inventory": "15",
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_15",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "15",
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_15",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "15",
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/drink_holder/drink_holder_15",
+                "y": 270
+            }
+        }
+    ]
+}

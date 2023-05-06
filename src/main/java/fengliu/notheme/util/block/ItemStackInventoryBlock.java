@@ -3,7 +3,9 @@ package fengliu.notheme.util.block;
 import fengliu.notheme.util.SpawnUtil;
 import fengliu.notheme.util.block.entity.InventoryBlockEntity;
 import fengliu.notheme.util.block.entity.ItemStackInventoryBlockEntity;
+import fengliu.notheme.util.item.IItemStackInventoryBlockItem;
 import net.minecraft.block.Block;
+import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -66,6 +68,12 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
     }
 
     public boolean canTake(ItemStack stack){
+        if(stack.getItem() instanceof BlockItem blockItem){
+            if(blockItem.getBlock() instanceof ItemStackInventoryBlock || blockItem.getBlock() instanceof ShulkerBoxBlock){
+                return false;
+            }
+        }
+
         NbtCompound nbt = stack.getOrCreateNbt();
         if (!nbt.contains(BLOCK_ENTITY_TAG_KEY, NbtElement.COMPOUND_TYPE)){
             return true;

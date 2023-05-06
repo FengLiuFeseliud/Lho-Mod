@@ -121,6 +121,15 @@ public class LevelsUtil {
         return blockEntityTypes;
     }
 
+    public static BlockItem getBlockItem(Map<BlockItem, ILevelBlock> blockItems, Block block){
+        for(BlockItem item: blockItems.keySet()){
+            if (item.getBlock().equals(block)){
+                return item;
+            }
+        }
+        return null;
+    }
+
     public static ItemStack playerInventoryContainsItemStacks(PlayerEntity player, Map<Item, ILevelItem> items){
         AtomicReference<ItemStack> containStack = new AtomicReference<>();
         for(Item item: items.keySet()){

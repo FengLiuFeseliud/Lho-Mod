@@ -61,7 +61,7 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
                 world.setBlockState(pos, state.with(this.Inventory, state.get(this.Inventory) - 1));
             }
         } else if (this.canTake(stack)){
-            clothBagBlock.saveItemStack(stack);
+            clothBagBlock.saveItemStack(stack, player);
             if (inventory < this.getSize()){
                 world.setBlockState(pos, state.with(this.Inventory, inventory + 1));
             }
