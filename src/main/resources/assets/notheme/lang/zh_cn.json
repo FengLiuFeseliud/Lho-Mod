@@ -218,6 +218,9 @@
     "block.notheme.three_deck_drink_holder": "三层饮料架",
     "block.item.notheme.three_deck_drink_holder.tooltip": "存储药水, 不过有整整 15 瓶!",
 
+    "block.notheme.bedrock_breaker": "基岩破坏器",
+    "block.item.notheme.bedrock_breaker.tooltip": "好像是一种装置的缩小版?",
+
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",
 

@@ -47,7 +47,7 @@ public class DrinkHolder extends BentoBox {
 
     @Override
     public boolean canResetBagStack(ItemStack useStack, ItemStack bagStack) {
-        return useStack.getItem() instanceof ThrowablePotionItem;
+        return useStack.getItem() instanceof ThrowablePotionItem || useStack.isEmpty();
     }
 
     @Override

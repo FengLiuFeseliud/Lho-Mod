@@ -41,11 +41,6 @@ public class BaseBlockItem extends BlockItem {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        return super.use(world, user, hand);
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable(this.tooltipKey));
         super.appendTooltip(stack, world, tooltip, context);

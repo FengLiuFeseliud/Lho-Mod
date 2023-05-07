@@ -86,6 +86,10 @@ public class ModItems {
         HEART_BOOTS
     };
 
+
+    public static final BaseArmorItem[] MINI_DEVICE_GROUP_ITEMS = new BaseArmorItem[]{
+
+    };
 //    public static final BaseItem PHONE = new Phone(new FabricItemSettings().maxCount(1), "phone");
 //
 //    public static final BaseItem[] INTERNET_ITEMS = new BaseItem[]{
@@ -100,5 +104,6 @@ public class ModItems {
         LevelsUtil.registerAllItem(HEART_ABSORPTION_DEVICE);
 
         RegisterUtil.registerArmorItems(BODY_GROUP_ARMOR_ITEMS);
+        RegisterUtil.registerArmorItems(MINI_DEVICE_GROUP_ITEMS);
     }
 }

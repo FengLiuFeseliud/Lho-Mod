@@ -16,6 +16,7 @@ public class ModBlockEntitys {
     public static BlockEntityType<?> REINFORCED_BAR_BLOCK_ENTITY;
     public static Map<ILevelBlock, BlockEntityType<?>> BENTO_BOX_BLOCK_ENTITYS;
     public static Map<ILevelBlock, BlockEntityType<?>> DRINK_HOLDER_BLOCK_ENTITYS;
+    public static BlockEntityType<?> BEDROCK_BREAKER_BLOCK_ENTITY;
 
     public static void registerAllBlockEntity(){
         CustomersBlockEntityTypes = LevelsUtil.registerAllBlockEntity(ModBlocks.CUSTOMERS_BLOCKS);
@@ -25,5 +26,6 @@ public class ModBlockEntitys {
         REINFORCED_BAR_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.REINFORCED_BAR_BLOCK, ClothBagBlockEntity::new);
         BENTO_BOX_BLOCK_ENTITYS = LevelsUtil.registerAllBlockEntity(ModBlocks.BENTO_BOX_BLOCKS);
         DRINK_HOLDER_BLOCK_ENTITYS = LevelsUtil.registerAllBlockEntity(ModBlocks.DRINK_HOLDER_BLOCKS);
+        BEDROCK_BREAKER_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, BedrockBreakerBlockEntity::new);
     }
 }

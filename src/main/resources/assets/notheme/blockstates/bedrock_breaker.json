@@ -1,0 +1,172 @@
+{
+    "multipart": [
+        {
+            "when": {
+                "facing": "north",
+                "use": false,
+                "click": 0
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/reset"
+            }
+        },
+        {
+            "when": {
+                "facing": "east",
+                "use": false,
+                "click": 0
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/reset",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "facing": "south",
+                "use": false,
+                "click": 0
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/reset",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "facing": "west",
+                "use": false,
+                "click": 0
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/reset",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "facing": "north",
+                "use": false,
+                "click": 1
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_1"
+            }
+        },
+        {
+            "when": {
+                "facing": "east",
+                "use": false,
+                "click": 1
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_1",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "facing": "south",
+                "use": false,
+                "click": 1
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_1",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "facing": "west",
+                "use": false,
+                "click": 1
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_1",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "facing": "north",
+                "use": false,
+                "click": 2
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_2"
+            }
+        },
+        {
+            "when": {
+                "facing": "east",
+                "use": false,
+                "click": 2
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_2",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "facing": "south",
+                "use": false,
+                "click": 2
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_2",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "facing": "west",
+                "use": false,
+                "click": 2
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/use_2",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "facing": "north",
+                "use": true
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/useed"
+            }
+        },
+        {
+            "when": {
+                "facing": "east",
+                "use": true
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/useed",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "facing": "south",
+                "use": true
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/useed",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "facing": "west",
+                "use": true
+            },
+            "apply": {
+                "model": "notheme:block/bedrock_breaker/useed",
+                "y": 270
+            }
+        }
+    ]
+}

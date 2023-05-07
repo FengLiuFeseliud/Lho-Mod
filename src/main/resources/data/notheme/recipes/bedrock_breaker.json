@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LST",
+        "TSP",
+        " Df"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:smooth_stone"
+        },
+        "T": {
+            "item": "minecraft:tnt"
+        },
+        "P": {
+            "item": "minecraft:piston"
+        },
+        "L": {
+            "item": "minecraft:lever"
+        },
+        "D": {
+            "tag": "minecraft:trapdoors"
+        },
+        "f": {
+            "item": "minecraft:flint_and_steel"
+        }
+    },
+    "result": {
+        "item": "notheme:bedrock_breaker",
+        "count": 1
+    }
+}

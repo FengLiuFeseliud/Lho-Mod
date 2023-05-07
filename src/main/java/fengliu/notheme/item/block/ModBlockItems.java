@@ -1,10 +1,12 @@
 package fengliu.notheme.item.block;
 
 import fengliu.notheme.block.ModBlocks;
+import fengliu.notheme.item.mini.device.BedrockBreaker;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.block.IBaseBlock;
 import fengliu.notheme.util.block.ItemStackInventoryBlock;
+import fengliu.notheme.util.item.armor.BaseArmorItem;
 import fengliu.notheme.util.level.ILevelBlock;
 import fengliu.notheme.util.level.LevelsUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -22,10 +24,6 @@ public class ModBlockItems {
     public static final BlockItem LIFE_BLOCK_ITEM = new BaseBlockItem(ModBlocks.LIFE_BLOCK);
     public static final BlockItem POISON_BLOCK_ITEM = new BaseBlockItem(ModBlocks.POISON_BLOCK);
     public static final BlockItem LONG_FOR_LIFE_BLOCK_ITEM = new BaseBlockItem(ModBlocks.LONG_FOR_LIFE_BLOCK);
-    public static final BlockItem CLOTH_BAG_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.CLOTH_BAG_BLOCK).getItem();
-    public static final BlockItem REINFORCED_BAR_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.REINFORCED_BAR_BLOCK).getItem();
-    public static final Map<BlockItem, ILevelBlock> BENTO_BOX_BLOCK_ITEMS = LevelsUtil.getBlockItems(ModBlocks.BENTO_BOX_BLOCKS);
-    public static final Map<BlockItem, ILevelBlock> DRINK_HOLDER_BLOCK_ITEMS = LevelsUtil.getBlockItems(ModBlocks.DRINK_HOLDER_BLOCKS);
 
     public static final BlockItem[] BODY_GROUP_ITEMS = new BlockItem[]{
         BLOOD_POOL_BLOCK_ITEM,
@@ -38,9 +36,20 @@ public class ModBlockItems {
         LONG_FOR_LIFE_BLOCK_ITEM
     };
 
+    public static final BlockItem CLOTH_BAG_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.CLOTH_BAG_BLOCK).getItem();
+    public static final BlockItem REINFORCED_BAR_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.REINFORCED_BAR_BLOCK).getItem();
+    public static final Map<BlockItem, ILevelBlock> BENTO_BOX_BLOCK_ITEMS = LevelsUtil.getBlockItems(ModBlocks.BENTO_BOX_BLOCKS);
+    public static final Map<BlockItem, ILevelBlock> DRINK_HOLDER_BLOCK_ITEMS = LevelsUtil.getBlockItems(ModBlocks.DRINK_HOLDER_BLOCKS);
+
     public static final BlockItem[] INVEBTORY_GROUP_ITEMS = new BlockItem[]{
         CLOTH_BAG_BLOCK_ITEM,
         REINFORCED_BAR_BLOCK_ITEM,
+    };
+
+    public static final BlockItem BEDROCK_BREAKER_BLOCK_ITEM = new BedrockBreaker((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, new FabricItemSettings().maxCount(1).maxDamage(1));
+
+    public static final BlockItem[] MINI_DEVICE_GROUP_ITEMS = new BlockItem[]{
+        BEDROCK_BREAKER_BLOCK_ITEM
     };
 
     public static void registerAllBlockItem(){
@@ -59,5 +68,7 @@ public class ModBlockItems {
         RegisterUtil.registerItem(ModBlocks.ANIMAL_BLOCK, ANIMAL_BLOCK_ITEM);
         RegisterUtil.registerItem(ModBlocks.POISON_BLOCK, POISON_BLOCK_ITEM);
         RegisterUtil.registerItem(ModBlocks.LONG_FOR_LIFE_BLOCK, LONG_FOR_LIFE_BLOCK_ITEM);
+
+        RegisterUtil.registerItem((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, BEDROCK_BREAKER_BLOCK_ITEM);
     }
 }

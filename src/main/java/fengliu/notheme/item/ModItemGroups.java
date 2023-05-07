@@ -15,6 +15,10 @@ public class ModItemGroups {
         .icon(() -> new ItemStack(ModBlockItems.CLOTH_BAG_BLOCK_ITEM))
         .build();
 
+    private static final ItemGroup MINI_DEVICE_GROUP = FabricItemGroup.builder(IdUtil.get("mini_device_group"))
+        .icon(() -> new ItemStack(ModBlockItems.BEDROCK_BREAKER_BLOCK_ITEM))
+        .build();
+
     private static final ItemGroup HEART_GROUP = FabricItemGroup.builder(IdUtil.get("heart_group"))
         .icon(() -> new ItemStack(ModItems.HEART))
         .build();
@@ -26,6 +30,10 @@ public class ModItemGroups {
             RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.INVEBTORY_GROUP_ITEMS);
             LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.BENTO_BOX_BLOCK_ITEMS, content);
             LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.DRINK_HOLDER_BLOCK_ITEMS, content);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(MINI_DEVICE_GROUP).register(content -> {
+            RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.MINI_DEVICE_GROUP_ITEMS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(HEART_GROUP).register(content -> {

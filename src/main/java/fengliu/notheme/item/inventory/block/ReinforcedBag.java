@@ -73,7 +73,9 @@ public class ReinforcedBag extends BaseBlockItem implements IItemStackInventoryB
             bagStackNbt.putInt(DAMAGE_KEY, oldBagStack.getDamage()-1);
         }
 
-        stacks.set(slot, useStack);
+        if (slot != -1){
+            stacks.set(slot, useStack);
+        }
         bagStackNbt.put(BLOCK_ENTITY_TAG_KEY, Inventories.writeNbt(bagStackNbt.getCompound(BLOCK_ENTITY_TAG_KEY), stacks));
         oldBagStack.setNbt(bagStackNbt);
         user.setStackInHand(hand, oldBagStack);
@@ -125,14 +127,13 @@ public class ReinforcedBag extends BaseBlockItem implements IItemStackInventoryB
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack stack = user.getStackInHand(hand);
-
         if (this.useItem(user, hand, uesStack -> {
             uesStack.use(world, user, hand);
         })){
+            ItemStack stack = user.getStackInHand(hand);
             stack.setDamage(stack.getDamage()-1);
         }
-        return TypedActionResult.success(stack);
+        return TypedActionResult.success(user.getStackInHand(hand));
     }
 
     @Override
