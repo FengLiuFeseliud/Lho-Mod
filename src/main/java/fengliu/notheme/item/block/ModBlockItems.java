@@ -47,9 +47,11 @@ public class ModBlockItems {
     };
 
     public static final BlockItem BEDROCK_BREAKER_BLOCK_ITEM = new BedrockBreaker((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, new FabricItemSettings().maxCount(1).maxDamage(1));
+    public static final BlockItem UPDATE_SKIPPING_BLOCK_ITEM = new BaseBlockItem((IBaseBlock) ModBlocks.UPDATE_SKIPPING_BLOCK, new FabricItemSettings().maxCount(1));
 
     public static final BlockItem[] MINI_DEVICE_GROUP_ITEMS = new BlockItem[]{
-        BEDROCK_BREAKER_BLOCK_ITEM
+        BEDROCK_BREAKER_BLOCK_ITEM,
+        UPDATE_SKIPPING_BLOCK_ITEM
     };
 
     public static void registerAllBlockItem(){
@@ -70,5 +72,6 @@ public class ModBlockItems {
         RegisterUtil.registerItem(ModBlocks.LONG_FOR_LIFE_BLOCK, LONG_FOR_LIFE_BLOCK_ITEM);
 
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, BEDROCK_BREAKER_BLOCK_ITEM);
+        RegisterUtil.registerItem((IBaseBlock) ModBlocks.UPDATE_SKIPPING_BLOCK, UPDATE_SKIPPING_BLOCK_ITEM);
     }
 }

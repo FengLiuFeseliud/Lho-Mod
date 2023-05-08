@@ -15,6 +15,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
@@ -49,7 +51,7 @@ public class BedrockBreakerBlock extends FacingEntityBlock {
             return super.onUse(state, world, pos, player, hand, hit);
         }
 
-        if (breakerBlockEntity.getDamage() == 1 && breakerBlockEntity.usePlayer == null){
+        if (breakerBlockEntity.getDamage() == 1 && breakerBlockEntity.getUsePlayer() == null){
             return super.onUse(state, world, pos, player, hand, hit);
         }
 
@@ -60,6 +62,8 @@ public class BedrockBreakerBlock extends FacingEntityBlock {
 
         breakerBlockEntity.setDamage(1);
         breakerBlockEntity.setUsePlayer(player);
+        world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS);
+        world.playSound(null, pos, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS);
         return super.onUse(state, world, pos, player, hand, hit);
     }
 

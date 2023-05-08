@@ -3,7 +3,6 @@ package fengliu.notheme.block.entity;
 import fengliu.notheme.block.mini.device.BedrockBreakerBlock;
 import fengliu.notheme.util.Tick;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.PlantBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -12,7 +11,7 @@ import net.minecraft.world.World;
 public class BedrockBreakerBlockEntity extends BlockEntity {
     public final Tick useTick = new Tick(60);
     private int clickCount = 0;
-    public PlayerEntity usePlayer = null;
+    private PlayerEntity usePlayer = null;
     private int damage = 0;
 
     public BedrockBreakerBlockEntity(BlockPos pos, BlockState state) {
@@ -53,7 +52,7 @@ public class BedrockBreakerBlockEntity extends BlockEntity {
         }
 
         if (!bedrockBreakerBlock.useTick.canAccomplish()){
-            if (bedrockBreakerBlock.useTick.getTick() % 5 != 0){
+            if (bedrockBreakerBlock.useTick.getTick() % 5 != 0 || world.isClient()){
                 return;
             }
 

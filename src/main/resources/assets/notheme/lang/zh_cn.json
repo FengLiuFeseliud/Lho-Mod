@@ -221,6 +221,9 @@
     "block.notheme.bedrock_breaker": "基岩破坏器",
     "block.item.notheme.bedrock_breaker.tooltip": "好像是一种装置的缩小版?",
 
+    "block.notheme.update_skipping": "单片地狱门制作器",
+    "block.item.notheme.update_skipping.tooltip": "奇怪, 这东西怎么不会卡?",
+
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",
 

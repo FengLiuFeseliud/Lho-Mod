@@ -3,7 +3,7 @@
     "pattern": [
         "LST",
         "TSP",
-        " Df"
+        " D "
     ],
     "key": {
         "S": {
@@ -20,9 +20,6 @@
         },
         "D": {
             "tag": "minecraft:trapdoors"
-        },
-        "f": {
-            "item": "minecraft:flint_and_steel"
         }
     },
     "result": {

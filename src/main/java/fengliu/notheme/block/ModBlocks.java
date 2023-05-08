@@ -6,6 +6,7 @@ import fengliu.notheme.block.inventory.ClothBagBlock;
 import fengliu.notheme.block.inventory.DrinkHolderBlock;
 import fengliu.notheme.block.inventory.ReinforcedBagBlock;
 import fengliu.notheme.block.mini.device.BedrockBreakerBlock;
+import fengliu.notheme.block.mini.device.UpdateSkippingBlock;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.block.BaseBlock;
 import fengliu.notheme.util.block.IBaseBlock;
@@ -35,7 +36,8 @@ public class ModBlocks {
     public static final BaseBlock POISON_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "poison_block");
     public static final BaseBlock ANIMAL_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "animal_block");
     public static final BaseBlock LONG_FOR_LIFE_BLOCK = new LongForLifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "long_for_life_block");
-    public static final Block BEDROCK_BREAKER_BLOCK = new BedrockBreakerBlock(FabricBlockSettings.of(Material.STONE).strength(1.0f, 1200).requiresTool().nonOpaque(), "bedrock_breaker");
+    public static final Block BEDROCK_BREAKER_BLOCK = new BedrockBreakerBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 1200).requiresTool().nonOpaque(), "bedrock_breaker");
+    public static final Block UPDATE_SKIPPING_BLOCK = new UpdateSkippingBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "update_skipping");
 
     @Environment(EnvType.CLIENT)
     public static void setAllBlockRenderLayerMap(){
@@ -70,5 +72,6 @@ public class ModBlocks {
         RegisterUtil.registerBlocks(MINI_DEVICE_GROUP_BLOCK);
 
         RegisterUtil.registerBlock((IBaseBlock) BEDROCK_BREAKER_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) UPDATE_SKIPPING_BLOCK);
     }
 }
