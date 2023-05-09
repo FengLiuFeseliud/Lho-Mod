@@ -1,21 +1,17 @@
 package fengliu.notheme.item.inventory.block;
 
-import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.item.block.BaseBlockItem;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.block.IBaseBlock;
 import fengliu.notheme.util.block.ItemStackInventoryBlock;
 import fengliu.notheme.util.block.entity.IInventory;
-import fengliu.notheme.util.item.BaseItem;
 import fengliu.notheme.util.item.IItemStackInventoryBlockItem;
-import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.ToolItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.MutableText;
@@ -39,21 +35,6 @@ public class ReinforcedBag extends BaseBlockItem implements IItemStackInventoryB
 
     protected interface Ues{
         void in(ItemStack stack);
-    }
-
-    /**
-     * 获取当前使用物品
-     * @param stacks 库存
-     * @return 物品格
-     */
-    public ItemStack getUseItemStack(DefaultedList<ItemStack> stacks){
-        for(ItemStack stack: stacks){
-            if (stack.isEmpty() || stack.getItem() instanceof ToolItem){
-                continue;
-            }
-            return stack;
-        }
-        return ItemStack.EMPTY;
     }
 
     /**

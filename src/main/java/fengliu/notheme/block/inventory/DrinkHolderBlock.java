@@ -16,19 +16,14 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PotionItem;
 import net.minecraft.state.property.IntProperty;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 
 public class DrinkHolderBlock extends ClothBagBlock {
     public static final VoxelShape DRINK_HOLDER_BLOCK_SHAPE = VoxelShapes.cuboid(0, 0, 0, 1, 0.45, 1);
@@ -38,12 +33,8 @@ public class DrinkHolderBlock extends ClothBagBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
-        if (!(stack.getItem() instanceof PotionItem) && !stack.isEmpty()){
-            return ActionResult.SUCCESS;
-        }
-        return super.onUse(state, world, pos, player, hand, hit);
+    public boolean canPlaced(ItemStack stack) {
+        return stack.getItem() instanceof PotionItem || stack.isEmpty();
     }
 
     @Override

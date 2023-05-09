@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        "PBP",
+        "PPP"
+    ],
+    "key": {
+        "P": {
+            "item": "minecraft:paper"
+        },
+        "B": {
+            "item": "notheme:bottle_12_box"
+        }
+    },
+    "result": {
+        "item": "notheme:bottle_box",
+        "count": 1
+    }
+}

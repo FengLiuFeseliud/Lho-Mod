@@ -40,6 +40,14 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
         super(settings, size);
     }
 
+    public boolean canTakeBlock(PlayerEntity player, ItemStack stack){
+        return player.isSneaking() && stack.isEmpty();
+    }
+
+    public boolean canPlaced(ItemStack stack){
+        return true;
+    }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity be = world.getBlockEntity(pos);
@@ -48,20 +56,27 @@ public class ClothBagBlock extends ItemStackInventoryBlock implements IBaseBlock
         }
 
         ItemStack stack = player.getStackInHand(hand);
-        if (player.isSneaking() && stack.isEmpty()){
-            player.setStackInHand(hand, clothBagBlock.writeInventoryToItemStack(this.getItemStack()));
+        if (!this.canPlaced(stack)){
+            return ActionResult.SUCCESS;
+        }
+
+        if (this.canTakeBlock(player, stack)){
+            player.setStackInHand(hand, this.writeInventoryItemStack(state, clothBagBlock));
             world.removeBlock(pos, false);
             return ActionResult.SUCCESS;
         }
 
         int inventory = state.get(this.Inventory);
-        if (stack.isEmpty()){
+        if (this.canTake(stack, state)){
             SpawnUtil.spawnItemToPos(clothBagBlock.takeItemStack(), pos, world);
             if (inventory > 0){
                 world.setBlockState(pos, state.with(this.Inventory, state.get(this.Inventory) - 1));
             }
-        } else if (this.canTake(stack)){
-            clothBagBlock.saveItemStack(stack, player);
+        } else if (this.canSave(stack, state)){
+            if (!clothBagBlock.saveItemStack(stack, player)){
+                return ActionResult.SUCCESS;
+            }
+
             if (inventory < this.getSize()){
                 world.setBlockState(pos, state.with(this.Inventory, inventory + 1));
             }

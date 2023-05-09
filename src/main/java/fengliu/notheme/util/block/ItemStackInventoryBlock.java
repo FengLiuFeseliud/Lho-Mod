@@ -3,16 +3,14 @@ package fengliu.notheme.util.block;
 import fengliu.notheme.util.SpawnUtil;
 import fengliu.notheme.util.block.entity.InventoryBlockEntity;
 import fengliu.notheme.util.block.entity.ItemStackInventoryBlockEntity;
-import fengliu.notheme.util.item.IItemStackInventoryBlockItem;
 import net.minecraft.block.Block;
-import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -67,7 +65,11 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
         return this.size;
     }
 
-    public boolean canTake(ItemStack stack){
+    public boolean canTake(ItemStack stack, BlockState state){
+        return stack.isEmpty();
+    }
+
+    public boolean canSave(ItemStack stack, BlockState state){
         if(stack.getItem() instanceof BlockItem blockItem){
             if(blockItem.getBlock() instanceof ItemStackInventoryBlock || blockItem.getBlock() instanceof ShulkerBoxBlock){
                 return false;
@@ -79,6 +81,10 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
             return true;
         }
         return !nbt.getCompound(BLOCK_ENTITY_TAG_KEY).contains("Items");
+    }
+
+    public ItemStack writeInventoryItemStack(BlockState state, ItemStackInventoryBlockEntity inventoryBlockEntity){
+        return inventoryBlockEntity.writeInventoryToItemStack(this.getItemStack());
     }
 
     @Override
@@ -110,7 +116,7 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
         }
 
         // 掉落库存
-        SpawnUtil.spawnItemToPos(inventoryBlockEntity.writeInventoryToItemStack(this.getItemStack()), pos, world);
+        SpawnUtil.spawnItemToPos(this.writeInventoryItemStack(state, inventoryBlockEntity), pos, world);
         super.onBreak(world, pos, state, player);
     }
 

@@ -1,0 +1,606 @@
+{
+    "multipart": [
+        {
+            "when": {
+                "inventory": "0",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/empty"
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/empty",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/empty",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "0",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/empty",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_1"
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_1",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_1",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "1",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_1",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_2"
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_2",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_2",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "2",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_2",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_3"
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_3",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_3",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "3",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_3",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_4"
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_4",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_4",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "4",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_4",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_5"
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_5",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_5",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "5",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_5",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_6"
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_6",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_6",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "6",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_6",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_7"
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_7",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_7",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "7",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_7",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_8"
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_8",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_8",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "8",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_8",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_9"
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_9",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_9",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "9",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_9",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_10"
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_10",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_10",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "10",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_10",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_11"
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_11",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_11",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "11",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_11",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": false,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_12"
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": false,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_12",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": false,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_12",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": false,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottle_12",
+                "y": 270
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": true,
+                "facing": "north"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottles"
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": true,
+                "facing": "east"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottles",
+                "y": 90
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": true,
+                "facing": "south"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottles",
+                "y": 180
+            }
+        },
+        {
+            "when": {
+                "inventory": "12",
+                "capping": true,
+                "facing": "west"
+            },
+            "apply": {
+                "model": "notheme:block/bottle_12_box/bottles",
+                "y": 270
+            }
+        }
+    ]
+}

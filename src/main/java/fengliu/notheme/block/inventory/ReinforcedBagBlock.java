@@ -1,19 +1,13 @@
 package fengliu.notheme.block.inventory;
 
 import fengliu.notheme.block.ModBlocks;
-import fengliu.notheme.item.block.BaseBlockItem;
 import fengliu.notheme.item.block.ModBlockItems;
 import fengliu.notheme.item.inventory.block.ReinforcedBag;
 import fengliu.notheme.util.block.IBaseBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.PotionItem;
-import net.minecraft.item.ToolItem;
+import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -28,6 +22,12 @@ public class ReinforcedBagBlock extends ClothBagBlock {
     @Override
     public BlockItem getItem() {
         return new ReinforcedBag((IBaseBlock) ModBlocks.REINFORCED_BAR_BLOCK, new FabricItemSettings().maxCount(1).maxDamageIfAbsent(this.getSize()));
+    }
+
+    @Override
+    public boolean canPlaced(ItemStack stack) {
+        Item item = stack.getItem();
+        return !item.isFood() && !(item instanceof ToolItem) && !(item instanceof PotionItem);
     }
 
     @Override

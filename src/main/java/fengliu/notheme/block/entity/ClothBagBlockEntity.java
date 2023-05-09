@@ -1,6 +1,5 @@
 package fengliu.notheme.block.entity;
 
-import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.block.ItemStackInventoryBlock;
 import fengliu.notheme.util.block.entity.ItemStackInventoryBlockEntity;
@@ -29,18 +28,18 @@ public class ClothBagBlockEntity extends ItemStackInventoryBlockEntity {
         return ItemStack.EMPTY;
     }
 
-    public void saveItemStack(ItemStack stack, PlayerEntity player){
+    public boolean saveItemStack(ItemStack stack, PlayerEntity player){
         int slot = this.getEmptySlot();
         if (slot == -1){
-            return;
+            return false;
         }
 
         this.setStack(slot, stack.copy());
-        if(player.isCreative()){
-            return;
+        if(!player.isCreative()){
+            stack.setCount(0);
         }
-        
-        stack.setCount(0);
+
+        return true;
     }
 
     @Override

@@ -5,6 +5,11 @@
     "notheme.item.reinforced_bag.info.1": " - %s",
     "notheme.item.reinforced_bag.info.2": "使用: %s",
 
+    "notheme.item.bottle.info": "瓶装",
+
+    "notheme.item.capping.info.1": " - 未开封",
+    "notheme.item.capping.info.2": " - 已开封",
+
     "notheme.block.upgrade.info": "你不能升级该方块",
 
     "notheme.advancements.heart.root.title": "NoTheme - 血量工艺",
@@ -151,7 +156,7 @@
     "item.notheme.wither_heart.tooltip": "一颗凋零心, 使用后提升一颗心的血量与血量上限, 你将凋零!",
 
     "item.notheme.animal_heart": "动物心",
-    "item.notheme.animal_heart": "动物心",
+    "item.notheme.fake_animal_heart": "动物心",
     "item.notheme.animal_heart.tooltip": "一颗动物心, 你的身体正在排斥它!",
 
     "item.notheme.heart_drop": "掉落的心",
@@ -223,6 +228,18 @@
 
     "block.notheme.update_skipping": "单片地狱门制作器",
     "block.item.notheme.update_skipping.tooltip": "奇怪, 这东西怎么不会卡?",
+
+    "block.notheme.empty_bottle": "空瓶",
+    "block.item.notheme.empty_bottle.tooltip": "可以用来瓶装液体",
+
+    "block.notheme.bottle": "瓶装水",
+    "block.item.notheme.bottle.tooltip": "被装液体的瓶子",
+
+    "block.notheme.bottle_box": "瓶装水盒子",
+    "block.item.notheme.bottle_box.tooltip": "瓶装水盒子, 统一一种水, 并且可以密封",
+
+    "block.notheme.bottle_12_box": "瓶装水盒子",
+    "block.item.notheme.bottle_12_box.tooltip": "12 瓶装",
 
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",

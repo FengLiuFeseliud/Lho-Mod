@@ -5,6 +5,10 @@ import fengliu.notheme.block.inventory.BentoBoxBlock;
 import fengliu.notheme.block.inventory.ClothBagBlock;
 import fengliu.notheme.block.inventory.DrinkHolderBlock;
 import fengliu.notheme.block.inventory.ReinforcedBagBlock;
+import fengliu.notheme.block.inventory.bottle.Bottle12BoxBlock;
+import fengliu.notheme.block.inventory.bottle.BottleBlock;
+import fengliu.notheme.block.inventory.bottle.BottleBoxBlock;
+import fengliu.notheme.block.inventory.bottle.EmptyBottleBlock;
 import fengliu.notheme.block.mini.device.BedrockBreakerBlock;
 import fengliu.notheme.block.mini.device.UpdateSkippingBlock;
 import fengliu.notheme.util.RegisterUtil;
@@ -29,6 +33,10 @@ public class ModBlocks {
     public static final Block REINFORCED_BAR_BLOCK = new ReinforcedBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
     public static final Map<Block, ILevelBlock> BENTO_BOX_BLOCKS = LevelsUtil.getBlocks(BentoBoxBlock.BentoBoxBlockLevel.values());
     public static final Map<Block, ILevelBlock> DRINK_HOLDER_BLOCKS = LevelsUtil.getBlocks(DrinkHolderBlock.DrinkHolderBlockLevels.values());
+    public static final Block BOTTLE_BLOCK = new BottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
+    public static final Block EMPTY_BOTTLE_BLOCK = new EmptyBottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
+    public static final Block BOTTLE_BOX_BLOCK = new BottleBoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
+    public static final Block BOTTLE_12_BOX_BLOCK = new Bottle12BoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 12);
     public static final BaseBlock WITHER_BLOCK = new WitherBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "wither_block");
     public static final BaseBlock LIFE_BLOCK = new LifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "life_block");
     public static final BaseBlock ABSORPTION_BLOCK = new AbsorptionBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "absorption_block");
@@ -42,6 +50,10 @@ public class ModBlocks {
     @Environment(EnvType.CLIENT)
     public static void setAllBlockRenderLayerMap(){
         BlockRenderLayerMap.INSTANCE.putBlock(BLOOD_POOL_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(BOTTLE_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(EMPTY_BOTTLE_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(BOTTLE_BOX_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(BOTTLE_12_BOX_BLOCK, RenderLayer.getTranslucent());
     };
 
     public static final BaseBlock[] HEART_GROUP_BLOCK = new BaseBlock[]{
@@ -64,6 +76,10 @@ public class ModBlocks {
         RegisterUtil.registerBlock((IBaseBlock) BLOOD_POOL_BLOCK);
         RegisterUtil.registerBlock((IBaseBlock) CLOTH_BAG_BLOCK);
         RegisterUtil.registerBlock((IBaseBlock) REINFORCED_BAR_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) BOTTLE_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) EMPTY_BOTTLE_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) BOTTLE_BOX_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) BOTTLE_12_BOX_BLOCK);
 
         LevelsUtil.registerAllBlock(BENTO_BOX_BLOCKS);
         LevelsUtil.registerAllBlock(DRINK_HOLDER_BLOCKS);
