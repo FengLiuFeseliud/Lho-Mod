@@ -241,6 +241,9 @@
     "block.notheme.bottle_12_box": "瓶装水盒子",
     "block.item.notheme.bottle_12_box.tooltip": "12 瓶装",
 
+    "block.notheme.vending_machine": "自动售货机",
+    "block.item.notheme.vending_machine.tooltip": "用它代替人工售货吧! 只有第一次放下售货机的人才能控制",
+
     "item.notheme.heart_helmet": "心头盔",
     "item.notheme.heart_helmet.tooltip": "用心包裹自己, 穿上增加两颗心血量上限",
 

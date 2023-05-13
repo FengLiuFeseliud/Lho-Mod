@@ -97,7 +97,9 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
 
         // 从物品格读取库存
         inventoryBlockEntity.readNbt(itemStack.getOrCreateNbt());
-        world.setBlockState(pos, state.with(this.Inventory, inventoryBlockEntity.getUseSize()));
+        if (this.Inventory != null){
+            world.setBlockState(pos, state.with(this.Inventory, inventoryBlockEntity.getUseSize()));
+        }
         super.onPlaced(world, pos, state, placer, itemStack);
     }
 
@@ -123,7 +125,9 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         this.Inventory = getInventoryProperty();
-        builder.add(this.Inventory);
+        if (this.Inventory != null){
+            builder.add(this.Inventory);
+        }
         super.appendProperties(builder);
     }
 }

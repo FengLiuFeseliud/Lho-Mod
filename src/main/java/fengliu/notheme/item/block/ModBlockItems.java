@@ -42,6 +42,8 @@ public class ModBlockItems {
     public static final BlockItem EMPTY_BOTTLE_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.EMPTY_BOTTLE_BLOCK).getItem();
     public static final BlockItem BOTTLE_BOX_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.BOTTLE_BOX_BLOCK).getItem();
     public static final BlockItem BOTTLE_12_BOX_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.BOTTLE_12_BOX_BLOCK).getItem();
+    public static final BlockItem DISPENSING_MACHINE_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.DISPENSING_MACHINE_BLOCK).getItem();
+    public static final BlockItem VENDING_MACHINE_BLOCK_ITEM = ((ItemStackInventoryBlock) ModBlocks.VENDING_MACHINE_BLOCK).getItem();
 
     public static final BlockItem[] INVEBTORY_GROUP_ITEMS = new BlockItem[]{
         CLOTH_BAG_BLOCK_ITEM,
@@ -49,7 +51,9 @@ public class ModBlockItems {
         BOTTLE_BLOCK_ITEM,
         EMPTY_BOTTLE_BLOCK_ITEM,
         BOTTLE_BOX_BLOCK_ITEM,
-        BOTTLE_12_BOX_BLOCK_ITEM
+        BOTTLE_12_BOX_BLOCK_ITEM,
+        DISPENSING_MACHINE_BLOCK_ITEM,
+        VENDING_MACHINE_BLOCK_ITEM
     };
 
     public static final BlockItem BEDROCK_BREAKER_BLOCK_ITEM = new BedrockBreaker((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, new FabricItemSettings().maxCount(1).maxDamage(1));
@@ -70,6 +74,8 @@ public class ModBlockItems {
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.EMPTY_BOTTLE_BLOCK, EMPTY_BOTTLE_BLOCK_ITEM);
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.BOTTLE_12_BOX_BLOCK, BOTTLE_12_BOX_BLOCK_ITEM);
         RegisterUtil.registerItem((IBaseBlock) ModBlocks.BOTTLE_BLOCK, BOTTLE_BLOCK_ITEM);
+        RegisterUtil.registerItem((IBaseBlock) ModBlocks.DISPENSING_MACHINE_BLOCK, DISPENSING_MACHINE_BLOCK_ITEM);
+        RegisterUtil.registerItem((IBaseBlock) ModBlocks.VENDING_MACHINE_BLOCK, VENDING_MACHINE_BLOCK_ITEM);
         LevelsUtil.registerAllBlockItem(BENTO_BOX_BLOCK_ITEMS);
         LevelsUtil.registerAllBlockItem(DRINK_HOLDER_BLOCK_ITEMS);
 

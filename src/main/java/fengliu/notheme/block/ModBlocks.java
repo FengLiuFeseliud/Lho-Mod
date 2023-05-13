@@ -1,10 +1,7 @@
 package fengliu.notheme.block;
 
 import fengliu.notheme.block.heart.*;
-import fengliu.notheme.block.inventory.BentoBoxBlock;
-import fengliu.notheme.block.inventory.ClothBagBlock;
-import fengliu.notheme.block.inventory.DrinkHolderBlock;
-import fengliu.notheme.block.inventory.ReinforcedBagBlock;
+import fengliu.notheme.block.inventory.*;
 import fengliu.notheme.block.inventory.bottle.Bottle12BoxBlock;
 import fengliu.notheme.block.inventory.bottle.BottleBlock;
 import fengliu.notheme.block.inventory.bottle.BottleBoxBlock;
@@ -37,6 +34,8 @@ public class ModBlocks {
     public static final Block EMPTY_BOTTLE_BLOCK = new EmptyBottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
     public static final Block BOTTLE_BOX_BLOCK = new BottleBoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
     public static final Block BOTTLE_12_BOX_BLOCK = new Bottle12BoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 12);
+    public static final Block DISPENSING_MACHINE_BLOCK = new DispensingMachineBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 34);
+    public static final Block VENDING_MACHINE_BLOCK = new VendingMachineBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque().luminance(12), 118);
     public static final BaseBlock WITHER_BLOCK = new WitherBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "wither_block");
     public static final BaseBlock LIFE_BLOCK = new LifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "life_block");
     public static final BaseBlock ABSORPTION_BLOCK = new AbsorptionBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "absorption_block");
@@ -54,6 +53,8 @@ public class ModBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(EMPTY_BOTTLE_BLOCK, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(BOTTLE_BOX_BLOCK, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(BOTTLE_12_BOX_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(DISPENSING_MACHINE_BLOCK, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(VENDING_MACHINE_BLOCK, RenderLayer.getTranslucent());
     };
 
     public static final BaseBlock[] HEART_GROUP_BLOCK = new BaseBlock[]{
@@ -80,6 +81,8 @@ public class ModBlocks {
         RegisterUtil.registerBlock((IBaseBlock) EMPTY_BOTTLE_BLOCK);
         RegisterUtil.registerBlock((IBaseBlock) BOTTLE_BOX_BLOCK);
         RegisterUtil.registerBlock((IBaseBlock) BOTTLE_12_BOX_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) DISPENSING_MACHINE_BLOCK);
+        RegisterUtil.registerBlock((IBaseBlock) VENDING_MACHINE_BLOCK);
 
         LevelsUtil.registerAllBlock(BENTO_BOX_BLOCKS);
         LevelsUtil.registerAllBlock(DRINK_HOLDER_BLOCKS);

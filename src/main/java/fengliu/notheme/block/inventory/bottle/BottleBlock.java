@@ -15,6 +15,9 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
@@ -48,6 +51,19 @@ public class BottleBlock extends ClothBagBlock {
 
     public boolean canPlaced(ItemStack stack){
         return stack.isOf(ModBlockItems.BOTTLE_BLOCK_ITEM) || stack.isEmpty();
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (world.isClient()){
+            return super.onUse(state, world, pos, player, hand, hit);
+        }
+
+        ActionResult result = super.onUse(state, world, pos, player, hand, hit);
+        if (state.get(this.Inventory) == 1 && player.getStackInHand(hand).isEmpty()){
+            world.removeBlock(pos, false);
+        }
+        return result;
     }
 
     @Override
