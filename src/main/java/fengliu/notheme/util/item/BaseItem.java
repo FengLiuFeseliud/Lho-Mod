@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -29,6 +30,18 @@ public class BaseItem extends Item {
         super(new Settings().maxCount(64));
         this.name = name;
         this.tooltipKey = IdUtil.getItemTooltip(name);
+    }
+
+    public BaseItem(DyeColor dyeColor, String textureName) {
+        super(new Settings().maxCount(64));
+        this.name = dyeColor.getName() + "_" + textureName;
+        this.tooltipKey = IdUtil.getItemTooltip(textureName);
+    }
+
+    public BaseItem(Settings settings, DyeColor dyeColor, String textureName) {
+        super(settings);
+        this.name = dyeColor.getName() + "_" + textureName;
+        this.tooltipKey = IdUtil.getItemTooltip(textureName);
     }
 
     @Override

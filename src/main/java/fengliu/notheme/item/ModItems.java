@@ -1,13 +1,19 @@
 package fengliu.notheme.item;
 
 import fengliu.notheme.item.armor.HeartArmor;
+import fengliu.notheme.item.food.ice.cream.ChocolateCrustIceCreamBar;
+import fengliu.notheme.item.food.ice.cream.IceCreamBar;
+import fengliu.notheme.item.food.ice.cream.IceCreamBarPack;
+import fengliu.notheme.item.food.ice.cream.PackIceCream;
 import fengliu.notheme.item.heart.*;
 import fengliu.notheme.item.heart.drop.HeartAbsorptionDevice;
 import fengliu.notheme.item.heart.drop.HeartDrop;
 import fengliu.notheme.item.heart.drop.HeartDropDevice;
 import fengliu.notheme.item.heart.drop.HeartHalfDrop;
-import fengliu.notheme.item.heart.fake.*;
+import fengliu.notheme.item.heart.fake.FakeHeart;
 import fengliu.notheme.util.RegisterUtil;
+import fengliu.notheme.util.color.ColorUtil;
+import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
 import fengliu.notheme.util.item.armor.BaseArmorItem;
 import fengliu.notheme.util.level.ILevelItem;
@@ -15,7 +21,9 @@ import fengliu.notheme.util.level.LevelsUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.DyeColor;
 
+import java.util.List;
 import java.util.Map;
 
 public class ModItems {
@@ -90,11 +98,22 @@ public class ModItems {
     public static final BaseArmorItem[] MINI_DEVICE_GROUP_ITEMS = new BaseArmorItem[]{
 
     };
+
 //    public static final BaseItem PHONE = new Phone(new FabricItemSettings().maxCount(1), "phone");
 //
 //    public static final BaseItem[] INTERNET_ITEMS = new BaseItem[]{
 //        PHONE
 //    };
+
+    public static final BaseItem BAR = new BaseItem("bar");
+    public static final List<IColor> ICE_CREAM_BAR_PACKS = ColorUtil.getColorItems(DyeColor.values(), dyeColor -> new IceCreamBarPack(new FabricItemSettings().maxCount(16), dyeColor,"ice_cream_bar_pack"));
+    public static final List<IColor> PACK_ICE_CREAM_BARS = ColorUtil.getColorItems(DyeColor.values(), dyeColor -> new PackIceCream(new FabricItemSettings().maxCount(1), dyeColor,"pack_ice_cream_bar"));
+    public static final Map<Item, ILevelItem> ICE_CREAM_BARS = LevelsUtil.getItems(IceCreamBar.IceCreamLevels.values());
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_ICE_CREAM_BARS = LevelsUtil.getItems(ChocolateCrustIceCreamBar.IceCreamLevels.values());
+
+    public static final BaseItem[] FOOD_GROUP = new BaseItem[]{
+        BAR
+    };
 
     public static void registerAllItem(){
         LevelsUtil.registerAllItem(EXPAND_PASSENGERS);
@@ -105,5 +124,11 @@ public class ModItems {
 
         RegisterUtil.registerArmorItems(BODY_GROUP_ARMOR_ITEMS);
         RegisterUtil.registerArmorItems(MINI_DEVICE_GROUP_ITEMS);
+
+        RegisterUtil.registerItems(FOOD_GROUP);
+        ColorUtil.registerAllItem(ICE_CREAM_BAR_PACKS);
+        ColorUtil.registerAllItem(PACK_ICE_CREAM_BARS);
+        LevelsUtil.registerAllItem(ICE_CREAM_BARS);
+        LevelsUtil.registerAllItem(CHOCOLATE_CRUST_ICE_CREAM_BARS);
     }
 }

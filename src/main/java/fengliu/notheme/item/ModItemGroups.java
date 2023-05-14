@@ -3,15 +3,19 @@ package fengliu.notheme.item;
 import fengliu.notheme.item.block.ModBlockItems;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.RegisterUtil;
+import fengliu.notheme.util.color.ColorUtil;
 import fengliu.notheme.util.level.LevelsUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
 public class ModItemGroups {
     private static final ItemGroup INVENTORY_GROUP = FabricItemGroup.builder(IdUtil.get("inventory_group"))
+        .icon(() -> new ItemStack(ModBlockItems.CLOTH_BAG_BLOCK_ITEM))
+        .build();
+
+    private static final ItemGroup FOOD_GROUP = FabricItemGroup.builder(IdUtil.get("food_group"))
         .icon(() -> new ItemStack(ModBlockItems.CLOTH_BAG_BLOCK_ITEM))
         .build();
 
@@ -30,6 +34,14 @@ public class ModItemGroups {
             RegisterUtil.registerItemsToItemGroup(content, ModBlockItems.INVEBTORY_GROUP_ITEMS);
             LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.BENTO_BOX_BLOCK_ITEMS, content);
             LevelsUtil.registerAllBlockItemGroupAll(ModBlockItems.DRINK_HOLDER_BLOCK_ITEMS, content);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(FOOD_GROUP).register(content -> {
+            RegisterUtil.registerItemsToItemGroup(content, ModItems.FOOD_GROUP);
+            ColorUtil.registerAllItemGroupAll(ModItems.ICE_CREAM_BAR_PACKS, content);
+            ColorUtil.registerAllItemGroupAll(ModItems.PACK_ICE_CREAM_BARS, content);
+            LevelsUtil.registerAllItemGroupAll(ModItems.ICE_CREAM_BARS, content);
+            LevelsUtil.registerAllItemGroupAll(ModItems.CHOCOLATE_CRUST_ICE_CREAM_BARS, content);
         });
 
         ItemGroupEvents.modifyEntriesEvent(MINI_DEVICE_GROUP).register(content -> {

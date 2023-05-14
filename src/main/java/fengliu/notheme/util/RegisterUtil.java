@@ -4,9 +4,9 @@ import fengliu.notheme.util.block.BaseBlock;
 import fengliu.notheme.util.block.IBaseBlock;
 import fengliu.notheme.util.item.BaseItem;
 import fengliu.notheme.util.item.armor.BaseArmorItem;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -14,7 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 public class RegisterUtil {
@@ -25,6 +24,10 @@ public class RegisterUtil {
 
     public static void registerItem(IBaseBlock block, Item item){
         Registry.register(Registries.ITEM, block.getId(), item);
+    }
+
+    public static void registerItemColor(int color, Item item){
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> color, item);
     }
 
     public static void registerBlock(Identifier id, Block block){
