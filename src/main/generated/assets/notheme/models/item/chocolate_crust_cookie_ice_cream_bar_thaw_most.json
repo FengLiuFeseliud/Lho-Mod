@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "notheme:item/chocolate_crust_cookie_ice_cream_bar/thaw_most"
+  }
+}

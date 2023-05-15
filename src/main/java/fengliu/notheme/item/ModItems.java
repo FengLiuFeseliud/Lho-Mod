@@ -1,10 +1,7 @@
 package fengliu.notheme.item;
 
 import fengliu.notheme.item.armor.HeartArmor;
-import fengliu.notheme.item.food.ice.cream.ChocolateCrustIceCreamBar;
-import fengliu.notheme.item.food.ice.cream.IceCreamBar;
-import fengliu.notheme.item.food.ice.cream.IceCreamBarPack;
-import fengliu.notheme.item.food.ice.cream.PackIceCream;
+import fengliu.notheme.item.food.ice.cream.*;
 import fengliu.notheme.item.heart.*;
 import fengliu.notheme.item.heart.drop.HeartAbsorptionDevice;
 import fengliu.notheme.item.heart.drop.HeartDrop;
@@ -110,6 +107,8 @@ public class ModItems {
     public static final List<IColor> PACK_ICE_CREAM_BARS = ColorUtil.getColorItems(DyeColor.values(), dyeColor -> new PackIceCream(new FabricItemSettings().maxCount(1), dyeColor,"pack_ice_cream_bar"));
     public static final Map<Item, ILevelItem> ICE_CREAM_BARS = LevelsUtil.getItems(IceCreamBar.IceCreamLevels.values());
     public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_ICE_CREAM_BARS = LevelsUtil.getItems(ChocolateCrustIceCreamBar.IceCreamLevels.values());
+    public static final Map<Item, ILevelItem> COOKIE_ICE_CREAM_BARS = LevelsUtil.getItems(CookieIceCreamBar.IceCreamLevels.values());
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS = LevelsUtil.getItems(ChocolateCrustCookieIceCreamBar.IceCreamLevels.values());
 
     public static final BaseItem[] FOOD_GROUP = new BaseItem[]{
         BAR
@@ -130,5 +129,7 @@ public class ModItems {
         ColorUtil.registerAllItem(PACK_ICE_CREAM_BARS);
         LevelsUtil.registerAllItem(ICE_CREAM_BARS);
         LevelsUtil.registerAllItem(CHOCOLATE_CRUST_ICE_CREAM_BARS);
+        LevelsUtil.registerAllItem(COOKIE_ICE_CREAM_BARS);
+        LevelsUtil.registerAllItem(CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS);
     }
 }

@@ -41,6 +41,11 @@ public class IceCreamBar extends BaseItem implements ITickUpdate {
         return ((IIceCreamLevel) this.getIceCreams().get(this)).getThawTime();
     }
 
+    /**
+     * 获取融化下一阶段冰淇淋
+     * @param stack 冰淇淋
+     * @return 下一阶段冰淇淋
+     */
     public ItemStack getIceThawCreamItemStack(ItemStack stack){
         boolean nextIn = false;
         Map.Entry<Item, ILevelItem> iceCreamEnd = null;
@@ -80,12 +85,23 @@ public class IceCreamBar extends BaseItem implements ITickUpdate {
         return iceCreamStack;
     }
 
+    /**
+     * 融化时调用
+     * @param stack 冰淇淋
+     * @param player 玩家
+     * @return 新冰淇淋
+     */
     public ItemStack thaw(ItemStack stack, PlayerEntity player){
         ItemStack iceCreamStack = this.getIceThawCreamItemStack(stack);
         stack.decrement(1);
         return iceCreamStack;
     }
 
+    /**
+     * 每 tick 在背包融化
+     * @param stack 物品
+     * @param player 玩家
+     */
     @Override
     public void update(ItemStack stack, PlayerEntity player) {
         NbtCompound nbt = stack.getOrCreateNbt();
@@ -138,11 +154,6 @@ public class IceCreamBar extends BaseItem implements ITickUpdate {
         }
 
         @Override
-        public ItemStack getAllThawItemStack() {
-            return ModItems.BAR.getDefaultStack();
-        }
-
-        @Override
         public FoodComponent getFoodComponent() {
             return new FoodComponent.Builder()
                 .hunger(2 * this.gain).saturationModifier((float) (this.gain))
@@ -178,11 +189,6 @@ public class IceCreamBar extends BaseItem implements ITickUpdate {
         @Override
         public String getIdName() {
             return "ice_cream_bar";
-        }
-
-        @Override
-        public String getPath() {
-            return this.getIdName() + "_" + this.thawName;
         }
 
         @Override

@@ -10,14 +10,14 @@ import net.minecraft.item.Item;
 
 import java.util.Map;
 
-public class ChocolateCrustIceCreamBar extends IceCreamBar {
-    public ChocolateCrustIceCreamBar(Settings settings, String name) {
+public class ChocolateCrustCookieIceCreamBar extends IceCreamBar {
+    public ChocolateCrustCookieIceCreamBar(Settings settings, String name) {
         super(settings, name);
     }
 
     @Override
     public Map<Item, ILevelItem> getIceCreams() {
-        return ModItems.CHOCOLATE_CRUST_ICE_CREAM_BARS;
+        return ModItems.CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS;
     }
 
     public enum IceCreamLevels implements IIceCreamLevel {
@@ -41,8 +41,9 @@ public class ChocolateCrustIceCreamBar extends IceCreamBar {
         @Override
         public FoodComponent getFoodComponent() {
             return new FoodComponent.Builder()
-                .hunger((int) (1.5 * this.gain)).saturationModifier((float) (this.gain))
+                .hunger(2 * this.gain).saturationModifier(1.5f * this.gain)
                 .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 80 * this.gain), 1.0f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, this.gain), 1.0f)
                 .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 5 * this.gain), 0.25f)
                 .alwaysEdible().build();
         }
@@ -74,12 +75,12 @@ public class ChocolateCrustIceCreamBar extends IceCreamBar {
 
         @Override
         public String getIdName() {
-            return "chocolate_crust_ice_cream_bar";
+            return "chocolate_crust_cookie_ice_cream_bar";
         }
 
         @Override
         public Item getItem() {
-            return new ChocolateCrustIceCreamBar(new FabricItemSettings().maxCount(1).maxDamage(this.getMaxLevel()).food(this.getFoodComponent()), this.getIdName());
+            return new ChocolateCrustCookieIceCreamBar(new FabricItemSettings().maxCount(1).maxDamage(this.getMaxLevel()).food(this.getFoodComponent()), this.getIdName());
         }
     }
 }

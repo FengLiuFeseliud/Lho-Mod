@@ -10,21 +10,20 @@ import net.minecraft.item.Item;
 
 import java.util.Map;
 
-public class ChocolateCrustIceCreamBar extends IceCreamBar {
-    public ChocolateCrustIceCreamBar(Settings settings, String name) {
+public class CookieIceCreamBar extends IceCreamBar {
+    public CookieIceCreamBar(Settings settings, String name) {
         super(settings, name);
     }
 
     @Override
     public Map<Item, ILevelItem> getIceCreams() {
-        return ModItems.CHOCOLATE_CRUST_ICE_CREAM_BARS;
+        return ModItems.COOKIE_ICE_CREAM_BARS;
     }
 
     public enum IceCreamLevels implements IIceCreamLevel {
-        NOT_THAW(1, 600, 4, "not_thaw"),
-        THAW_HALF(2, 300, 3, "thaw_half"),
-        THAW_MOST(3, 150, 2, "thaw_most"),
-        THAW_ALMOST_ALL(4, 100, 1, "thaw_almost_all");
+        NOT_THAW(1, 600, 3, "not_thaw"),
+        THAW_HALF(2, 300, 2, "thaw_half"),
+        THAW_MOST(3, 150, 1, "thaw_most");
 
         private final int level;
         private final int thawTime;
@@ -41,9 +40,9 @@ public class ChocolateCrustIceCreamBar extends IceCreamBar {
         @Override
         public FoodComponent getFoodComponent() {
             return new FoodComponent.Builder()
-                .hunger((int) (1.5 * this.gain)).saturationModifier((float) (this.gain))
-                .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 80 * this.gain), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 5 * this.gain), 0.25f)
+                .hunger((int) (2.5f * this.gain)).saturationModifier((float) (1.5 * this.gain))
+                .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 100 * this.gain), 1.0f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, this.gain), 1.0f)
                 .alwaysEdible().build();
         }
 
@@ -74,12 +73,12 @@ public class ChocolateCrustIceCreamBar extends IceCreamBar {
 
         @Override
         public String getIdName() {
-            return "chocolate_crust_ice_cream_bar";
+            return "cookie_ice_cream_bar";
         }
 
         @Override
         public Item getItem() {
-            return new ChocolateCrustIceCreamBar(new FabricItemSettings().maxCount(1).maxDamage(this.getMaxLevel()).food(this.getFoodComponent()), this.getIdName());
+            return new CookieIceCreamBar(new FabricItemSettings().maxCount(1).maxDamage(this.getMaxLevel()).food(this.getFoodComponent()), this.getIdName());
         }
     }
 }

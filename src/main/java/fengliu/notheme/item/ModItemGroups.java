@@ -7,6 +7,7 @@ import fengliu.notheme.util.color.ColorUtil;
 import fengliu.notheme.util.level.LevelsUtil;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -16,7 +17,7 @@ public class ModItemGroups {
         .build();
 
     private static final ItemGroup FOOD_GROUP = FabricItemGroup.builder(IdUtil.get("food_group"))
-        .icon(() -> new ItemStack(ModBlockItems.CLOTH_BAG_BLOCK_ITEM))
+        .icon(() -> new ItemStack((Item) ModItems.CHOCOLATE_CRUST_ICE_CREAM_BARS.keySet().toArray()[0]))
         .build();
 
     private static final ItemGroup MINI_DEVICE_GROUP = FabricItemGroup.builder(IdUtil.get("mini_device_group"))
@@ -42,6 +43,8 @@ public class ModItemGroups {
             ColorUtil.registerAllItemGroupAll(ModItems.PACK_ICE_CREAM_BARS, content);
             LevelsUtil.registerAllItemGroupAll(ModItems.ICE_CREAM_BARS, content);
             LevelsUtil.registerAllItemGroupAll(ModItems.CHOCOLATE_CRUST_ICE_CREAM_BARS, content);
+            LevelsUtil.registerAllItemGroupAll(ModItems.COOKIE_ICE_CREAM_BARS, content);
+            LevelsUtil.registerAllItemGroupAll(ModItems.CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS, content);
         });
 
         ItemGroupEvents.modifyEntriesEvent(MINI_DEVICE_GROUP).register(content -> {

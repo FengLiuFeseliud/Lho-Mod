@@ -11,7 +11,7 @@
     "notheme.item.capping.info.1": " - 未开封",
     "notheme.item.capping.info.2": " - 已开封",
 
-    "notheme.item.ice_cream.info.1": "将在 %s 秒后化开",
+    "notheme.item.ice_cream.info.1": "将在 %s 秒后融化",
 
     "notheme.item.pack_ice_cream.info.1": "已经取出 %s 秒",
 
@@ -308,8 +308,19 @@
     "item.notheme.chocolate_crust_ice_cream_bar_not_thaw": "巧克力脆皮牛奶雪糕",
     "item.notheme.chocolate_crust_ice_cream_bar_thaw_half": "融化一半的巧克力脆皮牛奶雪糕",
     "item.notheme.chocolate_crust_ice_cream_bar_thaw_most": "融化大部分的巧克力脆皮牛奶雪糕",
-    "item.notheme.chocolate_crust_ice_cream_bar_thaw_almost_all": "几乎所有融化的巧克力脆皮牛奶雪糕",
+    "item.notheme.chocolate_crust_ice_cream_bar_thaw_almost_all": "几乎全部融化的巧克力脆皮牛奶雪糕",
     "item.notheme.chocolate_crust_ice_cream_bar.tooltip": "添加了巧克力脆皮, 容易获取到大量热量",
+
+    "item.notheme.cookie_ice_cream_bar_not_thaw": "牛奶曲奇碎雪糕",
+    "item.notheme.cookie_ice_cream_bar_thaw_half": "融化一半的牛奶曲奇碎雪糕",
+    "item.notheme.cookie_ice_cream_bar_thaw_most": "融化大部分的牛奶曲奇碎雪糕",
+    "item.notheme.cookie_ice_cream_bar.tooltip": "添加了曲奇碎, 更容易补充体力!",
+
+    "item.notheme.chocolate_crust_cookie_ice_cream_bar_not_thaw": "巧克力脆皮牛奶曲奇碎雪糕",
+    "item.notheme.chocolate_crust_cookie_ice_cream_bar_thaw_half": "融化一半的巧克力脆皮牛奶曲奇碎雪糕",
+    "item.notheme.chocolate_crust_cookie_ice_cream_bar_thaw_most": "融化大部分的巧克力脆皮牛奶曲奇碎雪糕",
+    "item.notheme.chocolate_crust_cookie_ice_cream_bar_thaw_almost_all": "几乎全部融化的巧克力脆皮牛奶曲奇碎雪糕",
+    "item.notheme.chocolate_crust_cookie_ice_cream_bar.tooltip": "添加了巧克力脆皮与曲奇碎, 容易获取到大量热量与体力",
 
     "notheme.block.customers_block.info.width": "width: %d",
     "notheme.block.customers_block.info.height": "height: %d",

@@ -34,6 +34,11 @@ public class PackIceCream extends BaseItem implements ITickUpdate, IColor {
         this.textureName = textureName;
     }
 
+    /**
+     * 获取被包装的冰淇淋
+     * @param iceCreamPack 包装冰淇淋
+     * @return 冰淇淋
+     */
     public ItemStack getIceCreamItemStack(ItemStack iceCreamPack){
         NbtCompound nbt = iceCreamPack.getOrCreateNbt();
         if (!nbt.contains(PACK_ICE_CREAM_KEY, NbtElement.COMPOUND_TYPE)){
@@ -76,6 +81,11 @@ public class PackIceCream extends BaseItem implements ITickUpdate, IColor {
         return super.use(world, user, hand);
     }
 
+    /**
+     * 在背包每 tick 增加 1 tick 取出时长
+     * @param stack 物品
+     * @param player 玩家
+     */
     @Override
     public void update(ItemStack stack, PlayerEntity player) {
         NbtCompound nbt = stack.getOrCreateNbt();
