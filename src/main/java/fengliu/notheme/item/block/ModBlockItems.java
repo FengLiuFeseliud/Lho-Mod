@@ -26,10 +26,10 @@ public class ModBlockItems {
     public static final BlockItem POISON_BLOCK_ITEM = register(ModBlocks.POISON_BLOCK, HEART_GROUP);
     public static final BlockItem LONG_FOR_LIFE_BLOCK_ITEM = register(ModBlocks.LONG_FOR_LIFE_BLOCK, HEART_GROUP);
 
-    public static final BlockItem CLOTH_BAG_BLOCK_ITEM = register(ModBlocks.CLOTH_BAG_BLOCK, INVENTORY_GROUP);
+    public static final BlockItem CLOTH_BAG_BLOCK_ITEM = register(ModBlocks.CLOTH_BAG_BLOCK, RegisterUtil.Model.GENERATED, INVENTORY_GROUP);
     public static final BlockItem REINFORCED_BAR_BLOCK_ITEM = register(ModBlocks.REINFORCED_BAR_BLOCK, INVENTORY_GROUP);
     public static final Map<BlockItem, ILevelBlock> BENTO_BOX_BLOCK_ITEMS = LevelsUtil.registerBlockItems(ModBlocks.BENTO_BOX_BLOCKS, INVENTORY_GROUP);
-    public static final Map<BlockItem, ILevelBlock> DRINK_HOLDER_BLOCK_ITEMS = LevelsUtil.registerBlockItems(ModBlocks.DRINK_HOLDER_BLOCKS, INVENTORY_GROUP);
+    public static final Map<BlockItem, ILevelBlock> DRINK_HOLDER_BLOCK_ITEMS = LevelsUtil.registerBlockItems(ModBlocks.DRINK_HOLDER_BLOCKS, RegisterUtil.Model.GENERATED, INVENTORY_GROUP);
     public static final BlockItem BOTTLE_BLOCK_ITEM = register(ModBlocks.BOTTLE_BLOCK, INVENTORY_GROUP);
     public static final BlockItem EMPTY_BOTTLE_BLOCK_ITEM = register(ModBlocks.EMPTY_BOTTLE_BLOCK, INVENTORY_GROUP);
     public static final BlockItem BOTTLE_BOX_BLOCK_ITEM = register(ModBlocks.BOTTLE_BOX_BLOCK, INVENTORY_GROUP);
@@ -41,19 +41,25 @@ public class ModBlockItems {
     public static final BlockItem UPDATE_SKIPPING_BLOCK_ITEM = register(new BaseBlockItem((IBaseBlock) ModBlocks.UPDATE_SKIPPING_BLOCK, new FabricItemSettings().maxCount(1)), ModBlocks.UPDATE_SKIPPING_BLOCK, MINI_DEVICE_GROUP);
 
     public static <BI extends BlockItem, B extends Block> BI register(BI item, B block, ItemGroup group){
-        return RegisterUtil.registerItem(((IBaseBlock) block).getId(), item, group, RegisterUtil.Model.GENERATED);
+        return RegisterUtil.registerItem(((IBaseBlock) block).getId(), item, group, null);
     }
 
     public static <BI extends BlockItem, B extends Block> BI register(BI item, B block, RegisterUtil.Model model, ItemGroup group){
         return RegisterUtil.registerItem(((IBaseBlock) block).getId(), item, group, model);
     }
 
-    public static <B extends Block> BaseBlockItem register(B block, ItemGroup group){
+    public static <B extends Block> BlockItem register(B block, ItemGroup group){
+        if (block instanceof ItemStackInventoryBlock itemStackInventoryBlock){
+            return ModBlockItems.register(itemStackInventoryBlock.getItem(), block, group);
+        }
         return ModBlockItems.register(new BaseBlockItem((IBaseBlock) block), block, group);
     }
 
-    public static BlockItem register(ItemStackInventoryBlock block, ItemGroup group){
-        return ModBlockItems.register(block.getItem(), block, group);
+    public static <B extends Block> BlockItem register(B block, RegisterUtil.Model model, ItemGroup group){
+        if (block instanceof ItemStackInventoryBlock itemStackInventoryBlock){
+            return ModBlockItems.register(itemStackInventoryBlock.getItem(), block, model, group);
+        }
+        return ModBlockItems.register(new BaseBlockItem((IBaseBlock) block), block, model, group);
     }
 
     public static void registerAllBlockItem(){

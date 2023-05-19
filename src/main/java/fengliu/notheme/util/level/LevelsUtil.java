@@ -41,15 +41,19 @@ public class LevelsUtil {
      * @param blocks 等级方块列表
      * @return 等级方块物品列表
      */
-    public static Map<BlockItem, ILevelBlock> registerBlockItems(Map<Block, ILevelBlock> blocks, ItemGroup group){
+    public static Map<BlockItem, ILevelBlock> registerBlockItems(Map<Block, ILevelBlock> blocks, RegisterUtil.Model model, ItemGroup group){
         LinkedHashMap<BlockItem, ILevelBlock> blockItems = new LinkedHashMap<>();
 
         for(Map.Entry<Block, ILevelBlock> block: blocks.entrySet()){
             ILevelBlock level = block.getValue();
-            blockItems.put(RegisterUtil.registerItem(level.getId(), level.getItem(block.getKey()), group, RegisterUtil.Model.GENERATED), level);
+            blockItems.put(RegisterUtil.registerItem(level.getId(), level.getItem(block.getKey()), group, model), level);
         }
 
         return blockItems;
+    }
+
+    public static Map<BlockItem, ILevelBlock> registerBlockItems(Map<Block, ILevelBlock> blocks, ItemGroup group){
+        return registerBlockItems(blocks, null, group);
     }
 
     /**

@@ -20,6 +20,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -129,6 +130,11 @@ public class IceCreamBar extends BaseItem implements FabricItem {
     @Override
     public String getPrefixedPath() {
         return super.getPrefixedPath() + this.getIceCreams().get(this).getIdName() + "/";
+    }
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.DRINK;
     }
 
     @Override

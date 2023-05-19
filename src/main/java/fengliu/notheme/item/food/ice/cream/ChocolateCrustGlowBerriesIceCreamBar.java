@@ -10,27 +10,28 @@ import net.minecraft.item.Item;
 
 import java.util.Map;
 
-public class SaltWaterPopsicle extends IceCreamBar {
-    public SaltWaterPopsicle(Settings settings, String name) {
+public class ChocolateCrustGlowBerriesIceCreamBar extends IceCreamBar {
+    public ChocolateCrustGlowBerriesIceCreamBar(Settings settings, String name) {
         super(settings, name);
     }
 
     @Override
     public Map<Item, ILevelItem> getIceCreams() {
-        return ModItems.SALT_WATER_POPSICLE;
+        return ModItems.CHOCOLATE_CRUST_GLOW_BERRIES_ICE_CREAM_BARS;
     }
 
     public enum IceCreamLevels implements IIceCreamLevel {
-        NOT_THAW(1, 600, 3, "not_thaw"),
-        THAW_HALF(2, 300, 2, "thaw_half"),
-        THAW_MOST(3, 150, 1, "thaw_most");
+        NOT_THAW(1, 600, 4, "not_thaw"),
+        THAW_HALF(2, 300, 3, "thaw_half"),
+        THAW_MOST(3, 150, 2, "thaw_most"),
+        THAW_ALMOST_ALL(4, 100, 1, "thaw_almost_all");
 
         private final int level;
         private final int thawTime;
         private final int gain;
         private final String thawName;
 
-        IceCreamLevels(int level, int thawTime, int gain, String thawName){
+        IceCreamLevels(int level, int thawTime, int gain, String thawName) {
             this.thawTime = thawTime * 20;
             this.level = level;
             this.gain = gain;
@@ -39,15 +40,11 @@ public class SaltWaterPopsicle extends IceCreamBar {
 
         @Override
         public FoodComponent getFoodComponent() {
-            int speedLevel = 0;
-            if (this.level == 1){
-                speedLevel = 1;
-            }
-
             return new FoodComponent.Builder()
-                .hunger((int) (1.5f * this.gain)).saturationModifier((float) (this.gain))
-                .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 100 * this.gain), 1.0f)
-                .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 300 * this.gain, speedLevel), 1.0f)
+                .hunger(2 * this.gain).saturationModifier(this.gain)
+                .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 80 * this.gain), 1.0f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100 * this.gain), 1.0f)
+                .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 5 * this.gain), 0.25f)
                 .alwaysEdible().build();
         }
 
@@ -78,12 +75,12 @@ public class SaltWaterPopsicle extends IceCreamBar {
 
         @Override
         public String getIdName() {
-            return "salt_water_popsicle";
+            return "chocolate_crust_glow_berries_ice_cream_bar";
         }
 
         @Override
         public Item getItem() {
-            return new SaltWaterPopsicle(new FabricItemSettings().maxCount(1).maxDamage(this.getMaxLevel()).food(this.getFoodComponent()), this.getIdName());
+            return new ChocolateCrustGlowBerriesIceCreamBar(new FabricItemSettings().maxCount(1).maxDamage(this.getMaxLevel()).food(this.getFoodComponent()), this.getIdName());
         }
     }
 }

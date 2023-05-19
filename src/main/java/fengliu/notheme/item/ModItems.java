@@ -65,6 +65,12 @@ public class ModItems {
     public static final Map<Item, ILevelItem> COOKIE_ICE_CREAM_BARS = LevelsUtil.registerItems(CookieIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
     public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustCookieIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
     public static final Map<Item, ILevelItem> SALT_WATER_POPSICLE = LevelsUtil.registerItems(SaltWaterPopsicle.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> GOLDEN_APPLE_ICE_CREAM_BARS = LevelsUtil.registerItems(GoldenAppleIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_GOLDEN_APPLE_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustGoldenAppleIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> CHORUS_FRUIT_ICE_CREAM_BARS = LevelsUtil.registerItems(ChorusFruitIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_CHORUS_FRUIT_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustChorusFruitIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> GLOW_BERRIES_ICE_CREAM_BARS = LevelsUtil.registerItems(GlowBerriesIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_GLOW_BERRIES_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustGlowBerriesIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
 
     public static <BI extends BaseItem> BI register(BI item, ItemGroup group){
         return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);
