@@ -1,31 +1,20 @@
 package fengliu.notheme.data.generation;
 
-import fengliu.notheme.item.ModItems;
-import fengliu.notheme.item.food.ice.cream.IIceCreamLevel;
 import fengliu.notheme.util.IdUtil;
-import fengliu.notheme.util.color.ColorUtil;
-import fengliu.notheme.util.level.ILevelItem;
+import fengliu.notheme.util.RegisterUtil;
+import fengliu.notheme.util.item.BaseItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.ModelIds;
 import net.minecraft.data.client.TextureMap;
-import net.minecraft.item.Item;
-
-import java.util.Map;
 
 import static net.minecraft.data.client.Models.GENERATED;
 
 public class ItemDataGeneration extends FabricModelProvider {
     public ItemDataGeneration(FabricDataOutput output) {
         super(output);
-    }
-
-    public static void registerAllIceCreamBarItemModel(Map<Item, ILevelItem> items, ItemModelGenerator itemModelGenerator){
-        items.forEach((item, level) -> {
-            GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(IdUtil.get(((IIceCreamLevel) level).getThawName()).withPrefixedPath("item/" + level.getIdName() + "/")), itemModelGenerator.writer);
-        });
     }
 
     @Override
@@ -35,12 +24,20 @@ public class ItemDataGeneration extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        ColorUtil.registerAllModel(ModItems.ICE_CREAM_BAR_PACKS, itemModelGenerator);
-        ColorUtil.registerAllModel(ModItems.PACK_ICE_CREAM_BARS, itemModelGenerator);
+        RegisterUtil.ITEM_MODEL.forEach((item, model) -> {
+            if (model == null){
+                return;
+            }
 
-        ItemDataGeneration.registerAllIceCreamBarItemModel(ModItems.ICE_CREAM_BARS, itemModelGenerator);
-        ItemDataGeneration.registerAllIceCreamBarItemModel(ModItems.CHOCOLATE_CRUST_ICE_CREAM_BARS, itemModelGenerator);
-        ItemDataGeneration.registerAllIceCreamBarItemModel(ModItems.COOKIE_ICE_CREAM_BARS, itemModelGenerator);
-        ItemDataGeneration.registerAllIceCreamBarItemModel(ModItems.CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS, itemModelGenerator);
+            if (model == RegisterUtil.Model.GENERATED){
+                if (item instanceof BaseItem baseItem){
+                    GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(IdUtil.get(baseItem.getTextureName()).withPrefixedPath(baseItem.getPrefixedPath())), itemModelGenerator.writer);
+                    return;
+                }
+                itemModelGenerator.register(item, GENERATED);
+            }
+        });
+
+        RegisterUtil.ITEM_MODEL.clear();
     }
 }

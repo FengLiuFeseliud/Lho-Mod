@@ -12,6 +12,7 @@ import net.fabricmc.api.Environment;
 public class NoThemeClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModBlocks.registerAllBlock();
         ModBlocks.setAllBlockRenderLayerMap();
         ModScreens.registerAllScreen();
         ModServerMessage.registerS2CPackets();

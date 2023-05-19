@@ -2,14 +2,12 @@ package fengliu.notheme.item.heart;
 
 import fengliu.notheme.util.player.IExtendPlayer;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class Heart extends EmptyHeart {
-    public Heart(Settings settings, String id) {
-        super(settings, id);
+    public Heart(String id) {
+        super(id);
     }
 
     @Override

@@ -17,31 +17,47 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class BaseItem extends Item {
+    public static final String PREFIXED_PATH = "item/";
     public final String name;
     public final String tooltipKey;
+    public final String textureName;
 
     public BaseItem(Settings settings, String name) {
         super(settings);
         this.name = name;
+        this.textureName = name;
         this.tooltipKey = IdUtil.getItemTooltip(name);
     }
 
     public BaseItem(String name) {
-        super(new Settings().maxCount(64));
-        this.name = name;
-        this.tooltipKey = IdUtil.getItemTooltip(name);
-    }
-
-    public BaseItem(DyeColor dyeColor, String textureName) {
-        super(new Settings().maxCount(64));
-        this.name = dyeColor.getName() + "_" + textureName;
-        this.tooltipKey = IdUtil.getItemTooltip(textureName);
+        this(new Settings().maxCount(64), name);
     }
 
     public BaseItem(Settings settings, DyeColor dyeColor, String textureName) {
         super(settings);
         this.name = dyeColor.getName() + "_" + textureName;
+        this.textureName = textureName;
         this.tooltipKey = IdUtil.getItemTooltip(textureName);
+    }
+
+    public BaseItem(DyeColor dyeColor, String textureName) {
+        this(new Settings().maxCount(64), dyeColor, textureName);
+    }
+
+    /**
+     * 获取纹理名 (用于生成模型)
+     * @return 纹理名
+     */
+    public String getTextureName(){
+        return this.textureName;
+    }
+
+    /**
+     * 获取纹理路径 (用于生成模型)
+     * @return 纹理路径
+     */
+    public String getPrefixedPath(){
+        return PREFIXED_PATH;
     }
 
     @Override

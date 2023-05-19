@@ -6,7 +6,7 @@ import fengliu.notheme.util.item.armor.material.ExtendArmorMaterial;
 
 public class HeartArmor extends BaseArmorItem {
     public static final ExtendArmorMaterial MATERIAL = new HeartArmorMaterial("heart");
-    public HeartArmor(Type type, Settings settings) {
-        super(MATERIAL, type, settings);
+    public HeartArmor(Type type) {
+        super(MATERIAL, type, new Settings());
     }
 }

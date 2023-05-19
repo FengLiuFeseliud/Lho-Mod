@@ -5,5 +5,4 @@ public class HeartHalfDrop extends HeartDrop {
         super(settings, name);
         this.addHealth = 1;
     }
-
 }

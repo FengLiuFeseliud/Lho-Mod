@@ -37,12 +37,12 @@ public class IceCreamBarPack extends BaseItem implements IColor {
             return super.onStackClicked(stack, slot, clickType, player);
         }
 
-        for(IColor packItem: ModItems.PACK_ICE_CREAM_BARS) {
-            if (packItem.getColor().getId() != this.color.getId()) {
+        for(Item packItem: ModItems.PACK_ICE_CREAM_BARS) {
+            if (((IColor) packItem).getColor().getId() != this.color.getId()) {
                 continue;
             }
 
-            ItemStack packIceCreamStack = ((Item) packItem).getDefaultStack();
+            ItemStack packIceCreamStack = packItem.getDefaultStack();
             packIceCreamStack.getOrCreateNbt().put(PackIceCream.PACK_ICE_CREAM_KEY, slotStack.writeNbt(new NbtCompound()));
 
             stack.decrement(1);

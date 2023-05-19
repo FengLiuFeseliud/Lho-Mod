@@ -3,7 +3,6 @@ package fengliu.notheme.item.heart.fake;
 import fengliu.notheme.item.heart.EmptyHeart;
 import fengliu.notheme.util.item.BaseItem;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -12,10 +11,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class FakeHeart extends EmptyHeart {
-    public final Item heart;
+    public final BaseItem heart;
 
-    public FakeHeart(Settings settings, BaseItem heart) {
-        super(settings, "fake_" + heart.name);
+    public FakeHeart(BaseItem heart) {
+        super("fake_" + heart.name);
         this.heart = heart;
     }
 
@@ -23,8 +22,13 @@ public class FakeHeart extends EmptyHeart {
      * 返回需要伪装物品
      * @return 伪装物品
      */
-    public Item fakeItem(){
+    public BaseItem fakeItem(){
         return this.heart;
+    }
+
+    @Override
+    public String getTextureName() {
+        return this.fakeItem().getTextureName();
     }
 
     @Override

@@ -3,14 +3,12 @@ package fengliu.notheme.item.heart;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class PoisonHeart extends Heart {
-    public PoisonHeart(Settings settings, String id) {
-        super(settings, id);
+    public PoisonHeart(String id) {
+        super(id);
     }
 
     @Override

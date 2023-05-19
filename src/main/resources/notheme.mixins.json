@@ -9,8 +9,7 @@
         "PlayerAttributeMixin",
         "PlayerExtendMixin",
         "PlayerInventoryArmorMonitorMixin",
-        "PlayerRespawnSaveNbtMixin",
-        "PlayerTickMixin"
+        "PlayerRespawnSaveNbtMixin"
     ],
     "client": [
         "ClientLoadSaveNbtMixin"

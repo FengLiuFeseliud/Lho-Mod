@@ -24,27 +24,26 @@ import net.minecraft.client.render.RenderLayer;
 import java.util.Map;
 
 public class ModBlocks {
-    public static final Map<Block, ILevelBlock> CUSTOMERS_BLOCKS = LevelsUtil.getBlocks(CustomersBlock.CustomersBlockLevels.values());
-    public static final Block BLOOD_POOL_BLOCK = new BloodPoolBlock(FabricBlockSettings.of(Material.STONE).strength(5.0f).requiresTool().nonOpaque());
-    public static final Block CLOTH_BAG_BLOCK = new ClothBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
-    public static final Block REINFORCED_BAR_BLOCK = new ReinforcedBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5);
-    public static final Map<Block, ILevelBlock> BENTO_BOX_BLOCKS = LevelsUtil.getBlocks(BentoBoxBlock.BentoBoxBlockLevel.values());
-    public static final Map<Block, ILevelBlock> DRINK_HOLDER_BLOCKS = LevelsUtil.getBlocks(DrinkHolderBlock.DrinkHolderBlockLevels.values());
-    public static final Block BOTTLE_BLOCK = new BottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
-    public static final Block EMPTY_BOTTLE_BLOCK = new EmptyBottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
-    public static final Block BOTTLE_BOX_BLOCK = new BottleBoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16);
-    public static final Block BOTTLE_12_BOX_BLOCK = new Bottle12BoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 12);
-    public static final Block DISPENSING_MACHINE_BLOCK = new DispensingMachineBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 34);
-    public static final Block VENDING_MACHINE_BLOCK = new VendingMachineBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque().luminance(12), 118);
-    public static final BaseBlock WITHER_BLOCK = new WitherBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "wither_block");
-    public static final BaseBlock LIFE_BLOCK = new LifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "life_block");
-    public static final BaseBlock ABSORPTION_BLOCK = new AbsorptionBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "absorption_block");
-    public static final BaseBlock FROST_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "frost_block");
-    public static final BaseBlock POISON_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "poison_block");
-    public static final BaseBlock ANIMAL_BLOCK = new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "animal_block");
-    public static final BaseBlock LONG_FOR_LIFE_BLOCK = new LongForLifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "long_for_life_block");
-    public static final Block BEDROCK_BREAKER_BLOCK = new BedrockBreakerBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 1200).requiresTool().nonOpaque(), "bedrock_breaker");
-    public static final Block UPDATE_SKIPPING_BLOCK = new UpdateSkippingBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "update_skipping");
+    public static final Block BLOOD_POOL_BLOCK = register(new BloodPoolBlock(FabricBlockSettings.of(Material.STONE).strength(5.0f).requiresTool().nonOpaque()));
+    public static final Block CLOTH_BAG_BLOCK = register(new ClothBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5));
+    public static final Block REINFORCED_BAR_BLOCK = register(new ReinforcedBagBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 5));
+    public static final Map<Block, ILevelBlock> BENTO_BOX_BLOCKS = LevelsUtil.registerBlocks(BentoBoxBlock.BentoBoxBlockLevel.values());
+    public static final Map<Block, ILevelBlock> DRINK_HOLDER_BLOCKS = LevelsUtil.registerBlocks(DrinkHolderBlock.DrinkHolderBlockLevels.values());
+    public static final Block BOTTLE_BLOCK = register(new BottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16));
+    public static final Block EMPTY_BOTTLE_BLOCK = register(new EmptyBottleBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16));
+    public static final Block BOTTLE_BOX_BLOCK = register(new BottleBoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 16));
+    public static final Block BOTTLE_12_BOX_BLOCK = register(new Bottle12BoxBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 12));
+    public static final Block DISPENSING_MACHINE_BLOCK = register(new DispensingMachineBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque(), 34));
+    public static final Block VENDING_MACHINE_BLOCK = register(new VendingMachineBlock(FabricBlockSettings.of(Material.WOOL).strength(0.2f, 0.2f).requiresTool().nonOpaque().luminance(12), 118));
+    public static final Block WITHER_BLOCK = register(new WitherBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "wither_block"));
+    public static final Block LIFE_BLOCK = register(new LifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "life_block"));
+    public static final Block ABSORPTION_BLOCK = register(new AbsorptionBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "absorption_block"));
+    public static final Block FROST_BLOCK = register(new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "frost_block"));
+    public static final Block POISON_BLOCK = register(new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "poison_block"));
+    public static final Block ANIMAL_BLOCK = register(new BaseBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "animal_block"));
+    public static final Block LONG_FOR_LIFE_BLOCK = register(new LongForLifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "long_for_life_block"));
+    public static final Block BEDROCK_BREAKER_BLOCK = register(new BedrockBreakerBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 1200).requiresTool().nonOpaque(), "bedrock_breaker"));
+    public static final Block UPDATE_SKIPPING_BLOCK = register(new UpdateSkippingBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "update_skipping"));
 
     @Environment(EnvType.CLIENT)
     public static void setAllBlockRenderLayerMap(){
@@ -57,40 +56,9 @@ public class ModBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(VENDING_MACHINE_BLOCK, RenderLayer.getTranslucent());
     };
 
-    public static final BaseBlock[] HEART_GROUP_BLOCK = new BaseBlock[]{
-        WITHER_BLOCK,
-        LIFE_BLOCK,
-        ABSORPTION_BLOCK,
-        FROST_BLOCK,
-        ANIMAL_BLOCK,
-        POISON_BLOCK,
-        LONG_FOR_LIFE_BLOCK
-    };
-
-    public static final BaseBlock[] MINI_DEVICE_GROUP_BLOCK = new BaseBlock[]{
-
-    };
-
-    public static void registerAllBlock(){
-        LevelsUtil.registerAllBlock(CUSTOMERS_BLOCKS);
-
-        RegisterUtil.registerBlock((IBaseBlock) BLOOD_POOL_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) CLOTH_BAG_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) REINFORCED_BAR_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) BOTTLE_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) EMPTY_BOTTLE_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) BOTTLE_BOX_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) BOTTLE_12_BOX_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) DISPENSING_MACHINE_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) VENDING_MACHINE_BLOCK);
-
-        LevelsUtil.registerAllBlock(BENTO_BOX_BLOCKS);
-        LevelsUtil.registerAllBlock(DRINK_HOLDER_BLOCKS);
-
-        RegisterUtil.registerBlocks(HEART_GROUP_BLOCK);
-        RegisterUtil.registerBlocks(MINI_DEVICE_GROUP_BLOCK);
-
-        RegisterUtil.registerBlock((IBaseBlock) BEDROCK_BREAKER_BLOCK);
-        RegisterUtil.registerBlock((IBaseBlock) UPDATE_SKIPPING_BLOCK);
+    public static Block register(IBaseBlock block){
+        return RegisterUtil.registerBlock(block);
     }
+
+    public static void registerAllBlock(){}
 }

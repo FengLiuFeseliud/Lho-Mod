@@ -9,8 +9,6 @@ import fengliu.notheme.item.heart.drop.HeartDropDevice;
 import fengliu.notheme.item.heart.drop.HeartHalfDrop;
 import fengliu.notheme.item.heart.fake.FakeHeart;
 import fengliu.notheme.util.RegisterUtil;
-import fengliu.notheme.util.color.ColorUtil;
-import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
 import fengliu.notheme.util.item.armor.BaseArmorItem;
 import fengliu.notheme.util.level.ILevelItem;
@@ -18,118 +16,65 @@ import fengliu.notheme.util.level.LevelsUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.DyeColor;
 
 import java.util.List;
 import java.util.Map;
 
+import static fengliu.notheme.item.ModItemGroups.FOOD_GROUP;
+import static fengliu.notheme.item.ModItemGroups.HEART_GROUP;
+
 public class ModItems {
-    public static final Map<Item, ILevelItem> EXPAND_PASSENGERS = LevelsUtil.getItems(ExpandPassenger.ExpandPassengerLevels.values());
-    public static final BaseItem STABILIZER = new BaseItem(new FabricItemSettings().maxCount(64), "stabilizer");
-    public static final BaseItem CUING_AGENT = new BaseItem(new FabricItemSettings().maxCount(64), "curing_agent");
-    public static final BaseItem EMPTY_BLOOD_NEEDLE = new EmptyBloodNeedle(new FabricItemSettings().maxCount(1), "empty_blood_needle");
-    public static final BaseItem BLOOD_NEEDLE = new BloodNeedle(new FabricItemSettings().maxCount(1), "blood_needle");
-    public static final BaseItem GOLD_BLOOD_NEEDLE = new GoldBloodNeedle(new FabricItemSettings().maxCount(1), "gold_blood_needle");
-    public static final BaseItem FROST_BLOOD_NEEDLE = new FrostBloodNeedle(new FabricItemSettings().maxCount(1), "frost_blood_needle");
-    public static final BaseItem POISON_BLOOD_NEEDLE = new PoisonBloodNeedle(new FabricItemSettings().maxCount(1), "poison_blood_needle");
-    public static final BaseItem WITHER_BLOOD_NEEDLE = new WitherBloodNeedle(new FabricItemSettings().maxCount(1), "wither_blood_needle");
-    public static final BaseItem WATER_BLOOD_NEEDLE = new WaterBloodNeedle(new FabricItemSettings().recipeRemainder(EMPTY_BLOOD_NEEDLE).maxCount(1), "water_blood_needle");
-    public static final BaseItem EMPTY_HEART = new EmptyHeart(new FabricItemSettings().maxCount(1), "empty_heart");
-    public static final BaseItem HEART = new Heart(new FabricItemSettings().maxCount(1), "heart");
-    public static final BaseItem FAKE_HEART = new FakeHeart(new FabricItemSettings().maxCount(1), HEART);
-    public static final BaseItem GOLD_HEART = new GoldHeart(new FabricItemSettings().maxCount(1), "gold_heart");
-    public static final BaseItem FAKE_GOLD_HEART = new FakeHeart(new FabricItemSettings().maxCount(1), GOLD_HEART);
-    public static final BaseItem FROST_HEART = new FrostHeart(new FabricItemSettings().maxCount(1), "frost_heart");
-    public static final BaseItem FAKE_FROST_HEART = new FakeHeart(new FabricItemSettings().maxCount(1), FROST_HEART);
-    public static final BaseItem POISON_HEART = new PoisonHeart(new FabricItemSettings().maxCount(1), "poison_heart");
-    public static final BaseItem FAKE_POISON_HEART = new FakeHeart(new FabricItemSettings().maxCount(1), POISON_HEART);
-    public static final BaseItem WITHER_HEART = new WitherHeart(new FabricItemSettings().maxCount(1), "wither_heart");
-    public static final BaseItem FAKE_WITHER_HEART = new FakeHeart(new FabricItemSettings().maxCount(1), WITHER_HEART);
-    public static final BaseItem ANIMAL_HEART = new AnimalHeart(new FabricItemSettings().maxCount(1), "animal_heart");
-    public static final BaseItem FAKE_ANIMAL_HEART = new FakeHeart(new FabricItemSettings().maxCount(1), ANIMAL_HEART);
-    public static final BaseItem HEART_DROP = new HeartDrop(new FabricItemSettings().maxCount(64), "heart_drop");
-    public static final BaseItem HEART_HALF_DROP = new HeartHalfDrop(new FabricItemSettings().maxCount(64), "heart_half_drop");
-    public static final Map<Item, ILevelItem> HEART_DROP_DEVICE = LevelsUtil.getItems(HeartDropDevice.HeartDropDeviceLevels.values());
-    public static final Map<Item, ILevelItem> HEART_ABSORPTION_DEVICE = LevelsUtil.getItems(HeartAbsorptionDevice.HeartAbsorptionDeviceLevels.values());
+    public static final BaseItem STABILIZER = register("stabilizer", HEART_GROUP);
+    public static final BaseItem CUING_AGENT = register("curing_agent", HEART_GROUP);
+    public static final EmptyBloodNeedle EMPTY_BLOOD_NEEDLE = register(new EmptyBloodNeedle(new FabricItemSettings().maxCount(1), "empty_blood_needle"), HEART_GROUP);
+    public static final BloodNeedle BLOOD_NEEDLE = register(new BloodNeedle(new FabricItemSettings().maxCount(1), "blood_needle"), HEART_GROUP);
+    public static final GoldBloodNeedle GOLD_BLOOD_NEEDLE = register(new GoldBloodNeedle(new FabricItemSettings().maxCount(1), "gold_blood_needle"), HEART_GROUP);
+    public static final FrostBloodNeedle FROST_BLOOD_NEEDLE = register(new FrostBloodNeedle(new FabricItemSettings().maxCount(1), "frost_blood_needle"), HEART_GROUP);
+    public static final PoisonBloodNeedle POISON_BLOOD_NEEDLE = register(new PoisonBloodNeedle(new FabricItemSettings().maxCount(1), "poison_blood_needle"), HEART_GROUP);
+    public static final WitherBloodNeedle WITHER_BLOOD_NEEDLE = register(new WitherBloodNeedle(new FabricItemSettings().maxCount(1), "wither_blood_needle"), HEART_GROUP);
+    public static final WaterBloodNeedle WATER_BLOOD_NEEDLE = register(new WaterBloodNeedle(new FabricItemSettings().recipeRemainder(EMPTY_BLOOD_NEEDLE).maxCount(1), "water_blood_needle"), HEART_GROUP);
+    public static final EmptyHeart EMPTY_HEART = register(new EmptyHeart( "empty_heart"), HEART_GROUP);
+    public static final Heart HEART = register(new Heart("heart"), HEART_GROUP);
+    public static final FakeHeart FAKE_HEART = register(new FakeHeart(HEART), HEART_GROUP);
+    public static final GoldHeart GOLD_HEART = register(new GoldHeart("gold_heart"), HEART_GROUP);
+    public static final FakeHeart FAKE_GOLD_HEART = register(new FakeHeart(GOLD_HEART), HEART_GROUP);
+    public static final FrostHeart FROST_HEART = register(new FrostHeart("frost_heart"), HEART_GROUP);
+    public static final FakeHeart FAKE_FROST_HEART = register(new FakeHeart(FROST_HEART), HEART_GROUP);
+    public static final PoisonHeart POISON_HEART = register(new PoisonHeart("poison_heart"), HEART_GROUP);
+    public static final FakeHeart FAKE_POISON_HEART = register(new FakeHeart(POISON_HEART), HEART_GROUP);
+    public static final WitherHeart WITHER_HEART = register(new WitherHeart("wither_heart"), HEART_GROUP);
+    public static final FakeHeart FAKE_WITHER_HEART = register(new FakeHeart(WITHER_HEART), HEART_GROUP);
+    public static final AnimalHeart ANIMAL_HEART = register(new AnimalHeart("animal_heart"), HEART_GROUP);
+    public static final FakeHeart FAKE_ANIMAL_HEART = register(new FakeHeart(ANIMAL_HEART), HEART_GROUP);
+    public static final HeartDrop HEART_DROP = register(new HeartDrop(new FabricItemSettings().maxCount(64), "heart_drop"), HEART_GROUP);
+    public static final HeartHalfDrop HEART_HALF_DROP = register(new HeartHalfDrop(new FabricItemSettings().maxCount(64), "heart_half_drop"), HEART_GROUP);
+    public static final Map<Item, ILevelItem> HEART_DROP_DEVICE = LevelsUtil.registerItems(HeartDropDevice.HeartDropDeviceLevels.values(), HEART_GROUP);
+    public static final Map<Item, ILevelItem> HEART_ABSORPTION_DEVICE = LevelsUtil.registerItems(HeartAbsorptionDevice.HeartAbsorptionDeviceLevels.values(), HEART_GROUP);
+    public static final HeartArmor HEART_HELMET = register(new HeartArmor(ArmorItem.Type.HELMET), HEART_GROUP);
+    public static final HeartArmor HEART_CHESTPLATE = register(new HeartArmor(ArmorItem.Type.CHESTPLATE), HEART_GROUP);
+    public static final HeartArmor HEART_LEGGINGS = register(new HeartArmor(ArmorItem.Type.LEGGINGS), HEART_GROUP);
+    public static final HeartArmor HEART_BOOTS = register(new HeartArmor(ArmorItem.Type.BOOTS), HEART_GROUP);
 
-    public static final BaseItem[] BODY_GROUP_ITEMS = new BaseItem[]{
-        STABILIZER,
-        CUING_AGENT,
-        EMPTY_BLOOD_NEEDLE,
-        BLOOD_NEEDLE,
-        GOLD_BLOOD_NEEDLE,
-        WATER_BLOOD_NEEDLE,
-        FROST_BLOOD_NEEDLE,
-        POISON_BLOOD_NEEDLE,
-        WITHER_BLOOD_NEEDLE,
-        EMPTY_HEART,
-        HEART,
-        FAKE_HEART,
-        GOLD_HEART,
-        FAKE_GOLD_HEART,
-        FROST_HEART,
-        FAKE_FROST_HEART,
-        POISON_HEART,
-        FAKE_POISON_HEART,
-        WITHER_HEART,
-        FAKE_WITHER_HEART,
-        ANIMAL_HEART,
-        FAKE_ANIMAL_HEART,
-        HEART_DROP,
-        HEART_HALF_DROP
-    };
+    public static final BaseItem BAR = register("bar", FOOD_GROUP);
+    public static final List<Item> ICE_CREAM_BAR_PACKS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new IceCreamBarPack(new FabricItemSettings().maxCount(16), dyeColor,"ice_cream_bar_pack"), FOOD_GROUP);
+    public static final List<Item> PACK_ICE_CREAM_BARS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new PackIceCream(new FabricItemSettings().maxCount(1), dyeColor,"pack_ice_cream_bar"), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> ICE_CREAM_BARS = LevelsUtil.registerItems(IceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> COOKIE_ICE_CREAM_BARS = LevelsUtil.registerItems(CookieIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustCookieIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+    public static final Map<Item, ILevelItem> SALT_WATER_POPSICLE = LevelsUtil.registerItems(SaltWaterPopsicle.IceCreamLevels.values(), FOOD_GROUP);
 
-    public static final BaseArmorItem HEART_HELMET = new HeartArmor(ArmorItem.Type.HELMET, new FabricItemSettings());
-    public static final BaseArmorItem HEART_CHESTPLATE = new HeartArmor(ArmorItem.Type.CHESTPLATE, new FabricItemSettings());
-    public static final BaseArmorItem HEART_LEGGINGS = new HeartArmor(ArmorItem.Type.LEGGINGS, new FabricItemSettings());
-    public static final BaseArmorItem HEART_BOOTS = new HeartArmor(ArmorItem.Type.BOOTS, new FabricItemSettings());
+    public static <BI extends BaseItem> BI register(BI item, ItemGroup group){
+        return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);
+    }
 
-    public static final BaseArmorItem[] BODY_GROUP_ARMOR_ITEMS = new BaseArmorItem[]{
-        HEART_HELMET,
-        HEART_CHESTPLATE,
-        HEART_LEGGINGS,
-        HEART_BOOTS
-    };
+    public static <BAI extends BaseArmorItem> BAI register(BAI item, ItemGroup group){
+        return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);
+    }
 
-
-    public static final BaseArmorItem[] MINI_DEVICE_GROUP_ITEMS = new BaseArmorItem[]{
-
-    };
-
-//    public static final BaseItem PHONE = new Phone(new FabricItemSettings().maxCount(1), "phone");
-//
-//    public static final BaseItem[] INTERNET_ITEMS = new BaseItem[]{
-//        PHONE
-//    };
-
-    public static final BaseItem BAR = new BaseItem("bar");
-    public static final List<IColor> ICE_CREAM_BAR_PACKS = ColorUtil.getColorItems(DyeColor.values(), dyeColor -> new IceCreamBarPack(new FabricItemSettings().maxCount(16), dyeColor,"ice_cream_bar_pack"));
-    public static final List<IColor> PACK_ICE_CREAM_BARS = ColorUtil.getColorItems(DyeColor.values(), dyeColor -> new PackIceCream(new FabricItemSettings().maxCount(1), dyeColor,"pack_ice_cream_bar"));
-    public static final Map<Item, ILevelItem> ICE_CREAM_BARS = LevelsUtil.getItems(IceCreamBar.IceCreamLevels.values());
-    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_ICE_CREAM_BARS = LevelsUtil.getItems(ChocolateCrustIceCreamBar.IceCreamLevels.values());
-    public static final Map<Item, ILevelItem> COOKIE_ICE_CREAM_BARS = LevelsUtil.getItems(CookieIceCreamBar.IceCreamLevels.values());
-    public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS = LevelsUtil.getItems(ChocolateCrustCookieIceCreamBar.IceCreamLevels.values());
-
-    public static final BaseItem[] FOOD_GROUP = new BaseItem[]{
-        BAR
-    };
-
-    public static void registerAllItem(){
-        LevelsUtil.registerAllItem(EXPAND_PASSENGERS);
-
-        RegisterUtil.registerItems(BODY_GROUP_ITEMS);
-        LevelsUtil.registerAllItem(HEART_DROP_DEVICE);
-        LevelsUtil.registerAllItem(HEART_ABSORPTION_DEVICE);
-
-        RegisterUtil.registerArmorItems(BODY_GROUP_ARMOR_ITEMS);
-        RegisterUtil.registerArmorItems(MINI_DEVICE_GROUP_ITEMS);
-
-        RegisterUtil.registerItems(FOOD_GROUP);
-        ColorUtil.registerAllItem(ICE_CREAM_BAR_PACKS);
-        ColorUtil.registerAllItem(PACK_ICE_CREAM_BARS);
-        LevelsUtil.registerAllItem(ICE_CREAM_BARS);
-        LevelsUtil.registerAllItem(CHOCOLATE_CRUST_ICE_CREAM_BARS);
-        LevelsUtil.registerAllItem(COOKIE_ICE_CREAM_BARS);
-        LevelsUtil.registerAllItem(CHOCOLATE_CRUST_COOKIE_ICE_CREAM_BARS);
+    public static BaseItem register(String id, ItemGroup group){
+        return RegisterUtil.registerItem(id, new BaseItem(id), group, RegisterUtil.Model.GENERATED);
     }
 }

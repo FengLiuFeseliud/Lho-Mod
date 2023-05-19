@@ -4,9 +4,10 @@ import fengliu.notheme.NoThemeMod;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
-import fengliu.notheme.util.item.ITickUpdate;
 import fengliu.notheme.util.level.ILevelItem;
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 
-public class PackIceCream extends BaseItem implements ITickUpdate, IColor {
+public class PackIceCream extends BaseItem implements IColor, FabricItem {
     public static final String ICE_CREAM_PACK_TIME_KEY = NoThemeMod.MOD_ID + ".iceCreamPackTime";
     public static final String PACK_ICE_CREAM_KEY = NoThemeMod.MOD_ID + ".packIceCream";
     private final DyeColor color;
@@ -83,11 +84,9 @@ public class PackIceCream extends BaseItem implements ITickUpdate, IColor {
 
     /**
      * 在背包每 tick 增加 1 tick 取出时长
-     * @param stack 物品
-     * @param player 玩家
      */
     @Override
-    public void update(ItemStack stack, PlayerEntity player) {
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         NbtCompound nbt = stack.getOrCreateNbt();
         if (!nbt.contains(PACK_ICE_CREAM_KEY, NbtElement.COMPOUND_TYPE)){
             return;
@@ -99,6 +98,11 @@ public class PackIceCream extends BaseItem implements ITickUpdate, IColor {
         }
 
         nbt.putInt(ICE_CREAM_PACK_TIME_KEY, nbt.getInt(ICE_CREAM_PACK_TIME_KEY) + 1);
+    }
+
+    @Override
+    public boolean allowNbtUpdateAnimation(PlayerEntity player, Hand hand, ItemStack oldStack, ItemStack newStack) {
+        return false;
     }
 
     @Override

@@ -1,11 +1,8 @@
 package fengliu.notheme;
 
-import fengliu.notheme.block.ModBlocks;
 import fengliu.notheme.block.entity.ModBlockEntitys;
 import fengliu.notheme.callback.ArmorChangeCallback;
 import fengliu.notheme.criterion.ModCriteria;
-import fengliu.notheme.item.ModItemGroups;
-import fengliu.notheme.item.ModItems;
 import fengliu.notheme.item.block.ModBlockItems;
 import fengliu.notheme.networking.packets.client.ModClientMessage;
 import fengliu.notheme.screen.handler.ModScreenHandlers;
@@ -19,11 +16,6 @@ public class NoThemeMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModItems.registerAllItem();
-		ModBlockItems.registerAllBlockItem();
-		ModItemGroups.registerItemGroup();
-
-		ModBlocks.registerAllBlock();
 		ModBlockEntitys.registerAllBlockEntity();
 
 		ModScreenHandlers.registerAllScreenHandlers();
@@ -33,5 +25,6 @@ public class NoThemeMod implements ModInitializer {
 		ModCriteria.registerAllCriteria();
 
 		ModClientMessage.registerC2SPackets();
+		ModBlockItems.registerAllBlockItem();
 	}
 }

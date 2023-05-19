@@ -7,13 +7,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 public class EmptyHeart extends BaseItem implements IHeart {
-    public EmptyHeart(Settings settings, String id) {
-        super(settings, id);
+    public EmptyHeart(String id) {
+        super(new Settings().maxCount(1), id);
     }
 
     @Override

@@ -7,8 +7,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class AnimalHeart extends EmptyHeart {
-    public AnimalHeart(Settings settings, String id) {
-        super(settings, id);
+    public AnimalHeart(String id) {
+        super(id);
     }
 
     @Override

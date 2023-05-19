@@ -5,12 +5,11 @@ import fengliu.notheme.util.SpawnUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class GoldHeart extends EmptyHeart {
-    public GoldHeart(Settings settings, String id) {
-        super(settings, id);
+    public GoldHeart(String id) {
+        super(id);
     }
 
     @Override

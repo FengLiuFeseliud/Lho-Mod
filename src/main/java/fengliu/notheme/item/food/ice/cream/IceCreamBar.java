@@ -3,30 +3,30 @@ package fengliu.notheme.item.food.ice.cream;
 import fengliu.notheme.NoThemeMod;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.IdUtil;
-import fengliu.notheme.util.SpawnUtil;
 import fengliu.notheme.util.item.BaseItem;
-import fengliu.notheme.util.item.ITickUpdate;
 import fengliu.notheme.util.level.ILevelItem;
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
 
-public class IceCreamBar extends BaseItem implements ITickUpdate {
+public class IceCreamBar extends BaseItem implements FabricItem {
     public static final String THAW_TIME_KEY = NoThemeMod.MOD_ID + ".thawTime";
 
     public IceCreamBar(Settings settings, String name) {
@@ -70,6 +70,30 @@ public class IceCreamBar extends BaseItem implements ITickUpdate {
         return ((IIceCreamLevel) iceCreamEnd.getValue()).getAllThawItemStack();
     }
 
+    /**
+     * 每 tick 在背包融化
+     */
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (!(entity instanceof PlayerEntity player)){
+            return;
+        }
+
+        NbtCompound nbt = stack.getOrCreateNbt();
+        if (!nbt.contains(IceCreamBar.THAW_TIME_KEY, NbtElement.INT_TYPE)){
+            nbt.putInt(IceCreamBar.THAW_TIME_KEY, ((IIceCreamLevel) this.getIceCreams().get(this)).getThawTime());
+            return;
+        }
+
+        int thawTime = nbt.getInt(IceCreamBar.THAW_TIME_KEY);
+        if (thawTime > 0){
+            nbt.putInt(IceCreamBar.THAW_TIME_KEY, --thawTime);
+            return;
+        }
+
+        player.getInventory().setStack(slot, this.thaw(stack, player));
+    }
+
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         target.setFireTicks(0);
@@ -97,34 +121,19 @@ public class IceCreamBar extends BaseItem implements ITickUpdate {
         return iceCreamStack;
     }
 
-    /**
-     * 每 tick 在背包融化
-     * @param stack 物品
-     * @param player 玩家
-     */
     @Override
-    public void update(ItemStack stack, PlayerEntity player) {
-        NbtCompound nbt = stack.getOrCreateNbt();
-        if (!nbt.contains(IceCreamBar.THAW_TIME_KEY, NbtElement.INT_TYPE)){
-            nbt.putInt(IceCreamBar.THAW_TIME_KEY, ((IIceCreamLevel) this.getIceCreams().get(this)).getThawTime());
-            return;
-        } else {
-            int thawTime = nbt.getInt(IceCreamBar.THAW_TIME_KEY);
-            if (thawTime != 0){
-                nbt.putInt(IceCreamBar.THAW_TIME_KEY, --thawTime);
-                return;
-            }
-        }
+    public String getTextureName() {
+        return ((IIceCreamLevel) this.getIceCreams().get(this)).getThawName();
+    }
 
-        ItemStack iceCreamStack = this.thaw(stack, player);
-        PlayerInventory inventory = player.getInventory();
-        int slot = inventory.getEmptySlot();
-        if (slot == -1){
-            SpawnUtil.spawnItemToPlayer(iceCreamStack, player, player.getWorld());
-            return;
-        }
+    @Override
+    public String getPrefixedPath() {
+        return super.getPrefixedPath() + this.getIceCreams().get(this).getIdName() + "/";
+    }
 
-        inventory.setStack(slot, iceCreamStack);
+    @Override
+    public boolean allowNbtUpdateAnimation(PlayerEntity player, Hand hand, ItemStack oldStack, ItemStack newStack) {
+        return false;
     }
 
     @Override
