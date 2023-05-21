@@ -39,6 +39,7 @@ public class ModBlockItems {
 
     public static final BlockItem BEDROCK_BREAKER_BLOCK_ITEM = register(new BedrockBreaker((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, new FabricItemSettings().maxCount(1).maxDamage(1)), ModBlocks.BEDROCK_BREAKER_BLOCK, MINI_DEVICE_GROUP);
     public static final BlockItem UPDATE_SKIPPING_BLOCK_ITEM = register(new BaseBlockItem((IBaseBlock) ModBlocks.UPDATE_SKIPPING_BLOCK, new FabricItemSettings().maxCount(1)), ModBlocks.UPDATE_SKIPPING_BLOCK, MINI_DEVICE_GROUP);
+    public static final BlockItem CRAFTING_TABLE_SLAB_BLOCK_ITEM = register(ModBlocks.CRAFTING_TABLE_SLAB_BLOCK, MINI_DEVICE_GROUP);
 
     public static <BI extends BlockItem, B extends Block> BI register(BI item, B block, ItemGroup group){
         return RegisterUtil.registerItem(((IBaseBlock) block).getId(), item, group, null);

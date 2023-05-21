@@ -49,7 +49,9 @@ public abstract class ItemStackInventoryBlock extends BlockWithEntity {
      * 方块物品格
      * @return 物品格
      */
-    public abstract ItemStack getItemStack();
+    public ItemStack getItemStack(){
+        return this.getItem().getDefaultStack();
+    }
 
     /**
      * 方块库存状态 IntProperty

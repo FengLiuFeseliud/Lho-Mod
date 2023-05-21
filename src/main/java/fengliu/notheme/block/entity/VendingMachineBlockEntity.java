@@ -202,7 +202,7 @@ public class VendingMachineBlockEntity extends CraftBlockEntity {
 
         this.setItemStack(slot, commodity.getItem().getDefaultStack(), InventoryAllocation.CLAIM);
         commodity.decrement(1);
-        this.syncInventory(this.getItems(), ModServerMessage.SYNC_VENDING_MACHINE);
+        this.syncInventory();
     }
 
     protected ItemStack pick(Allocation allocation){
@@ -222,7 +222,7 @@ public class VendingMachineBlockEntity extends CraftBlockEntity {
      */
     public ItemStack pickUp(){
         ItemStack pick = this.pick(InventoryAllocation.CLAIM);
-        this.syncInventory(this.getItems(), ModServerMessage.SYNC_VENDING_MACHINE);
+        this.syncInventory();
         return pick;
     }
 
@@ -234,7 +234,7 @@ public class VendingMachineBlockEntity extends CraftBlockEntity {
         ItemStack stack = this.pick(InventoryAllocation.CURRENCY_CLAIM);
         if (stack.isEmpty()){
             stack = this.pick(InventoryAllocation.CURRENCY);
-            this.syncInventory(this.getItems(), ModServerMessage.SYNC_VENDING_MACHINE);
+            this.syncInventory();
         }
         return stack;
     }
@@ -353,8 +353,6 @@ public class VendingMachineBlockEntity extends CraftBlockEntity {
                 }
 
                 this.setItemStack(0, new ItemStack(itemStack.getItem(), 1), allocation);
-                this.syncInventory(this.getItems(), ModServerMessage.SYNC_VENDING_MACHINE);
-
                 itemStack.decrement(1);
                 break;
             }
@@ -379,22 +377,14 @@ public class VendingMachineBlockEntity extends CraftBlockEntity {
             break;
         }
 
-        this.syncInventory(this.getItems(), ModServerMessage.SYNC_VENDING_MACHINE);
+        this.syncInventory();
         return true;
     }
 
     @Override
-    public void markDirty() {
-        if (this.world == null){
-            super.markDirty();
-            return;
-        }
-
-        if (!this.world.isClient()){
-            this.syncInventory(this.getItems(), ModServerMessage.SYNC_VENDING_MACHINE);
-            this.syncPrice();
-        }
-        super.markDirty();
+    public void syncAll() {
+        super.syncAll();
+        this.syncPrice();
     }
 
     @Override

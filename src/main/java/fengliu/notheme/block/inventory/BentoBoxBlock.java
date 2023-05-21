@@ -47,11 +47,6 @@ public class BentoBoxBlock extends ClothBagBlock {
     }
 
     @Override
-    public ItemStack getItemStack() {
-        return this.getItem().getDefaultStack();
-    }
-
-    @Override
     public IntProperty getInventoryProperty() {
         return IntProperty.of("inventory", 0, 9);
     }

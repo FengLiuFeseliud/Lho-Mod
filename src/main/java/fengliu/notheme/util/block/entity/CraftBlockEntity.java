@@ -1,5 +1,6 @@
 package fengliu.notheme.util.block.entity;
 
+import fengliu.notheme.networking.packets.server.ModServerMessage;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -70,9 +71,10 @@ public abstract class CraftBlockEntity extends ItemStackInventoryBlockEntity {
         return allocation.getInventory(this.getItems());
     }
 
-    public void setInventory(List<ItemStack> stacks) {
-        for (int index = 0; index < stacks.size(); index++){
-            this.getItems().set(index, stacks.get(index));
+    public void syncResetInventory(PacketByteBuf buf){
+        int size = buf.readInt();
+        for (int index = 0; index < size; index++){
+            this.setStack(index, buf.readItemStack());
         }
     }
 
@@ -96,6 +98,32 @@ public abstract class CraftBlockEntity extends ItemStackInventoryBlockEntity {
 
         for (ServerPlayerEntity player: PlayerLookup.tracking((ServerWorld) this.world, this.pos)){
             ServerPlayNetworking.send(player, channelName, data);
+        }
+    }
+
+    /**
+     * 同步库存所有物品
+     */
+    public void syncInventory(){
+        this.syncInventory(this.getItems(), ModServerMessage.SYNC_INVENTORY);
+    }
+
+    /**
+     * 同步所有数据
+     */
+    public void syncAll(){
+        this.syncInventory();
+    }
+
+    @Override
+    public void markDirty() {
+        if (this.world == null){
+            super.markDirty();
+            return;
+        }
+
+        if (!this.world.isClient()){
+            this.syncAll();
         }
     }
 

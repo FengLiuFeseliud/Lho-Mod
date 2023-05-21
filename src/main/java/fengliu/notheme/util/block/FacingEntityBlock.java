@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 public abstract class FacingEntityBlock extends BlockWithEntity implements IBaseBlock {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
-    protected FacingEntityBlock(Settings settings) {
+    public FacingEntityBlock(Settings settings) {
         super(settings);
     }
 

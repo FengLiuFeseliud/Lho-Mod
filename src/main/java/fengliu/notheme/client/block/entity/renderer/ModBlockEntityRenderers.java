@@ -11,5 +11,6 @@ public class ModBlockEntityRenderers {
     public static void registerBlockEntityRenderers(){
         BlockEntityRendererRegistry.register(ModBlockEntitys.DISPENSING_MACHINE_BLOCK_ENTITY, DispensingMachineBlockEntityRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntitys.VENDING_MACHINE_BLOCK_ENTITY, VendingMachineBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(ModBlockEntitys.CRAFTING_TABLE_SLAB_BLOCK_ENTITY, CraftingTableSlabBlockEntityRenderer::new);
     }
 }

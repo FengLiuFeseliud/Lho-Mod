@@ -234,6 +234,9 @@
     "block.notheme.update_skipping": "单片地狱门制作器",
     "block.item.notheme.update_skipping.tooltip": "奇怪, 这东西怎么不会卡?",
 
+    "block.notheme.crafting_table_slab": "工作台板砖",
+    "block.item.notheme.crafting_table_slab.tooltip": "只是普通的工作台",
+
     "block.notheme.empty_bottle": "空瓶",
     "block.item.notheme.empty_bottle.tooltip": "可以用来瓶装液体",
 

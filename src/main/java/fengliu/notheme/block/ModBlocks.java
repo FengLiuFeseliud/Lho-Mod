@@ -7,6 +7,7 @@ import fengliu.notheme.block.inventory.bottle.BottleBlock;
 import fengliu.notheme.block.inventory.bottle.BottleBoxBlock;
 import fengliu.notheme.block.inventory.bottle.EmptyBottleBlock;
 import fengliu.notheme.block.mini.device.BedrockBreakerBlock;
+import fengliu.notheme.block.mini.device.CraftingTableSlabBlock;
 import fengliu.notheme.block.mini.device.UpdateSkippingBlock;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.block.BaseBlock;
@@ -44,6 +45,7 @@ public class ModBlocks {
     public static final Block LONG_FOR_LIFE_BLOCK = register(new LongForLifeBlock(FabricBlockSettings.of(Material.SOIL).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "long_for_life_block"));
     public static final Block BEDROCK_BREAKER_BLOCK = register(new BedrockBreakerBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 1200).requiresTool().nonOpaque(), "bedrock_breaker"));
     public static final Block UPDATE_SKIPPING_BLOCK = register(new UpdateSkippingBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 0.5f).requiresTool().nonOpaque(), "update_skipping"));
+    public static final Block CRAFTING_TABLE_SLAB_BLOCK = register(new CraftingTableSlabBlock(FabricBlockSettings.of(Material.STONE).strength(0.5f, 0.5f).requiresTool().nonOpaque(), 10));
 
     @Environment(EnvType.CLIENT)
     public static void setAllBlockRenderLayerMap(){

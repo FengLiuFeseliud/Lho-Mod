@@ -19,6 +19,7 @@ public class ModBlockEntitys {
     public static BlockEntityType<?> BEDROCK_BREAKER_BLOCK_ENTITY;
     public static BlockEntityType<DispensingMachineBlockEntity> DISPENSING_MACHINE_BLOCK_ENTITY;
     public static BlockEntityType<VendingMachineBlockEntity> VENDING_MACHINE_BLOCK_ENTITY;
+    public static BlockEntityType<CraftingTableSlabBlockEntity> CRAFTING_TABLE_SLAB_BLOCK_ENTITY;
 
     public static void registerAllBlockEntity(){
         BLOOD_POOL_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.BLOOD_POOL_BLOCK, BloodPoolBlockEntity::new);
@@ -27,5 +28,6 @@ public class ModBlockEntitys {
         BEDROCK_BREAKER_BLOCK_ENTITY = RegisterUtil.registerBlockEntity((IBaseBlock) ModBlocks.BEDROCK_BREAKER_BLOCK, BedrockBreakerBlockEntity::new);
         DISPENSING_MACHINE_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, ((IBaseBlock) ModBlocks.DISPENSING_MACHINE_BLOCK).getId(),  FabricBlockEntityTypeBuilder.create(DispensingMachineBlockEntity::new, ModBlocks.DISPENSING_MACHINE_BLOCK).build(null));
         VENDING_MACHINE_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, ((IBaseBlock) ModBlocks.VENDING_MACHINE_BLOCK).getId(),  FabricBlockEntityTypeBuilder.create(VendingMachineBlockEntity::new, ModBlocks.VENDING_MACHINE_BLOCK).build(null));
+        CRAFTING_TABLE_SLAB_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, ((IBaseBlock) ModBlocks.CRAFTING_TABLE_SLAB_BLOCK).getId(),  FabricBlockEntityTypeBuilder.create(CraftingTableSlabBlockEntity::new, ModBlocks.CRAFTING_TABLE_SLAB_BLOCK).build(null));
     }
 }
