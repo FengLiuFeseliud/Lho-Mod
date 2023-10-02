@@ -23,4 +23,8 @@ public class ModItemGroups {
     public static final ItemGroup HEART_GROUP = FabricItemGroup.builder(IdUtil.get("heart_group"))
         .icon(() -> new ItemStack(ModItems.HEART))
         .build();
+
+    public static final ItemGroup TOOL_GROUP = FabricItemGroup.builder(IdUtil.get("tool_group"))
+            .icon(() -> new ItemStack(ModItems.HEART))
+            .build();
 }

@@ -27,6 +27,7 @@ public class RegisterUtil {
     }
 
     public static final Map<Item, Model> ITEM_MODEL = new HashMap<>();
+    public static final List<List<BaseItem>> COLORS_ITEM_LIST = new ArrayList<>();
 
     public static <I extends Item> I registerItem(Identifier id, I item, ItemGroup group, RegisterUtil.Model model){
         ITEM_MODEL.put(item, model);
@@ -42,13 +43,15 @@ public class RegisterUtil {
         BaseItem get(DyeColor dyeColor);
     }
 
-    public static List<Item> registerColorItems(DyeColor[] dyeColors, colorItem colorItem, ItemGroup group){
-        List<Item> items = new ArrayList<>();
+    public static List<BaseItem> registerColorItems(DyeColor[] dyeColors, colorItem colorItem, ItemGroup group){
+        List<BaseItem> items = new ArrayList<>();
         for (DyeColor dyeColor: dyeColors){
             BaseItem item = colorItem.get(dyeColor);
             ColorProviderRegistry.ITEM.register((stack, tintIndex) -> dyeColor.getMapColor().color, item);
             items.add(RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED));
         }
+
+        COLORS_ITEM_LIST.add(items);
         return items;
     }
 

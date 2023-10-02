@@ -3,6 +3,9 @@ package fengliu.notheme.util.item;
 import fengliu.notheme.criterion.ModCriteria;
 import fengliu.notheme.util.IdUtil;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.ModelIds;
+import net.minecraft.data.client.TextureMap;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,6 +18,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+
+import static net.minecraft.data.client.Models.GENERATED;
 
 public class BaseItem extends Item {
     public static final String PREFIXED_PATH = "item/";
@@ -45,7 +50,7 @@ public class BaseItem extends Item {
     }
 
     /**
-     * 获取纹理名 (用于生成模型)
+     * 获取纹理名 (用于生成)
      * @return 纹理名
      */
     public String getTextureName(){
@@ -58,6 +63,10 @@ public class BaseItem extends Item {
      */
     public String getPrefixedPath(){
         return PREFIXED_PATH;
+    }
+
+    public void uploadModel(ItemModelGenerator itemModelGenerator){
+        GENERATED.upload(ModelIds.getItemModelId(this), TextureMap.layer0(IdUtil.get(this.getTextureName()).withPrefixedPath(this.getPrefixedPath())), itemModelGenerator.writer);
     }
 
     @Override

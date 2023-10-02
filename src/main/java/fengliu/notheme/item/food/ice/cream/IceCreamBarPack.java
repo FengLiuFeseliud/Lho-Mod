@@ -13,12 +13,10 @@ import net.minecraft.util.DyeColor;
 
 public class IceCreamBarPack extends BaseItem implements IColor {
     private final DyeColor color;
-    private final String textureName;
 
     public IceCreamBarPack(Settings settings, DyeColor dyeColor, String textureName) {
         super(settings, dyeColor, textureName);
         this.color = dyeColor;
-        this.textureName = textureName;
     }
 
     @Override
@@ -56,10 +54,5 @@ public class IceCreamBarPack extends BaseItem implements IColor {
     @Override
     public DyeColor getColor() {
         return this.color;
-    }
-
-    @Override
-    public String getTextureName() {
-        return this.textureName;
     }
 }

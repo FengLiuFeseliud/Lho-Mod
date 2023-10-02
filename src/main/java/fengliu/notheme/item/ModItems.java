@@ -8,6 +8,7 @@ import fengliu.notheme.item.heart.drop.HeartDrop;
 import fengliu.notheme.item.heart.drop.HeartDropDevice;
 import fengliu.notheme.item.heart.drop.HeartHalfDrop;
 import fengliu.notheme.item.heart.fake.FakeHeart;
+import fengliu.notheme.item.tool.*;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.item.BaseItem;
 import fengliu.notheme.util.item.armor.BaseArmorItem;
@@ -22,8 +23,7 @@ import net.minecraft.util.DyeColor;
 import java.util.List;
 import java.util.Map;
 
-import static fengliu.notheme.item.ModItemGroups.FOOD_GROUP;
-import static fengliu.notheme.item.ModItemGroups.HEART_GROUP;
+import static fengliu.notheme.item.ModItemGroups.*;
 
 public class ModItems {
     public static final BaseItem STABILIZER = register("stabilizer", HEART_GROUP);
@@ -58,8 +58,8 @@ public class ModItems {
     public static final HeartArmor HEART_BOOTS = register(new HeartArmor(ArmorItem.Type.BOOTS), HEART_GROUP);
 
     public static final BaseItem BAR = register("bar", FOOD_GROUP);
-    public static final List<Item> ICE_CREAM_BAR_PACKS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new IceCreamBarPack(new FabricItemSettings().maxCount(16), dyeColor,"ice_cream_bar_pack"), FOOD_GROUP);
-    public static final List<Item> PACK_ICE_CREAM_BARS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new PackIceCream(new FabricItemSettings().maxCount(1), dyeColor,"pack_ice_cream_bar"), FOOD_GROUP);
+    public static final List<BaseItem> ICE_CREAM_BAR_PACKS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new IceCreamBarPack(new FabricItemSettings().maxCount(16), dyeColor,"ice_cream_bar_pack"), FOOD_GROUP);
+    public static final List<BaseItem> PACK_ICE_CREAM_BARS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new PackIceCream(new FabricItemSettings().maxCount(1), dyeColor,"pack_ice_cream_bar"), FOOD_GROUP);
     public static final Map<Item, ILevelItem> ICE_CREAM_BARS = LevelsUtil.registerItems(IceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
     public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
     public static final Map<Item, ILevelItem> COOKIE_ICE_CREAM_BARS = LevelsUtil.registerItems(CookieIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
@@ -71,6 +71,13 @@ public class ModItems {
     public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_CHORUS_FRUIT_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustChorusFruitIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
     public static final Map<Item, ILevelItem> GLOW_BERRIES_ICE_CREAM_BARS = LevelsUtil.registerItems(GlowBerriesIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
     public static final Map<Item, ILevelItem> CHOCOLATE_CRUST_GLOW_BERRIES_ICE_CREAM_BARS = LevelsUtil.registerItems(ChocolateCrustGlowBerriesIceCreamBar.IceCreamLevels.values(), FOOD_GROUP);
+
+    public static final BaseItem EMPTY_COLOR_PICKER = register(new EmptyColorPicker(new FabricItemSettings().maxCount(1), "empty_color_picker"), TOOL_GROUP);
+    public static final List<BaseItem> COLOR_PICKERS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new ColorPicker(new FabricItemSettings().maxCount(1).maxDamage(64), dyeColor,"color_picker"), TOOL_GROUP);
+    public static final BaseItem EMPTY_SPRAY_GUN = register(new EmptySprayGun(new FabricItemSettings().maxCount(1), "empty_spray_gun"), TOOL_GROUP);
+    public static final List<BaseItem> SPRAY_GUNS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new SprayGun(new FabricItemSettings().maxCount(1).maxDamage(64), dyeColor,"spray_gun"), TOOL_GROUP);
+    public static final BaseItem EMPTY_BRUSH = register(new BaseItem(new FabricItemSettings().maxCount(1), "empty_brush"), TOOL_GROUP);
+    public static final List<BaseItem> BRUSHS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new Brush(new FabricItemSettings().maxCount(1).maxDamage(128), dyeColor,"brush"), TOOL_GROUP);
 
     public static <BI extends BaseItem> BI register(BI item, ItemGroup group){
         return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);

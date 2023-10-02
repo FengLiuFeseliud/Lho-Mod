@@ -2,6 +2,7 @@
     "itemGroup.notheme.inventory_group": "NoTheme - 存储",
     "itemGroup.notheme.heart_group": "NoTheme - 血量工艺",
     "itemGroup.notheme.food_group": "NoTheme - 食物",
+    "itemGroup.notheme.tool_group": "NoTheme - 工具",
 
     "notheme.item.reinforced_bag.info.1": " - %s",
     "notheme.item.reinforced_bag.info.2": "使用: %s",
@@ -267,40 +268,10 @@
     "item.notheme.bar": "雪糕棒",
     "item.notheme.bar.tooltip": "你也不想手抓着冰淇淋吃吧...",
 
-    "item.notheme.white_ice_cream_bar_pack": "白色雪糕包装纸",
-    "item.notheme.orange_ice_cream_bar_pack": "橙色雪糕包装纸",
-    "item.notheme.magenta_ice_cream_bar_pack": "品红色雪糕包装纸",
-    "item.notheme.light_blue_ice_cream_bar_pack": "淡蓝色雪糕包装纸",
-    "item.notheme.yellow_ice_cream_bar_pack": "黄色雪糕包装纸",
-    "item.notheme.lime_ice_cream_bar_pack": "黄绿色雪糕包装纸",
-    "item.notheme.pink_ice_cream_bar_pack": "粉红色雪糕包装纸",
-    "item.notheme.gray_ice_cream_bar_pack": "灰色雪糕包装纸",
-    "item.notheme.light_gray_ice_cream_bar_pack": "淡灰色雪糕包装纸",
-    "item.notheme.cyan_ice_cream_bar_pack": "青色雪糕包装纸",
-    "item.notheme.purple_ice_cream_bar_pack": "紫色雪糕包装纸",
-    "item.notheme.blue_ice_cream_bar_pack": "蓝色雪糕包装纸",
-    "item.notheme.brown_ice_cream_bar_pack": "棕色雪糕包装纸",
-    "item.notheme.green_ice_cream_bar_pack": "绿色雪糕包装纸",
-    "item.notheme.red_ice_cream_bar_pack": "红色雪糕包装纸",
-    "item.notheme.black_ice_cream_bar_pack": "黑色雪糕包装纸",
+    "item.notheme.ice_cream_bar_pack": "雪糕包装纸",
     "item.notheme.ice_cream_bar_pack.tooltip": "用来包装雪糕, 包装后也看不清雪糕化成什么样了",
 
-    "item.notheme.white_pack_ice_cream_bar": "白色包装雪糕",
-    "item.notheme.orange_pack_ice_cream_bar": "橙色包装雪糕",
-    "item.notheme.magenta_pack_ice_cream_bar": "品红色包装雪糕",
-    "item.notheme.light_blue_pack_ice_cream_bar": "淡蓝色包装雪糕",
-    "item.notheme.yellow_pack_ice_cream_bar": "黄色包装雪糕",
-    "item.notheme.lime_pack_ice_cream_bar": "黄绿色包装雪糕",
-    "item.notheme.pink_pack_ice_cream_bar": "粉红色包装雪糕",
-    "item.notheme.gray_pack_ice_cream_bar": "灰色包装雪糕",
-    "item.notheme.light_gray_pack_ice_cream_bar": "淡灰色包装雪糕",
-    "item.notheme.cyan_pack_ice_cream_bar": "青色包装雪糕",
-    "item.notheme.purple_pack_ice_cream_bar": "紫色包装雪糕",
-    "item.notheme.blue_pack_ice_cream_bar": "蓝色包装雪糕",
-    "item.notheme.brown_pack_ice_cream_bar": "棕色包装雪糕",
-    "item.notheme.green_pack_ice_cream_bar": "绿色包装雪糕",
-    "item.notheme.red_pack_ice_cream_bar": "红色包装雪糕",
-    "item.notheme.black_pack_ice_cream_bar": "黑色包装雪糕",
+    "item.notheme.pack_ice_cream_bar": "包装雪糕",
     "item.notheme.pack_ice_cream_bar.tooltip": "包装雪糕, 化了也可以冻一冻",
 
     "item.notheme.ice_cream_bar_not_thaw": "牛奶雪糕",
@@ -361,5 +332,23 @@
     "item.notheme.chocolate_crust_glow_berries_ice_cream_bar_thaw_half": "融化一半的巧克力脆皮牛奶发光浆果雪糕",
     "item.notheme.chocolate_crust_glow_berries_ice_cream_bar_thaw_most": "融化大部分的巧克力脆皮牛奶发光浆果雪糕",
     "item.notheme.chocolate_crust_glow_berries_ice_cream_bar_thaw_almost_all": "几乎全部融化的巧克力脆皮牛奶发光浆果雪糕",
-    "item.notheme.chocolate_crust_glow_berries_ice_cream_bar.tooltip": "添加了巧克力脆皮与发光浆果, 容易获取到大量热量, 而且吃了会成为光"
+    "item.notheme.chocolate_crust_glow_berries_ice_cream_bar.tooltip": "添加了巧克力脆皮与发光浆果, 容易获取到大量热量, 而且吃了会成为光",
+
+    "item.notheme.empty_color_picker": "取色器",
+    "item.notheme.empty_color_picker.tooltip": "可以从带颜色名字的 方块/颜料/展示框物品 获取一种颜色",
+
+    "item.notheme.color_picker": "取色器",
+    "item.notheme.color_picker.tooltip": "选中颜色的取色器, 在背包中用此物品对 喷枪/画笔 点击来设置颜色",
+
+    "item.notheme.empty_spray_gun": "喷枪",
+    "item.notheme.empty_spray_gun.tooltip": "没有设置颜色的喷枪没有任何用处... 用取色器来设置颜色吧",
+
+    "item.notheme.spray_gun": "喷枪",
+    "item.notheme.spray_gun.tooltip": "已经设置颜色的喷枪, 可以对带颜色名字的 方块/物品 进行改色, 范围 3*3",
+
+    "item.notheme.empty_brush": "画笔",
+    "item.notheme.empty_brush.tooltip": "没有设置颜色的画笔没有任何用处... 用取色器来设置颜色吧",
+
+    "item.notheme.brush": "画笔",
+    "item.notheme.brush.tooltip": "已经设置颜色的画笔, 可以对带颜色名字的 方块/物品 进行改色"
 }

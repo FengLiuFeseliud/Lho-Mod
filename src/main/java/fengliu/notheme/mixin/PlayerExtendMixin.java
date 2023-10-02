@@ -23,11 +23,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /**
  * 使用 NBT 扩展玩家设置
  */
-@Mixin(PlayerEntity.class)
+@Mixin(value = PlayerEntity.class)
 public abstract class PlayerExtendMixin extends LivingEntity implements IPersistentData, IExtendPlayer {
     @Shadow public abstract boolean isPlayer();
 
     @Shadow public abstract PlayerInventory getInventory();
+
+    @Shadow public abstract void tick();
 
     private NbtCompound persistentData;
 

@@ -1,14 +1,11 @@
 package fengliu.notheme.data.generation;
 
-import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.item.BaseItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.ModelIds;
-import net.minecraft.data.client.TextureMap;
 
 import static net.minecraft.data.client.Models.GENERATED;
 
@@ -31,7 +28,7 @@ public class ItemDataGeneration extends FabricModelProvider {
 
             if (model == RegisterUtil.Model.GENERATED){
                 if (item instanceof BaseItem baseItem){
-                    GENERATED.upload(ModelIds.getItemModelId(item), TextureMap.layer0(IdUtil.get(baseItem.getTextureName()).withPrefixedPath(baseItem.getPrefixedPath())), itemModelGenerator.writer);
+                    baseItem.uploadModel(itemModelGenerator);
                     return;
                 }
                 itemModelGenerator.register(item, GENERATED);

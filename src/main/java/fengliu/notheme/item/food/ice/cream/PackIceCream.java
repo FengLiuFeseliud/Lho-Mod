@@ -27,12 +27,10 @@ public class PackIceCream extends BaseItem implements IColor, FabricItem {
     public static final String ICE_CREAM_PACK_TIME_KEY = NoThemeMod.MOD_ID + ".iceCreamPackTime";
     public static final String PACK_ICE_CREAM_KEY = NoThemeMod.MOD_ID + ".packIceCream";
     private final DyeColor color;
-    private final String textureName;
 
     public PackIceCream(Settings settings, DyeColor dyeColor, String textureName) {
         super(settings, dyeColor, textureName);
         this.color = dyeColor;
-        this.textureName = textureName;
     }
 
     /**
@@ -117,11 +115,6 @@ public class PackIceCream extends BaseItem implements IColor, FabricItem {
     @Override
     public DyeColor getColor() {
         return this.color;
-    }
-
-    @Override
-    public String getTextureName() {
-        return this.textureName;
     }
 
 }
