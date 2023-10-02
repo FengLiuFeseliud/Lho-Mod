@@ -35,6 +35,10 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
         return this.color;
     }
 
+    public Item getEmptyItem(){
+        return ModItems.EMPTY_COLOR_PICKER;
+    }
+
     @Override
     public void uploadModel(ItemModelGenerator itemModelGenerator) {
         GENERATED_THREE_LAYERS.upload(
@@ -63,19 +67,22 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
 
     @Override
     public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
-        if (super.onStackClicked(stack, slot, clickType, player)){
+        ItemStack slotStack = slot.getStack();
+        if ((slotStack.getItem() instanceof ColorPicker) && (stack.getItem() instanceof Brush || stack.getItem() instanceof SprayGun)){
             return false;
         }
 
-        ItemStack slotStack = slot.getStack();
-        if (slotStack.isOf(ModItems.EMPTY_SPRAY_GUN)){
-            stack.setDamage(stack.getDamage()+1);
-            return this.takeColor(ModItems.SPRAY_GUNS, slot, player);
-        }
+        if (!(slotStack.getItem() instanceof ColorPicker) && !(stack.getItem() instanceof Brush || stack.getItem() instanceof SprayGun)){
+            if (slotStack.isOf(ModItems.EMPTY_SPRAY_GUN)){
+                stack.setDamage(stack.getDamage()+1);
+                return this.takeColor(ModItems.SPRAY_GUNS, slot, player);
+            }
 
-        if (slotStack.isOf(ModItems.EMPTY_BRUSH)){
-            stack.setDamage(stack.getDamage()+1);
-            return this.takeColor(ModItems.BRUSHS, slot, player);
+            if (slotStack.isOf(ModItems.EMPTY_BRUSH)){
+                stack.setDamage(stack.getDamage()+1);
+                return this.takeColor(ModItems.BRUSHS, slot, player);
+            }
+            return false;
         }
 
         Identifier itemId = Registries.ITEM.getId(slotStack.getItem());
@@ -91,6 +98,7 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
                 stack.setDamage(slotCount + stack.getDamage());
                 if (stack.getDamage() >= stack.getMaxDamage()){
                     stack.decrement(1);
+                    player.getInventory().setStack(player.getInventory().getEmptySlot(), this.getEmptyItem().getDefaultStack());
                     player.world.playSound(player, player.getBlockPos(), SoundEvents.ENTITY_IRON_GOLEM_DAMAGE, SoundCategory.PLAYERS);
                 }
 
@@ -98,20 +106,20 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
                         Registries.ITEM.get(
                                 new Identifier(
                                         itemId.getNamespace(),
-                                        itemId.getPath().replace(colorName, this.color.getName())
+                                        itemId.getPath().replace(colorName, this.getColor().getName())
                                 )
                         ),
                         slotCount
                 );
 
-                if (newItem.getItem() instanceof ColorPicker){
+                if (!(newItem.getItem() instanceof Brush) && !(newItem.getItem() instanceof SprayGun)){
                     newItem.setDamage(slotStack.getDamage());
                 }
 
                 slotStack.decrement(slotCount);
                 player.getInventory().setStack(player.getInventory().getEmptySlot(), newItem);
             }
-            return true;
+            break;
         }
         return false;
     }
