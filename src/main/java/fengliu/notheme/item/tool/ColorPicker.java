@@ -59,10 +59,25 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
             }
 
             slot.getStack().decrement(1);
-            player.getInventory().setStack(player.getInventory().getEmptySlot(), item.getDefaultStack());
+            player.getInventory().insertStack(item.getDefaultStack());
             return true;
         }
         return false;
+    }
+
+    public boolean damageColor(Slot slot, ItemStack stack, PlayerEntity player){
+        int slotCount = slot.getStack().getCount();
+        if (!(stack.getDamage() + slotCount <= stack.getMaxDamage())) {
+            return false;
+        }
+
+        stack.setDamage(slotCount + stack.getDamage());
+        if (stack.getDamage() >= stack.getMaxDamage()) {
+            stack.decrement(1);
+            player.getInventory().insertStack(this.getEmptyItem().getDefaultStack());
+            player.world.playSound(player, player.getBlockPos(), SoundEvents.ENTITY_IRON_GOLEM_DAMAGE, SoundCategory.PLAYERS);
+        }
+        return true;
     }
 
     @Override
@@ -85,6 +100,22 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
             return false;
         }
 
+        if (!this.damageColor(slot, stack, player)){
+            return false;
+        }
+
+        if (slotStack.isOf(ModItems.WATER_BALLOON)){
+            for(Item item: ModItems.COLOR_WATER_BALLOONS){
+                if (!this.getColor().equals(((IColor) item).getColor())){
+                    continue;
+                }
+
+                player.getInventory().insertStack(new ItemStack(item, slotStack.getCount()));
+                slotStack.decrement(slotStack.getCount());
+            }
+            return true;
+        }
+
         Identifier itemId = Registries.ITEM.getId(slotStack.getItem());
         String itemPath = itemId.getPath();
         for (Item item : ModItems.COLOR_PICKERS) {
@@ -94,32 +125,22 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
             }
 
             int slotCount = slotStack.getCount();
-            if (stack.getDamage() + slot.getStack().getCount() <= stack.getMaxDamage()){
-                stack.setDamage(slotCount + stack.getDamage());
-                if (stack.getDamage() >= stack.getMaxDamage()){
-                    stack.decrement(1);
-                    player.getInventory().setStack(player.getInventory().getEmptySlot(), this.getEmptyItem().getDefaultStack());
-                    player.world.playSound(player, player.getBlockPos(), SoundEvents.ENTITY_IRON_GOLEM_DAMAGE, SoundCategory.PLAYERS);
-                }
+            ItemStack newItem = new ItemStack(
+                    Registries.ITEM.get(
+                            new Identifier(
+                                    itemId.getNamespace(),
+                                    itemId.getPath().replace(colorName, this.getColor().getName())
+                            )
+                    ),
+                    slotCount
+            );
 
-                ItemStack newItem = new ItemStack(
-                        Registries.ITEM.get(
-                                new Identifier(
-                                        itemId.getNamespace(),
-                                        itemId.getPath().replace(colorName, this.getColor().getName())
-                                )
-                        ),
-                        slotCount
-                );
-
-                if (!(newItem.getItem() instanceof Brush) && !(newItem.getItem() instanceof SprayGun)){
-                    newItem.setDamage(slotStack.getDamage());
-                }
-
-                slotStack.decrement(slotCount);
-                player.getInventory().setStack(player.getInventory().getEmptySlot(), newItem);
+            if (!(newItem.getItem() instanceof Brush) && !(newItem.getItem() instanceof SprayGun)){
+                newItem.setDamage(slotStack.getDamage());
             }
-            break;
+
+            slotStack.decrement(slotCount);
+            player.getInventory().insertStack(newItem);
         }
         return false;
     }

@@ -3,6 +3,7 @@ package fengliu.notheme;
 import fengliu.notheme.block.entity.ModBlockEntitys;
 import fengliu.notheme.callback.ArmorChangeCallback;
 import fengliu.notheme.criterion.ModCriteria;
+import fengliu.notheme.entity.ModEntity;
 import fengliu.notheme.item.block.ModBlockItems;
 import fengliu.notheme.networking.packets.client.ModClientMessage;
 import fengliu.notheme.screen.handler.ModScreenHandlers;
@@ -26,5 +27,7 @@ public class NoThemeMod implements ModInitializer {
 
 		ModClientMessage.registerC2SPackets();
 		ModBlockItems.registerAllBlockItem();
+
+		ModEntity.registerAllEntity();
 	}
 }

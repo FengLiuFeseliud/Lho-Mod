@@ -8,10 +8,7 @@ import fengliu.notheme.item.heart.drop.HeartDrop;
 import fengliu.notheme.item.heart.drop.HeartDropDevice;
 import fengliu.notheme.item.heart.drop.HeartHalfDrop;
 import fengliu.notheme.item.heart.fake.FakeHeart;
-import fengliu.notheme.item.tool.Brush;
-import fengliu.notheme.item.tool.ColorPicker;
-import fengliu.notheme.item.tool.EmptyColorPicker;
-import fengliu.notheme.item.tool.SprayGun;
+import fengliu.notheme.item.tool.*;
 import fengliu.notheme.util.RegisterUtil;
 import fengliu.notheme.util.item.BaseItem;
 import fengliu.notheme.util.item.armor.BaseArmorItem;
@@ -81,6 +78,9 @@ public class ModItems {
     public static final List<BaseItem> SPRAY_GUNS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new SprayGun(new FabricItemSettings().maxCount(1).maxDamage(64), dyeColor,"spray_gun"), TOOL_GROUP);
     public static final BaseItem EMPTY_BRUSH = register(new BaseItem(new FabricItemSettings().maxCount(1), "empty_brush"), TOOL_GROUP);
     public static final List<BaseItem> BRUSHS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new Brush(new FabricItemSettings().maxCount(1).maxDamage(128), dyeColor,"brush"), TOOL_GROUP);
+    public static final BaseItem EMPTY_WATER_BALLOON = register(new EmptyWaterBalloon(new FabricItemSettings().maxCount(64), "empty_water_balloon"), TOOL_GROUP);
+    public static final BaseItem WATER_BALLOON = register(new WaterBalloon(new FabricItemSettings().maxCount(64), "water_balloon"), TOOL_GROUP);
+    public static final List<BaseItem> COLOR_WATER_BALLOONS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new ColorWaterBalloon(new FabricItemSettings().maxCount(64), dyeColor,"color_water_balloon"), TOOL_GROUP);
 
     public static <BI extends BaseItem> BI register(BI item, ItemGroup group){
         return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);
