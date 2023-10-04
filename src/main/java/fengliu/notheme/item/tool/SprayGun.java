@@ -4,7 +4,6 @@ import fengliu.notheme.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
@@ -56,9 +55,7 @@ public class SprayGun extends ColorPicker {
             return ActionResult.SUCCESS;
         }
 
-        ItemStack itemStack = context.getStack();
-        itemStack.damage(1, context.getWorld().random, (ServerPlayerEntity) context.getPlayer());
-        if (itemStack.getDamage() >= itemStack.getMaxDamage()){
+        if (context.getStack().damage(1, context.getWorld().random, (ServerPlayerEntity) context.getPlayer())){
             PlayerEntity player = context.getPlayer();
 
             player.setStackInHand(context.getHand(), ModItems.EMPTY_SPRAY_GUN.getDefaultStack());

@@ -23,5 +23,6 @@ public class NoThemeClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntity.COLOR_WATER_BALLOON_ENTITY_TYPE, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntity.WATER_BALLOON_ENTITY_TYPE, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntity.WALL_SHELL_ENTITY_TYPE, FlyingItemEntityRenderer::new);
     }
 }

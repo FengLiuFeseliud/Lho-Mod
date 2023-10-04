@@ -15,6 +15,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,11 +44,14 @@ public class RegisterUtil {
         BaseItem get(DyeColor dyeColor);
     }
 
-    public static List<BaseItem> registerColorItems(DyeColor[] dyeColors, colorItem colorItem, ItemGroup group){
+    public static List<BaseItem> registerColorItems(DyeColor[] dyeColors, colorItem colorItem, @Nullable ItemGroup group){
         List<BaseItem> items = new ArrayList<>();
         for (DyeColor dyeColor: dyeColors){
             BaseItem item = colorItem.get(dyeColor);
             ColorProviderRegistry.ITEM.register((stack, tintIndex) -> dyeColor.getMapColor().color, item);
+            if (group == null){
+                continue;
+            }
             items.add(RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED));
         }
 

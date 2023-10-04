@@ -25,5 +25,14 @@ public class ModEntity {
                     .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
                     .trackRangeBlocks(4).trackedUpdateRate(10)
                     .build());
+
+    public static final EntityType<ThrownItemEntity> WALL_SHELL_ENTITY_TYPE = Registry.register(
+            Registries.ENTITY_TYPE,
+            IdUtil.get("wall_shell_entity"),
+            FabricEntityTypeBuilder.<ThrownItemEntity>create(SpawnGroup.MISC, WallShellEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                    .trackRangeBlocks(4).trackedUpdateRate(10)
+                    .build());
+
     public static void registerAllEntity(){}
 }

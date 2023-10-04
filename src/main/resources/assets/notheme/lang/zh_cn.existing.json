@@ -359,5 +359,13 @@
     "item.notheme.water_balloon.tooltip": "落地后会在附近流出水, 砸到 生物/玩家 影响目标视线, 水范围会变小, 好像可以设置颜色?",
 
     "item.notheme.color_water_balloon": "颜料气球",
-    "item.notheme.color_water_balloon.tooltip": "落地后对带颜色名字的 方块/物品 进行改色, 砸到 生物/玩家 影响目标视线, 改色范围会变小"
+    "item.notheme.color_water_balloon.tooltip": "落地后对带颜色名字的 方块/物品 进行改色, 砸到 生物/玩家 影响目标视线, 改色范围会变小",
+
+    "item.notheme.empty_wall_gun": "未填充颜料的墙体枪",
+    "item.notheme.empty_wall_gun.tooltip": "使用背包带颜色名字的方块建造7*4的墙体, 射出来的怎么都是带_的啊? 好像可以设置颜色来统一方块颜色?",
+
+    "item.notheme.wall_gun": "墙体枪",
+    "item.notheme.wall_gun.tooltip": "使用背包带颜色名字的方块建造7*4的墙体, 连射出来的方块颜色都统一了!",
+
+    "item.notheme.wall_shell": "墙体弹"
 }

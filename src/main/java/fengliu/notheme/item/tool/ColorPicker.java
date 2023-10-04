@@ -87,7 +87,7 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
             return false;
         }
 
-        if (!(slotStack.getItem() instanceof ColorPicker) && !(stack.getItem() instanceof Brush || stack.getItem() instanceof SprayGun)){
+        if (!(slotStack.getItem() instanceof ColorPicker) && !(stack.getItem() instanceof Brush || stack.getItem() instanceof SprayGun) && !(slotStack.getItem() instanceof WallGun)){
             if (slotStack.isOf(ModItems.EMPTY_SPRAY_GUN)){
                 stack.setDamage(stack.getDamage()+1);
                 return this.takeColor(ModItems.SPRAY_GUNS, slot, player);
@@ -96,6 +96,11 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
             if (slotStack.isOf(ModItems.EMPTY_BRUSH)){
                 stack.setDamage(stack.getDamage()+1);
                 return this.takeColor(ModItems.BRUSHS, slot, player);
+            }
+
+            if (slotStack.isOf(ModItems.EMPTY_WALL_GUN)){
+                stack.setDamage(stack.getDamage()+1);
+                return this.takeColor(ModItems.WALL_GUNS, slot, player);
             }
             return false;
         }
@@ -135,7 +140,7 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
                     slotCount
             );
 
-            if (!(newItem.getItem() instanceof Brush) && !(newItem.getItem() instanceof SprayGun)){
+            if (!(newItem.getItem() instanceof Brush) && !(newItem.getItem() instanceof SprayGun) && !(newItem.getItem() instanceof WallGun)){
                 newItem.setDamage(slotStack.getDamage());
             }
 

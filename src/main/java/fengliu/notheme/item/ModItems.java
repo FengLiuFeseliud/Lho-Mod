@@ -81,6 +81,9 @@ public class ModItems {
     public static final BaseItem EMPTY_WATER_BALLOON = register(new EmptyWaterBalloon(new FabricItemSettings().maxCount(64), "empty_water_balloon"), TOOL_GROUP);
     public static final BaseItem WATER_BALLOON = register(new WaterBalloon(new FabricItemSettings().maxCount(64), "water_balloon"), TOOL_GROUP);
     public static final List<BaseItem> COLOR_WATER_BALLOONS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new ColorWaterBalloon(new FabricItemSettings().maxCount(64), dyeColor,"color_water_balloon"), TOOL_GROUP);
+    public static final BaseItem EMPTY_WALL_GUN = register(new EmptyWallGun(new FabricItemSettings().maxCount(1), "empty_wall_gun"), TOOL_GROUP);
+    public static final List<BaseItem> WALL_GUNS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new WallGun(new FabricItemSettings().maxCount(1).maxDamage(9), dyeColor,"wall_gun"), TOOL_GROUP);
+    public static final List<BaseItem> WALL_SHELLS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new WallShell(new FabricItemSettings().maxCount(64), dyeColor,"wall_shell"), TOOL_GROUP);
 
     public static <BI extends BaseItem> BI register(BI item, ItemGroup group){
         return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);

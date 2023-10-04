@@ -59,7 +59,7 @@ public class ShapeUtil {
      * @param setBlock 方块填充回调
      */
     public static void rhombus(int size, BlockPos pos, @Nullable Direction direction, World world, SetBlock setBlock){
-        Direction[] sprayDirections = new Direction[4];
+        Direction[] sprayDirections;
         if (direction == Direction.EAST){
             sprayDirections = new Direction[]{Direction.WEST, Direction.EAST, Direction.SOUTH, Direction.NORTH};
         } else if (direction == Direction.WEST){
@@ -104,6 +104,24 @@ public class ShapeUtil {
             fillRhombusRow(spos, index, sprayDirections[2], sprayDirections[3], setBlock);
             spos = ShapeUtil.nextRhombusRow(spos, sprayDirections[1], wallSpaceIn);
 
+        }
+    }
+
+    public static void quadrilateral(int widthSize,int heightSize, BlockPos pos, @Nullable Direction direction, SetBlock setBlock){
+        Direction[] directions;
+        if (direction == Direction.EAST || direction == Direction.WEST){
+            directions = new Direction[]{Direction.NORTH, Direction.SOUTH};
+        } else {
+            directions = new Direction[]{Direction.WEST, Direction.EAST};
+        }
+
+        BlockPos spos = pos.offset(directions[0], Math.round((float) widthSize / 2));
+        for(int index = 0; index < heightSize; index++){
+            for (int row_index = 0; row_index < widthSize; row_index++){
+                setBlock.set(spos);
+                spos = spos.offset(directions[1]);
+            }
+            spos = spos.offset(directions[0], widthSize).up();
         }
     }
 }
