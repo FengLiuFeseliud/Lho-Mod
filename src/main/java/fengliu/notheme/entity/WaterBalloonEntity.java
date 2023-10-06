@@ -25,7 +25,7 @@ public class WaterBalloonEntity extends ThrownItemEntity {
     }
 
     public WaterBalloonEntity(PlayerEntity player, World world) {
-        super(ModEntity.WATER_BALLOON_ENTITY_TYPE, player, world);
+        super(ModEntitys.WATER_BALLOON_ENTITY_TYPE, player, world);
     }
 
     @Override

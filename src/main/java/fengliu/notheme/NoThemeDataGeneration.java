@@ -2,6 +2,7 @@ package fengliu.notheme;
 
 import fengliu.notheme.data.generation.ItemDataGeneration;
 import fengliu.notheme.data.generation.LangGeneration;
+import fengliu.notheme.data.generation.RecipeGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -11,6 +12,7 @@ public class NoThemeDataGeneration implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(ItemDataGeneration::new);
         pack.addProvider(LangGeneration::new);
+        pack.addProvider(RecipeGenerator::new);
     }
 
 }

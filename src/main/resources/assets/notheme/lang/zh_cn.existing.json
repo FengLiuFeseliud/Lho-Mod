@@ -367,5 +367,14 @@
     "item.notheme.wall_gun": "墙体枪",
     "item.notheme.wall_gun.tooltip": "使用背包带颜色名字的方块建造7*4的墙体, 连射出来的方块颜色都统一了!",
 
-    "item.notheme.wall_shell": "墙体弹"
+    "item.notheme.wall_shell": "墙体弹",
+
+    "item.notheme.paint_smoke_bomb": "颜料烟雾弹",
+    "item.notheme.paint_smoke_bomb.tooltip": "就是带颜色的烟雾弹, 落地后会产生烟雾让人看不清, 烟雾持续 18 秒",
+
+    "item.notheme.signal_gun": "信号枪",
+    "item.notheme.signal_gun.tooltip": "信号枪, 发射信号弹, 信号弹落地后会产生 8 格高烟雾以标记位置, 烟雾持续 30 秒",
+
+    "item.notheme.signal_shell": "信号弹",
+    "item.notheme.signal_shell.tooltip": "就是带颜色的信号弹, 会产生 8 格高烟雾以标记位置, 烟雾持续 30 秒"
 }

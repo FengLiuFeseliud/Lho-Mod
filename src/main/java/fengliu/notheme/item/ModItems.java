@@ -84,6 +84,9 @@ public class ModItems {
     public static final BaseItem EMPTY_WALL_GUN = register(new EmptyWallGun(new FabricItemSettings().maxCount(1), "empty_wall_gun"), TOOL_GROUP);
     public static final List<BaseItem> WALL_GUNS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new WallGun(new FabricItemSettings().maxCount(1).maxDamage(9), dyeColor,"wall_gun"), TOOL_GROUP);
     public static final List<BaseItem> WALL_SHELLS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new WallShell(new FabricItemSettings().maxCount(64), dyeColor,"wall_shell"), TOOL_GROUP);
+    public static final List<BaseItem> PAINT_SMOKE_BOMBS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new PaintSmokeBomb(new FabricItemSettings().maxCount(8), dyeColor,"paint_smoke_bomb"), TOOL_GROUP);
+    public static final BaseItem SIGNAL_GUN = register(new SignalGun(new FabricItemSettings().maxCount(1), "signal_gun"), TOOL_GROUP);
+    public static final List<BaseItem> SIGNAL_SHELLS = RegisterUtil.registerColorItems(DyeColor.values(), dyeColor -> new SignalShell(new FabricItemSettings().maxCount(16), dyeColor,"signal_shell"), TOOL_GROUP);
 
     public static <BI extends BaseItem> BI register(BI item, ItemGroup group){
         return RegisterUtil.registerItem(item.name, item, group, RegisterUtil.Model.GENERATED);

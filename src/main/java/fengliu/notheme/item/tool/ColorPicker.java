@@ -4,12 +4,17 @@ import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.ModelIds;
 import net.minecraft.data.client.TextureMap;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
@@ -19,6 +24,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import static net.minecraft.data.client.Models.GENERATED_THREE_LAYERS;
 
@@ -40,7 +46,7 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
     }
 
     @Override
-    public void uploadModel(ItemModelGenerator itemModelGenerator) {
+    public void generateModel(ItemModelGenerator itemModelGenerator) {
         GENERATED_THREE_LAYERS.upload(
                 ModelIds.getItemModelId(this),
                 TextureMap.layered(
@@ -50,6 +56,16 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
                 ),
                 itemModelGenerator.writer
         );
+    }
+
+    @Override
+    public void generateRecipe(Consumer<RecipeJsonProvider> exporter) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, this, 1)
+                .input(this.getEmptyItem())
+                .input(DyeItem.byColor(this.getColor()))
+                .criterion(FabricRecipeProvider.hasItem(this),
+                        FabricRecipeProvider.conditionsFromItem(this))
+                .offerTo(exporter);
     }
 
     public Boolean takeColor(List<BaseItem> colorItem, Slot slot, PlayerEntity player){

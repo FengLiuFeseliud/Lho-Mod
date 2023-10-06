@@ -2,6 +2,7 @@ package fengliu.notheme.entity;
 
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.ShapeUtil;
+import fengliu.notheme.util.entity.ColorItemThrownEntity;
 import fengliu.notheme.util.item.BaseItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -24,7 +25,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class WallShellEntity extends ColorItemThrownEntity{
+public class WallShellEntity extends ColorItemThrownEntity {
     public static final int HEIGHT_SIZE = 4;
     public static final int WIDTH_SIZE = 7;
 
@@ -35,12 +36,12 @@ public class WallShellEntity extends ColorItemThrownEntity{
     }
 
 
-    public WallShellEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+    public WallShellEntity(EntityType<ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
 
     public WallShellEntity(PlayerEntity player, World world, List<Block> wallBlocks) {
-        super(ModEntity.WALL_SHELL_ENTITY_TYPE, player, world);
+        super(ModEntitys.WALL_SHELL_ENTITY_TYPE, player, world);
         this.setWallBlocks(wallBlocks);
     }
 

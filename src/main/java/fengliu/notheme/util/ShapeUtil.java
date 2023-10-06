@@ -124,4 +124,27 @@ public class ShapeUtil {
             spos = spos.offset(directions[0], widthSize).up();
         }
     }
+
+    public static void fallQuadrilateral(int widthSize,int heightSize, BlockPos pos, @Nullable Direction direction, SetBlock setBlock){
+        Direction[] directions;
+        if (direction == Direction.EAST){
+            directions = new Direction[]{Direction.WEST, Direction.EAST, Direction.SOUTH, Direction.NORTH};
+        } else if (direction == Direction.WEST){
+            directions = new Direction[]{Direction.EAST, Direction.WEST, Direction.NORTH, Direction.SOUTH};
+        } else {
+            directions = new Direction[]{Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
+        }
+
+        int heightOffset = Math.round((float) heightSize / 2);
+        int widthOffset = Math.round((float) widthSize / 2);
+
+        BlockPos spos =  pos.offset(directions[0], heightOffset).offset(directions[2], widthOffset);
+        for(int index = 0; index < heightSize; index++){
+            for (int row_index = 0; row_index < widthSize; row_index++){
+                setBlock.set(spos);
+                spos = spos.offset(directions[3]);
+            }
+            spos = spos.offset(directions[2], widthSize).offset(directions[1]);
+        }
+    }
 }

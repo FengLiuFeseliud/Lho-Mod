@@ -1,4 +1,4 @@
-package fengliu.notheme.entity;
+package fengliu.notheme.util.entity;
 
 import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
@@ -23,7 +23,7 @@ public abstract class ColorItemThrownEntity extends ThrownItemEntity {
         COLOR = DataTracker.registerData(ColorItemThrownEntity.class, TrackedDataHandlerRegistry.INTEGER);
     }
 
-    public ColorItemThrownEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+    public ColorItemThrownEntity(EntityType<ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
 

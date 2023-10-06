@@ -6,6 +6,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.ModelIds;
 import net.minecraft.data.client.TextureMap;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,6 +19,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import static net.minecraft.data.client.Models.GENERATED;
 
@@ -65,8 +67,17 @@ public class BaseItem extends Item {
         return PREFIXED_PATH;
     }
 
-    public void uploadModel(ItemModelGenerator itemModelGenerator){
+
+    /**
+     * 生成物品模型
+     * @param itemModelGenerator 物品模型生成器
+     */
+    public void generateModel(ItemModelGenerator itemModelGenerator){
         GENERATED.upload(ModelIds.getItemModelId(this), TextureMap.layer0(IdUtil.get(this.getTextureName()).withPrefixedPath(this.getPrefixedPath())), itemModelGenerator.writer);
+    }
+
+    public void generateRecipe(Consumer<RecipeJsonProvider> exporter){
+
     }
 
     @Override

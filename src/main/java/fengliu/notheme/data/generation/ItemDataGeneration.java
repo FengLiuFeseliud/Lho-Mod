@@ -28,7 +28,7 @@ public class ItemDataGeneration extends FabricModelProvider {
 
             if (model == RegisterUtil.Model.GENERATED){
                 if (item instanceof BaseItem baseItem){
-                    baseItem.uploadModel(itemModelGenerator);
+                    baseItem.generateModel(itemModelGenerator);
                     return;
                 }
                 itemModelGenerator.register(item, GENERATED);

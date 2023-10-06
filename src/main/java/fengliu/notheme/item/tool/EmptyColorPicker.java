@@ -43,12 +43,16 @@ public class EmptyColorPicker extends BaseItem {
     }
 
     @Override
-    public void uploadModel(ItemModelGenerator itemModelGenerator) {
-        super.uploadModel(itemModelGenerator);
+    public void generateModel(ItemModelGenerator itemModelGenerator) {
+        super.generateModel(itemModelGenerator);
     }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+        if (user.getWorld().isClient || this instanceof SprayGun || this instanceof Brush){
+            return super.useOnEntity(stack, user, entity, hand);
+        }
+
         EmptyColorPicker.pickerColorInHand(
                 entity.getLootTable().getPath(),
                 user,
@@ -59,7 +63,7 @@ public class EmptyColorPicker extends BaseItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient){
+        if (world.isClient || this instanceof SprayGun || this instanceof Brush){
             return super.use(world, user, hand);
         }
 
@@ -79,6 +83,10 @@ public class EmptyColorPicker extends BaseItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (attacker.getWorld().isClient || this instanceof SprayGun || this instanceof Brush){
+            return super.postHit(stack, target, attacker);
+        }
+
         String lootPath = target.getLootTable().getPath();
         for (Item item : ModItems.COLOR_PICKERS) {
             if(!lootPath.contains(((IColor) item).getColor().getName())){

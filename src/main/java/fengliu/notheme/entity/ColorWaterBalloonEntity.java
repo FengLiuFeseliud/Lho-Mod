@@ -3,6 +3,7 @@ package fengliu.notheme.entity;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.item.tool.Brush;
 import fengliu.notheme.util.ShapeUtil;
+import fengliu.notheme.util.entity.ColorItemThrownEntity;
 import fengliu.notheme.util.item.BaseItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,12 +22,12 @@ public class ColorWaterBalloonEntity extends ColorItemThrownEntity {
     public static final int HIT_BLOCK_SPRAY_SIZE = 5;
     public static final int HIT_ENTITY_SPRAY_SIZE = 3;
 
-    public ColorWaterBalloonEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+    public ColorWaterBalloonEntity(EntityType<ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
 
     public ColorWaterBalloonEntity(PlayerEntity player, World world) {
-        super(ModEntity.COLOR_WATER_BALLOON_ENTITY_TYPE, player, world);
+        super(ModEntitys.COLOR_WATER_BALLOON_ENTITY_TYPE, player, world);
     }
 
     @Override
