@@ -1,5 +1,6 @@
-package fengliu.notheme.entity;
+package fengliu.notheme.entity.thrown;
 
+import fengliu.notheme.entity.ModEntitys;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.item.tool.Brush;
 import fengliu.notheme.util.ShapeUtil;
@@ -21,6 +22,7 @@ import java.util.List;
 public class ColorWaterBalloonEntity extends ColorItemThrownEntity {
     public static final int HIT_BLOCK_SPRAY_SIZE = 5;
     public static final int HIT_ENTITY_SPRAY_SIZE = 3;
+    public static final int DARKNESS_TIME = 80;
 
     public ColorWaterBalloonEntity(EntityType<ThrownItemEntity> entityType, World world) {
         super(entityType, world);
@@ -52,7 +54,7 @@ public class ColorWaterBalloonEntity extends ColorItemThrownEntity {
         ShapeUtil.rhombus(HIT_ENTITY_SPRAY_SIZE, entityHitResult.getEntity().getBlockPos(), this.getMovementDirection(), this.getWorld(),
                 pos -> this.getWorld().setBlockState(pos, Brush.sprayBlock(this.getWorld().getBlockState(pos), this.getColor())));
         if (entityHitResult.getEntity() instanceof LivingEntity livingEntity){
-            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 80, 1), this.getOwner());
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, DARKNESS_TIME, 1), this.getOwner());
         }
         this.kill();
     }

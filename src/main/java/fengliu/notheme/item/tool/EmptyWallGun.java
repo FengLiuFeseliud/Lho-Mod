@@ -1,6 +1,6 @@
 package fengliu.notheme.item.tool;
 
-import fengliu.notheme.entity.WallShellEntity;
+import fengliu.notheme.entity.thrown.WallShellEntity;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
@@ -22,12 +22,21 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EmptyWallGun extends BaseItem implements IColor {
+    public static final int COOL_WALL_GUN_TIME = 80;
+
     public EmptyWallGun(Settings settings, String name) {
         super(settings, name);
     }
 
     public EmptyWallGun(Settings settings, DyeColor dyeColor, String textureName) {
         super(settings, dyeColor, textureName);
+    }
+
+    public static void coolWallGun(PlayerEntity player){
+        player.getItemCooldownManager().set(ModItems.EMPTY_WALL_GUN, COOL_WALL_GUN_TIME);
+        for(Item item: ModItems.WALL_GUNS){
+            player.getItemCooldownManager().set(item, COOL_WALL_GUN_TIME);
+        }
     }
 
     public static List<Block> getWallBlocks(PlayerEntity player, DyeColor blockColor){
@@ -84,14 +93,9 @@ public class EmptyWallGun extends BaseItem implements IColor {
         wallShell.setVelocity(player, player.getPitch(), player.getYaw(), 0F, 3F, 0F);
         world.spawnEntity(wallShell);
 
+        EmptyWallGun.coolWallGun(player);
         if (player.getStackInHand(hand).damage(1, world.getRandom(), (ServerPlayerEntity) player)){
             player.setStackInHand(hand, ModItems.EMPTY_WALL_GUN.getDefaultStack());
-            return super.use(world, player, hand);
-        }
-
-        player.getItemCooldownManager().set(ModItems.EMPTY_WALL_GUN, 80);
-        for(Item item: ModItems.WALL_GUNS){
-            player.getItemCooldownManager().set(item, 80);
         }
         return super.use(world, player, hand);
     }

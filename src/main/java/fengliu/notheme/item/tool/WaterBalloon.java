@@ -1,6 +1,6 @@
 package fengliu.notheme.item.tool;
 
-import fengliu.notheme.entity.WaterBalloonEntity;
+import fengliu.notheme.entity.thrown.WaterBalloonEntity;
 import fengliu.notheme.util.item.BaseItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;

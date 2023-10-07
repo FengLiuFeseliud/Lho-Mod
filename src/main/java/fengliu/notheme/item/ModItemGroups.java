@@ -25,6 +25,6 @@ public class ModItemGroups {
         .build();
 
     public static final ItemGroup TOOL_GROUP = FabricItemGroup.builder(IdUtil.get("tool_group"))
-            .icon(() -> new ItemStack(ModItems.HEART))
+            .icon(() -> new ItemStack(ModItems.EMPTY_BRUSH))
             .build();
 }

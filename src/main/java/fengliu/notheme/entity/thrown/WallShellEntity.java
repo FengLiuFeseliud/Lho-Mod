@@ -1,5 +1,6 @@
-package fengliu.notheme.entity;
+package fengliu.notheme.entity.thrown;
 
+import fengliu.notheme.entity.ModEntitys;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.ShapeUtil;
 import fengliu.notheme.util.entity.ColorItemThrownEntity;
@@ -30,6 +31,7 @@ public class WallShellEntity extends ColorItemThrownEntity {
     public static final int WIDTH_SIZE = 7;
 
     private static final TrackedData<NbtCompound> BLOCKS;
+    public static final String BLOCKS_KEY = "blocks";
 
     static {
         BLOCKS = DataTracker.registerData(WallShellEntity.class, TrackedDataHandlerRegistry.NBT_COMPOUND);
@@ -57,13 +59,13 @@ public class WallShellEntity extends ColorItemThrownEntity {
     }
 
     public List<Block> getWallBlocks(){
-        return this.getDataTracker().get(BLOCKS).getList("blocks", NbtElement.STRING_TYPE).stream()
+        return this.getDataTracker().get(BLOCKS).getList(BLOCKS_KEY, NbtElement.STRING_TYPE).stream()
                 .map(path -> Registries.BLOCK.get(Identifier.tryParse(path.asString()))).toList();
     }
 
     public void setWallBlocks(NbtList nbtList){
         NbtCompound nbt = new NbtCompound();
-        nbt.put("blocks", nbtList);
+        nbt.put(BLOCKS_KEY, nbtList);
         this.dataTracker.set(BLOCKS, nbt);
     }
 
@@ -72,7 +74,7 @@ public class WallShellEntity extends ColorItemThrownEntity {
         NbtList nbtList = new NbtList();
 
         wallBlocks.forEach(block -> nbtList.add(NbtString.of(Registries.BLOCK.getId(block).toString())));
-        nbt.put("blocks", nbtList);
+        nbt.put(BLOCKS_KEY, nbtList);
         this.dataTracker.set(BLOCKS, nbt);
     }
 
@@ -106,12 +108,12 @@ public class WallShellEntity extends ColorItemThrownEntity {
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
 
-        nbt.put("blocks", this.getDataTracker().get(BLOCKS).getList("blocks", NbtElement.STRING_TYPE));
+        nbt.put(BLOCKS_KEY, this.getDataTracker().get(BLOCKS).getList(BLOCKS_KEY, NbtElement.STRING_TYPE));
     }
 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        this.setWallBlocks(nbt.getList("blocks", 8));
+        this.setWallBlocks(nbt.getList(BLOCKS_KEY, NbtElement.STRING_TYPE));
     }
 }

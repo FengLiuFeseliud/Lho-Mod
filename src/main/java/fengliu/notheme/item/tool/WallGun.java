@@ -1,6 +1,6 @@
 package fengliu.notheme.item.tool;
 
-import fengliu.notheme.entity.WallShellEntity;
+import fengliu.notheme.entity.thrown.WallShellEntity;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.IdUtil;
 import fengliu.notheme.util.color.IColor;
@@ -18,6 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.DyeColor;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -69,16 +70,25 @@ public class WallGun extends EmptyWallGun implements IColor {
         return this.dyeColor;
     }
 
-    @Override
-    public WallShellEntity getShellEntity(World world, PlayerEntity player, List<Block> wallBlocks){
+    public static WallShellEntity getColorShellEntity(World world, PlayerEntity player, List<Block> wallBlocks, @Nullable DyeColor dyeColor){
         WallShellEntity wallShell = new WallShellEntity(player, world, wallBlocks);
+        if (dyeColor == null){
+            wallShell.setItem(ModItems.WALL_GUNS.get(0).getDefaultStack());
+            return wallShell;
+        }
+
         for(BaseItem item: ModItems.WALL_SHELLS){
-            if (!((IColor) item).getColor().equals(this.dyeColor)){
+            if (!((IColor) item).getColor().equals(dyeColor)){
                 continue;
             }
 
             wallShell.setItem(item.getDefaultStack());
         }
         return wallShell;
+    }
+
+    @Override
+    public WallShellEntity getShellEntity(World world, PlayerEntity player, List<Block> wallBlocks){
+        return WallGun.getColorShellEntity(world, player, wallBlocks, this.getColor());
     }
 }

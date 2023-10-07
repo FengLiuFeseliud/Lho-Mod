@@ -1,5 +1,6 @@
 package fengliu.notheme.entity;
 
+import fengliu.notheme.entity.thrown.*;
 import fengliu.notheme.util.IdUtil;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

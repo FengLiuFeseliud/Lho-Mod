@@ -1,5 +1,6 @@
-package fengliu.notheme.entity;
+package fengliu.notheme.entity.thrown;
 
+import fengliu.notheme.entity.ModEntitys;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.ShapeUtil;
 import fengliu.notheme.util.entity.ColorItemPersistentThrownEntity;

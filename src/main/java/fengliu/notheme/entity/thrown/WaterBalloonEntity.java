@@ -1,5 +1,6 @@
-package fengliu.notheme.entity;
+package fengliu.notheme.entity.thrown;
 
+import fengliu.notheme.entity.ModEntitys;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.ShapeUtil;
 import net.minecraft.block.Blocks;
@@ -16,10 +17,13 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static fengliu.notheme.entity.ColorWaterBalloonEntity.HIT_BLOCK_SPRAY_SIZE;
-import static fengliu.notheme.entity.ColorWaterBalloonEntity.HIT_ENTITY_SPRAY_SIZE;
+import static fengliu.notheme.entity.thrown.ColorWaterBalloonEntity.HIT_BLOCK_SPRAY_SIZE;
+import static fengliu.notheme.entity.thrown.ColorWaterBalloonEntity.HIT_ENTITY_SPRAY_SIZE;
 
 public class WaterBalloonEntity extends ThrownItemEntity {
+
+    public static final int DARKNESS_TIME = 80;
+
     public WaterBalloonEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -50,7 +54,7 @@ public class WaterBalloonEntity extends ThrownItemEntity {
         ShapeUtil.rhombus(HIT_ENTITY_SPRAY_SIZE, entityHitResult.getEntity().getBlockPos(), this.getMovementDirection(), this.getWorld(),
                 pos -> this.getWorld().setBlockState(pos.up(), Blocks.WATER.getDefaultState().with(FluidBlock.LEVEL, 3)));
         if (entityHitResult.getEntity() instanceof LivingEntity livingEntity){
-            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 80, 1), this.getOwner());
+            livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, DARKNESS_TIME, 1), this.getOwner());
         }
         this.kill();
     }

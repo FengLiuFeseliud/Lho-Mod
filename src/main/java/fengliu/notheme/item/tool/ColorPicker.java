@@ -10,6 +10,7 @@ import net.minecraft.data.client.ModelIds;
 import net.minecraft.data.client.TextureMap;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
@@ -68,14 +69,16 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
                 .offerTo(exporter);
     }
 
-    public Boolean takeColor(List<BaseItem> colorItem, Slot slot, PlayerEntity player){
+    public boolean takeColor(List<BaseItem> colorItem, Slot slot, PlayerEntity player){
         for(BaseItem item: colorItem){
             if (!((IColor) item).getColor().equals(this.getColor())){
                 continue;
             }
 
+            ItemStack stack = item.getDefaultStack();
+            EnchantmentHelper.fromNbt(slot.getStack().getEnchantments()).forEach(stack::addEnchantment);
             slot.getStack().decrement(1);
-            player.getInventory().insertStack(item.getDefaultStack());
+            player.getInventory().insertStack(stack);
             return true;
         }
         return false;
@@ -96,6 +99,29 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
         return true;
     }
 
+    private boolean takeColorToTool(ItemStack slotStack, Slot slot, PlayerEntity player){
+        if (slotStack.getItem() instanceof ColorPicker){
+            return false;
+        }
+
+        if (slotStack.isOf(ModItems.EMPTY_SPRAY_GUN)){
+            return this.takeColor(ModItems.SPRAY_GUNS, slot, player);
+        }
+
+        if (slotStack.isOf(ModItems.EMPTY_BRUSH)){
+            return this.takeColor(ModItems.BRUSHS, slot, player);
+        }
+
+        if (slotStack.isOf(ModItems.EMPTY_WALL_GUN)){
+            return this.takeColor(ModItems.WALL_GUNS, slot, player);
+        }
+
+        if (slotStack.isOf(ModItems.SCATTER_COLOR_GUN)){
+            return this.takeColor(ModItems.COLOR_SCATTER_COLOR_GUNS, slot, player);
+        }
+        return false;
+    }
+
     @Override
     public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
         ItemStack slotStack = slot.getStack();
@@ -103,25 +129,11 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
             return false;
         }
 
-        if (!(slotStack.getItem() instanceof ColorPicker) && !(stack.getItem() instanceof Brush || stack.getItem() instanceof SprayGun) && !(slotStack.getItem() instanceof WallGun)){
-            if (slotStack.isOf(ModItems.EMPTY_SPRAY_GUN)){
-                stack.setDamage(stack.getDamage()+1);
-                return this.takeColor(ModItems.SPRAY_GUNS, slot, player);
-            }
-
-            if (slotStack.isOf(ModItems.EMPTY_BRUSH)){
-                stack.setDamage(stack.getDamage()+1);
-                return this.takeColor(ModItems.BRUSHS, slot, player);
-            }
-
-            if (slotStack.isOf(ModItems.EMPTY_WALL_GUN)){
-                stack.setDamage(stack.getDamage()+1);
-                return this.takeColor(ModItems.WALL_GUNS, slot, player);
-            }
+        if (!this.damageColor(slot, stack, player)){
             return false;
         }
 
-        if (!this.damageColor(slot, stack, player)){
+        if (this.takeColorToTool(slotStack, slot, player)){
             return false;
         }
 
@@ -156,6 +168,7 @@ public class ColorPicker extends EmptyColorPicker implements IColor {
                     slotCount
             );
 
+            EnchantmentHelper.fromNbt(slotStack.getEnchantments()).forEach(newItem::addEnchantment);
             if (!(newItem.getItem() instanceof Brush) && !(newItem.getItem() instanceof SprayGun) && !(newItem.getItem() instanceof WallGun)){
                 newItem.setDamage(slotStack.getDamage());
             }

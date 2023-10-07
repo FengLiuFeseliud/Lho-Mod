@@ -1,6 +1,6 @@
 package fengliu.notheme.item.tool;
 
-import fengliu.notheme.entity.SignalShellEntity;
+import fengliu.notheme.entity.thrown.SignalShellEntity;
 import fengliu.notheme.util.item.BaseItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -12,6 +12,9 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class SignalGun extends BaseItem {
+
+    public static final int COOL_SIGNAL_GUN_TIME = 20;
+
     public SignalGun(Settings settings, String name) {
         super(settings, name);
     }
@@ -38,7 +41,7 @@ public class SignalGun extends BaseItem {
                 stack.decrement(1);
             }
 
-            user.getItemCooldownManager().set(this, 20);
+            user.getItemCooldownManager().set(this, COOL_SIGNAL_GUN_TIME);
             break;
         }
         return super.use(world, user, hand);

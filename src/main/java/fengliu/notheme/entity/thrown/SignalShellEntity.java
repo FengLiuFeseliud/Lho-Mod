@@ -1,5 +1,6 @@
-package fengliu.notheme.entity;
+package fengliu.notheme.entity.thrown;
 
+import fengliu.notheme.entity.ModEntitys;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.entity.ColorItemPersistentThrownEntity;
 import fengliu.notheme.util.item.BaseItem;
@@ -17,6 +18,8 @@ import java.util.List;
 
 public class SignalShellEntity extends ColorItemPersistentThrownEntity {
     public static final int MAX_DURATION = 600;
+    public static final int CHANGE_TICK = 14;
+    public static final int SIGNAL_HEIGHT = 8;
 
     public SignalShellEntity(EntityType<ThrownItemEntity> entityType, World world) {
         super(entityType, world);
@@ -54,8 +57,8 @@ public class SignalShellEntity extends ColorItemPersistentThrownEntity {
         Vector3f color = Vec3d.unpackRgb(this.getColor().getFireworkColor()).toVector3f();
 
         int durationTick = this.getDurationTick();
-        for (int index = 0; index < 8; index ++){
-            if (index * 14 < durationTick && durationTick > MAX_DURATION - index * 14){
+        for (int index = 0; index < SIGNAL_HEIGHT; index ++){
+            if (index * CHANGE_TICK < durationTick && durationTick > MAX_DURATION - index * CHANGE_TICK){
                 continue;
             }
 

@@ -1,6 +1,6 @@
 package fengliu.notheme.item.tool;
 
-import fengliu.notheme.entity.PaintSmokeBombEntity;
+import fengliu.notheme.entity.thrown.PaintSmokeBombEntity;
 import fengliu.notheme.item.ModItems;
 import fengliu.notheme.util.color.IColor;
 import fengliu.notheme.util.item.BaseItem;
@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import java.util.function.Consumer;
 
 public class PaintSmokeBomb extends BaseItem implements IColor {
+    public static final int COOL_PAINT_SMOKE_BOMB_TIME = 40;
     private final DyeColor color;
 
     public PaintSmokeBomb(Settings settings, DyeColor dyeColor, String textureName) {
@@ -67,7 +68,7 @@ public class PaintSmokeBomb extends BaseItem implements IColor {
         }
 
         for (Item item: ModItems.PAINT_SMOKE_BOMBS){
-            user.getItemCooldownManager().set(item, 40);
+            user.getItemCooldownManager().set(item, COOL_PAINT_SMOKE_BOMB_TIME);
         }
         return TypedActionResult.success(itemStack, world.isClient());
     }

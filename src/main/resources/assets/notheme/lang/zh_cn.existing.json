@@ -376,5 +376,11 @@
     "item.notheme.signal_gun.tooltip": "信号枪, 发射信号弹, 信号弹落地后会产生 8 格高烟雾以标记位置, 烟雾持续 30 秒",
 
     "item.notheme.signal_shell": "信号弹",
-    "item.notheme.signal_shell.tooltip": "就是带颜色的信号弹, 会产生 8 格高烟雾以标记位置, 烟雾持续 30 秒"
+    "item.notheme.signal_shell.tooltip": "就是带颜色的信号弹, 会产生 8 格高烟雾以标记位置, 烟雾持续 30 秒",
+
+    "item.notheme.scatter_color_gun": "散射颜料枪",
+    "item.notheme.scatter_color_gun.tooltip": "一次发射三个颜料气球, 蹲下时发射墙体, 好像可以附魔多重射击?",
+
+    "item.notheme.color_scatter_color_gun": "散射颜料枪",
+    "item.notheme.color_scatter_color_gun.tooltip": "一次发射三个颜料气球, 蹲下时发射墙体, 连射出来的颜色都统一了! 好像可以附魔多重射击?"
 }
